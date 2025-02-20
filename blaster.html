@@ -23,15 +23,54 @@ body {
 .center {
   text-align: center;
 }
+
+input, ul.submenu {
+  display: none;
+}
+.blastLog {
+  background-color:#5e2700;
+  text-align:center;
+  border:solid;
+  border-color:black;
+  min-width: 550px;
+  border-radius:20px;
+  position:absolute;
+  padding:13px;
+}
+label {
+  position: relative;
+  display: block;
+  cursor: pointer;
+}
+input:checked~ul.submenu {
+  display: block;
+}
+label {
+  position: relative;
+  display: block;
+  cursor: pointer;
+}
+input:checked~ul.submenu {
+  display: block;
+}
 </style>
 <body>
-<h1 style="text-align:center; text-shadow:5px 5px #595757bb;">The Blasting Grounds</h1>
-<!--<p class="center"><b>Grand blast count: <font id="grand">0</font>/</b></p>-->
-<hr>
-<p><h2>By Asher North</h2></p>
-<!--<button id="upg" onclick="upgrade()">ghjk</button>
-<p id="hereupg">ghj</p>-->
-<p>The number you get from blasting resembles how many sheets of paper you blasted per blast. The amount you blast is completely random, and the blasters progress in how large their maximum blast is. You need to reach new paper blasting goals on each new blaster to progress and unlock more blasters. Press <big><button onclick="newsub()" id="buttonsub" style="border-color:black; border-radius:5px;">Go!</button></big></p><hr>
+<input id="check01" type="checkbox" name="menu"/>
+<p id="color1234">&nbsp;</p>
+<ul class="submenu blastLog">
+<p>To exit this menu press the 'Background' button again.</p>
+<p><button onclick="brownChangeFunc()" style="background-color:#5e2700ee; border-color:white; color:white; border-radius:30px;">Primary Brown</button> <button onclick="blueChangeFunc()" style="background-color:#75cfff; border-color:white; color:white; border-radius:30px;">Tap Water Blue</button> <button onclick="brown2ChangeFunc()" style="background-color:#521300; border-color:white; color:white; border-radius:30px;">Bombardier Beetle Brown</button></p>
+<p><button onclick="redChangeFunc()" style="background-color:red; border-color:white; color:white; border-radius:30px;">Fire Extinguisher Red</button> <a id="color5"></a> <a id="color6"></a></p>
+<p><a id="color7">&nbsp;</a> <a id="color8"></a> <a id="color9"></a></p>
+<p><a id="color10">&nbsp;</a> <a id="color11"></a></p>
+<p>&nbsp;</p>
+<p><a id="secret">&nbsp;</a> <a id="secret2"></a> <a id="secret3"></a</p>
+</ul>
+<p><a><h1  id="title" style="text-align:center; text-shadow:5px 5px #595757bb;">The Blasting Grounds</h1></a></p>
+<!--<p style="text-align:center;"><button onclick="location.reload()">Dev Refresh</button></p>-->
+<hr id="titleAlt">
+<p><h2>D<a contenteditable="true">e</a>v<a contenteditable="true">e</a>l<a contenteditable="true">o</a>p<a contenteditable="true">e</a>d By <a contenteditable="true">A</a>sh<a contenteditable="true">e</a>r N<a contenteditable="true">o</a>rth</h2></p>
+<p>The number you get from <a onclick="secret3Color()" id="dis1" style="cursor:pointer;">blast</a>ing resembles how many sheets of paper you <a  style="cursor:pointer;" onclick="secret3Color2()" id="dis2">blast</a>ed per <a  style="cursor:pointer;" onclick="secret3Color3()" id="dis3">blast</a>. The amount you <a  style="cursor:pointer;" onclick="secret3Color4()" id="dis4">blast</a> is completely random, and the <a  style="cursor:pointer;" onclick="secret3Color5()" id="dis5">blast</a>ers progress in how large their maximum <a  style="cursor:pointer;" onclick="secret3Color6()" id="dis6" style="cursor:pointer">blast</a> is. You need to reach new paper <a  style="cursor:pointer;" onclick="secret3Color7()" id="dis7">blast</a>ing goals on each new <a  style="cursor:pointer;" onclick="secret3Color8()" id="dis8">blast</a>er to progress and unlock more <a  style="cursor:pointer;" onclick="secret3Color9()" id="dis9">blast</a>ers. Press <big><button onclick="newsub()" id="buttonsub" style="border-color:black; border-radius:5px; font-size:25px;">Go!</button></big></p><hr>
 <div class="section"><p><p id="heresub">You will need to read the tutorial to unlock this blaster.</p></p>
 <p id="here">&nbsp;</p></div><hr>
 <div class="section"><p id="here0">You will need 5 layers broken on your latest blast from the previous blaster to unlock this blaster.</p>
@@ -50,38 +89,215 @@ body {
 <p id="here13">&nbsp;</p></div><hr>
 <div class="section"><p id="here14">You will need 3000 layers broken on your latest blast from the previous blaster to unlock this blaster.</p>
 <p id="here15">&nbsp;</p></div><hr>
-<p id="win">You will need 7500 layers broken on your latest blast from the previous blaster to complete the game.</p>
+<div class="section"><p id="here16">You will need 7500 layers broken on your latest blast from the previous blaster to unlock this blaster.</p>
+<p id="here17">&nbsp;</p></div><hr>
+<p id="win" style="font-size:20px;">You will need 10000 layers broken on your latest blast from the previous blaster to complete the game.</p>
 <script>
-/*const g = w + w0 + w1 + w2 + w3 + w4 + w5 + w6;
-document.getElementById('grand').innerHTML = g;
+function brownChangeFunc() {
+  document.body.style.backgroundColor = "#5e2700ee";
+}
 
-const b = 1;
+function blueChangeFunc() {
+  document.body.style.backgroundColor = "#75cfff";
+}
 
-function upgrade() {
-  document.getElementById("upg").disabled = true;
-  document.getElementById("hereupg").innerHTML = ('Upgrading...');
-  await sleep(1000)
-  document.getElementById("hereupg").innerHTML = ('You have successfully upgraded. You can now ');
-  if (b > 0) uplete();
-  }
-  
-function uplete() {
-  document.getElementById("button").disabled = true;
-  document.getElementById("here").innerHTML = ('Blasting...');
-  await sleep(1000)
-  document.getElementById("button").disabled = false;
-  var w = Math.round(Math.random() * 6);
-  var m = w + '/5';
-  document.getElementById("here").innerHTML = m;
-  if (w >= 5) new0();
-}*/
+function brown2ChangeFunc() {
+  document.body.style.backgroundColor = "#521300";
+}
+
+function redChangeFunc() {
+  document.body.style.backgroundColor = "red";
+}
+
+function blue2ChangeFunc() {
+  document.body.style.backgroundColor = "blue";
+}
+
+function orangeChangeFunc() {
+  document.body.style.backgroundColor = "orange";
+}
+
+function greenChangeFunc() {
+  document.body.style.backgroundColor = "lime";
+}
+
+function greyChangeFunc() {
+  document.body.style.backgroundColor = "grey";
+}
+
+function orange2ChangeFunc() {
+  document.body.style.backgroundColor = "#ff4000";
+}
+
+function green2ChangeFunc() {
+  document.body.style.backgroundColor = "green";
+}
+
+function yellowChangeFunc() {
+  document.body.style.backgroundColor = "#fff099";
+}
 
 function displayWin() {
   document.getElementById('win').innerHTML = "Congratulations. You have completed the Blasting Grounds. Stay on the watch for more new blasters coming out soon.";
+  document.getElementById('title').innerHTML = "<a id='speakSecrets' onclick='secret2Color()' style='color:#d4af37; cursor:pointer;'>The Blasting Grounds</a>";
+  document.getElementById('titleAlt').style.borderColor = "#d4af37";
 }
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms))
+}
+
+function secretChangeFunc() {
+  document.body.style.backgroundColor = "#363620";
+}
+
+function secret2ChangeFunc() {
+  document.body.style.backgroundColor = "#660000";
+}
+
+function secret3ChangeFunc() {
+  document.body.style.backgroundColor = "#02002e";
+}
+
+function secretColor() {
+  document.getElementById('secret').innerHTML = '<button onclick="secretChangeFunc()" style="background-color:#363620; border-color:white; color:white; border-radius:30px;">Secret Brown</button>';
+}
+
+function secret2Color() {
+  document.getElementById('speakSecrets').innerHTML = "<a onclick='secret2Color()' style='color:#d4af37; cursor:auto;'>The Blasting Grounds</a>"
+  document.getElementById('secret2').innerHTML = '<button onclick="secret2ChangeFunc()" style="background-color:#660000; border-color:white; color:white; border-radius:30px;">Secret Red</button>';
+}
+
+var totes = 0;
+
+function secret3Color() {
+  if (hey1 == 0) secr1();
+  hey1 += 1;
+}
+
+function secr1() {
+  document.getElementById("dis1").disabled = true;
+  document.getElementById("dis1").innerHTML = '<a style="cursor:auto;">blast</a>'
+  totes += 1;
+  if (totes == 9) secretIDK();
+}
+
+var hey1 = 0;
+
+function secret3Color2() {
+  if (hey2 == 0) secr2();
+  hey2 += 1;
+}
+
+function secr2() {
+  document.getElementById("dis2").disabled = true;
+  document.getElementById("dis2").innerHTML = '<a style="cursor:auto;">blast</a>'
+  totes += 1;
+  if (totes == 9) secretIDK();
+}
+
+var hey2 = 0;
+
+function secret3Color3() {
+  if (hey3 == 0) secr3();
+  hey3 += 1;
+}
+
+function secr3() {
+  document.getElementById("dis3").disabled = true;
+  document.getElementById("dis3").innerHTML = '<a style="cursor:auto;">blast</a>'
+  totes += 1;
+  if (totes == 9) secretIDK();
+}
+
+var hey3 = 0;
+
+function secret3Color4() {
+  if (hey4 == 0) secr4();
+  hey4 += 1;
+}
+
+function secr4() {
+  document.getElementById("dis4").disabled = true;
+  document.getElementById("dis4").innerHTML = '<a style="cursor:auto;">blast</a>'
+  totes += 1;
+  if (totes == 9) secretIDK();
+}
+
+var hey4 = 0;
+
+function secret3Color5() {
+  if (hey5 == 0) secr5();
+  hey5 += 1;
+}
+
+function secr5() {
+  document.getElementById("dis5").disabled = true;
+  document.getElementById("dis5").innerHTML = '<a style="cursor:auto;">blast</a>'
+  totes += 1;
+  if (totes == 9) secretIDK();
+}
+
+var hey5 = 0;
+
+function secret3Color6() {
+  if (hey6 == 0) secr6();
+  hey6 += 1;
+}
+
+var hey6 = 0;
+
+function secr6() {
+  document.getElementById("dis6").disabled = true;
+  document.getElementById("dis6").innerHTML = '<a style="cursor:auto;">blast</a>'
+  totes += 1;
+  if (totes == 9) secretIDK();
+}
+
+var hey7 = 0;
+
+function secret3Color7() {
+  if (hey7 == 0) secr7();
+  hey7 += 1;
+}
+
+function secr7() {
+  document.getElementById("dis7").disabled = true;
+  document.getElementById("dis7").innerHTML = '<a style="cursor:auto;">blast</a>'
+  totes += 1;
+  if (totes == 9) secretIDK();
+}
+
+var hey8 = 0;
+
+function secret3Color8() {
+  if (hey8 == 0) secr8();
+  hey8 += 1;
+}
+
+function secr8() {
+  document.getElementById("dis8").disabled = true;
+  document.getElementById("dis8").innerHTML = '<a style="cursor:auto;">blast</a>'
+  totes += 1;
+  if (totes == 9) secretIDK();
+}
+
+var hey9 = 0;
+
+function secret3Color9() {
+  if (hey9 == 0) secr9();
+  hey9 += 1;
+}
+
+function secr9() {
+  document.getElementById("dis9").disabled = true;
+  document.getElementById("dis9").innerHTML = '<a style="cursor:auto;">blast</a>'
+  totes += 1;
+  if (totes == 9) secretIDK();
+}
+
+function secretIDK() {
+  document.getElementById('secret3').innerHTML = '<button onclick="secret3ChangeFunc()" style="background-color:#02002e; border-color:white; color:white; border-radius:30px;">Secret Blue</button>';
 }
 
 function newsub() {
@@ -90,15 +306,19 @@ function newsub() {
   document.getElementById('buttonsub').disabled = true;
 }
 
+var secretCount = 0;
+
 async function yes() {
+  secretCount += 1;
   document.getElementById("button").disabled = true;
   document.getElementById("here").innerHTML = ('Blasting...');
-  await sleep(1000)
+  await sleep(500)
   document.getElementById("button").disabled = false;
   var w = Math.round(Math.random() * 6);
   var m = w + '/5';
   document.getElementById("here").innerHTML = m;
   if (w >= 5) new0();
+  if (secretCount >= 30) secretColor();
 }
 
 function new0() {
@@ -109,7 +329,7 @@ function new0() {
 async function yes0() {
   document.getElementById("button0").disabled = true;
   document.getElementById("here1").innerHTML = ('Blasting...');
-  await sleep(3000)
+  await sleep(1000)
   document.getElementById("button0").disabled = false;
   let w0 = Math.round(Math.random() * 24);
   let m0 = w0 + '/20';
@@ -118,14 +338,14 @@ async function yes0() {
 }
 
 function new1() {
-  let n0 = ('<button onclick="yes1()" id="button1" style="border-color:blue; border-radius:5px;">Pressure Washer Blaster</button>')
+  let n0 = ('<button onclick="yes1()" id="button1" style="border-color:red; border-radius:5px;">Fire Extinguisher Blaster</button>')
   document.getElementById('here2').innerHTML = n0;
 }
 
 async function yes1() {
   document.getElementById("button1").disabled = true;
   document.getElementById("here3").innerHTML = ('Blasting...');
-  await sleep(5000)
+  await sleep(3000)
   document.getElementById("button1").disabled = false;
   let w1 = Math.round(Math.random() * 57);
   let m1 = w1 + '/50';
@@ -134,14 +354,16 @@ async function yes1() {
 }
 
 function new2() {
-  let n1 = ('<button onclick="yes2()" id="button2" style="border-color:orange; border-radius:5px;">Bunsen Burner Blaster</button>')
+  let n1 = ('<button onclick="yes2()" id="button2" style="border-color:blue; border-radius:5px;">Pressure Washer Blaster</button>')
   document.getElementById('here4').innerHTML = n1;
+  let c1 = ('<button style="border-color:black; border-radius:5px; cursor:default;"><label style="cursor:default;" for="check01">Backgrounds</label></button>')
+  document.getElementById('color1234').innerHTML = c1;
 }
 
 async function yes2() {
   document.getElementById("button2").disabled = true;
   document.getElementById("here5").innerHTML = ('Blasting...');
-  await sleep(10000)
+  await sleep(5000)
   document.getElementById("button2").disabled = false;
   let w2 = Math.round(Math.random() * 115);
   let m2 = w2 + '/100';
@@ -150,14 +372,16 @@ async function yes2() {
 }
 
 function new3() {
-  let n2 = ('<button onclick="yes3()" id="button3" style="border-color:lime; border-radius:5px;">Piranha Solution Spray Bottle Blaster</button>')
+  let n2 = ('<button onclick="yes3()" id="button3" style="border-color:orange; border-radius:5px;">Bunsen Burner Blaster</button>')
   document.getElementById('here6').innerHTML = n2;
+  let c2 = ('<button onclick="blue2ChangeFunc()" style="background-color:blue; border-color:white; color:white; border-radius:30px;">Pressure Washer Blue</button>')
+  document.getElementById('color5').innerHTML = c2;
 }
 
 async function yes3() {
   document.getElementById("button3").disabled = true;
   document.getElementById("here7").innerHTML = ('Blasting...');
-  await sleep(15000)
+  await sleep(10000)
   document.getElementById("button3").disabled = false;
   let w3 = Math.round(Math.random() * 290);
   let m3 = w3 + '/250';
@@ -166,14 +390,16 @@ async function yes3() {
 }
 
 function new4() {
-  let n3 = ('<button onclick="yes4()" id="button4" style="border-color:grey; border-radius:5px;">Molten Lead Hose Blaster</button>')
+  let n3 = ('<button onclick="yes4()" id="button4" style="border-color:lime; border-radius:5px;">Piranha Solution Spray Bottle Blaster</button>')
   document.getElementById('here8').innerHTML = n3;
+  let c3 = ('<button onclick="orangeChangeFunc()" style="background-color:orange; border-color:white; color:white; border-radius:30px;">Bunsen Burner Orange</button>')
+  document.getElementById('color6').innerHTML = c3;
 }
 
 async function yes4() {
   document.getElementById("button4").disabled = true;
   document.getElementById("here9").innerHTML = ('Blasting...');
-  await sleep(20000)
+  await sleep(15000)
   document.getElementById("button4").disabled = false;
   let w4 = Math.round(Math.random() * 570);
   let m4 = w4 + '/500';
@@ -182,14 +408,16 @@ async function yes4() {
 }
 
 function new5() {
-  let n4 = ('<button onclick="yes5()" id="button5" style="border-color:#ff4000; border-radius:5px;">Flamethrower Blaster</button>')
+  let n4 = ('<button onclick="yes5()" id="button5" style="border-color:grey; border-radius:5px;">Molten Lead Hose Blaster</button>')
   document.getElementById('here10').innerHTML = n4;
+  let c4 = ('<button onclick="greenChangeFunc()" style="background-color:lime; border-color:white; color:white; border-radius:30px;">Piranha Solution Spray Bottle Green</button>')
+  document.getElementById('color7').innerHTML = c4;
 }
 
 async function yes5() {
   document.getElementById("button5").disabled = true;
   document.getElementById("here11").innerHTML = ('Blasting...');
-  await sleep(30000)
+  await sleep(20000)
   document.getElementById("button5").disabled = false;
   let w5 = Math.round(Math.random() * 1083);
   let m5 = w5 + '/1000';
@@ -198,38 +426,66 @@ async function yes5() {
 }
 
 function new6() {
-  let n5 = ('<button onclick="yes6()" id="button6" style="border-color:green; border-radius:5px;">Piranha Solution Pressure Washer Blaster</button>')
+  let n5 = ('<button onclick="yes6()" id="button6" style="border-color:#ff4000; border-radius:5px;">Flamethrower Blaster</button>')
   document.getElementById('here12').innerHTML = n5;
+  let c5 = ('<button onclick="greyChangeFunc()" style="background-color:grey; border-color:white; color:white; border-radius:30px;">Molten Lead Hose Grey</button>')
+  document.getElementById('color8').innerHTML = c5;
 }
 
 async function yes6() {
   document.getElementById("button6").disabled = true;
   document.getElementById("here13").innerHTML = ('Blasting...');
-  await sleep(40000)
+  await sleep(30000)
   document.getElementById("button6").disabled = false;
-  let w6 = Math.round(Math.random() * 3750);
+  let w6 = Math.round(Math.random() * 3650);
   let m6 = w6 + '/3000';
   document.getElementById('here13').innerHTML = m6;
   if (w6 >= 3000) new7();
 }
 
 function new7() {
-  let n6 = ('<button onclick="yes7()" id="button7" style="border-color:#fff099; border-radius:5px;">Plasma Cylinder Blaster</button>')
+  let n6 = ('<button onclick="yes7()" id="button7" style="border-color:green; border-radius:5px;">Piranha Solution Pressure Washer Blaster</button>')
   document.getElementById('here14').innerHTML = n6;
+  let c6 = ('<button onclick="orange2ChangeFunc()" style="background-color:#ff4000; border-color:white; color:white; border-radius:30px;">Flamethrower Orange</button>')
+  document.getElementById('color9').innerHTML = c6;
 }
 
 async function yes7() {
   document.getElementById("button7").disabled = true;
   document.getElementById("here15").innerHTML = ('Blasting...');
-  await sleep(50000)
+  await sleep(40000)
   document.getElementById("button7").disabled = false;
-  let w7 = Math.round(Math.random() * 8848);
+  let w7 = Math.round(Math.random() * 8446);
   let m7 = w7 + '/7500';
   document.getElementById('here15').innerHTML = m7;
-  if (w7 >= 7500) alert('Congratulations. You have completed the Blasting Grounds. Stay on the watch for more new blasters coming out soon.');
-  if (w7 >= 7500) displayWin();
+  if (w7 >= 7500) new8();
+}
+
+function new8() {
+  let n8 = ('<button onclick="yes8()" id="button8" style="border-color:#fff099; border-radius:5px;">Plasma Cylinder Blaster</button>')
+  document.getElementById('here16').innerHTML = n8;
+  let c8 = ('<button onclick="green2ChangeFunc()" style="background-color:green; border-color:white; color:white; border-radius:30px;">Piranha Solution Pressure Washer Green</button>')
+  document.getElementById('color10').innerHTML = c8;
+}
+
+async function yes8() {
+  document.getElementById("button8").disabled = true;
+  document.getElementById("here17").innerHTML = ('Blasting...');
+  await sleep(50000)
+  document.getElementById("button8").disabled = false;
+  let w8 = Math.round(Math.random() * 11200);
+  let m8 = w8 + '/10000';
+  document.getElementById('here17').innerHTML = m8;
+  if (w8 >= 10000) displayWin();
+  if (w8 >= 10000) new9();
+  if (w8 >= 10000) alert('Congratulations. You have completed the Blasting Grounds. Stay on the watch for more new blasters coming out soon.');
+}
+
+function new9() {
+  let c9 = ('<button onclick="yellowChangeFunc()" style="background-color:#fff099; border-color:white; color:white; border-radius:30px;">Plasma Cylinder Yellow</button>')
+  document.getElementById('color11').innerHTML = c9;
 }
 </script>
-<small style="color:grey;">Version: 1.02</small>
+<small style="color:grey;">Version: 1.1</small>
 </body>
 </html>
