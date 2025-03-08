@@ -73,7 +73,7 @@ input:checked~ul.submenu {
 <p>The number you get from <a onclick="secret3Color()" id="dis1" style="cursor:pointer;">blast</a>ing resembles how many sheets of paper you <a  style="cursor:pointer;" onclick="secret3Color2()" id="dis2">blast</a>ed per <a  style="cursor:pointer;" onclick="secret3Color3()" id="dis3">blast</a>. The amount you <a  style="cursor:pointer;" onclick="secret3Color4()" id="dis4">blast</a> is completely random, and the <a  style="cursor:pointer;" onclick="secret3Color5()" id="dis5">blast</a>ers progress in how large their maximum <a  style="cursor:pointer;" onclick="secret3Color6()" id="dis6" style="cursor:pointer">blast</a> is. You need to reach new paper <a  style="cursor:pointer;" onclick="secret3Color7()" id="dis7">blast</a>ing goals on each new <a  style="cursor:pointer;" onclick="secret3Color8()" id="dis8">blast</a>er to progress and unlock more <a  style="cursor:pointer;" onclick="secret3Color9()" id="dis9">blast</a>ers. Press <big><button onclick="newsub()" id="buttonsub" style="border-color:black; border-radius:5px; font-size:25px;">Go!</button></big></p><hr>
 <div class="section"><p><p id="heresub">You will need to read the tutorial to unlock this blaster.</p></p>
 <p id="here">&nbsp;</p></div><hr>
-<div class="section"><p id="here0">You will need 5 layers broken on your latest blast from the previous blaster to unlock this blaster.</p>
+<div class="section"><p id="here0"><a onclick="breaker()">You will need 5 layers broken on your latest blast from the previous blaster to unlock this blaster.</a></p>
 <p id="here1">&nbsp;</p></div><hr>
 <div class="section"><p id="here2">You will need 20 layers broken on your latest blast from the previous blaster to unlock this blaster.</p>
 <p id="here3">&nbsp;</p></div><hr>
@@ -93,6 +93,13 @@ input:checked~ul.submenu {
 <p id="here17">&nbsp;</p></div><hr>
 <p id="win" style="font-size:20px;">You will need 10000 layers broken on your latest blast from the previous blaster to complete the game.</p>
 <script>
+const d = new Date();
+const GF = d.getMinutes();
+function breaker() {
+  if (GF >= 50) {
+  document.getElementById("chicken").innerHTML = Math.round(Math.random() * 99) + '%';
+  }
+}
 function brownChangeFunc() {
   document.body.style.backgroundColor = "#5e2700ee";
 }
@@ -485,7 +492,9 @@ function new9() {
   let c9 = ('<button onclick="yellowChangeFunc()" style="background-color:#fff099; border-color:white; color:white; border-radius:30px;">Plasma Cylinder Yellow</button>')
   document.getElementById('color11').innerHTML = c9;
 }
+
 </script>
 <small style="color:grey;">Version: 1.1</small>
+<p id="chicken"></p>
 </body>
 </html>
