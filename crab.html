@@ -1,0 +1,47 @@
+<html>
+<!--Website coded by none other than Asher North.-->
+<head>
+<title>Hermit Crab Accessories</title>
+<link rel="icon" type="image/png" href="hermit1.png"/>
+</head>
+<body>
+<style>
+body {
+  background-color:#FEEFDA;
+  color:#5D0102;
+  padding:40px;
+  font-family:arial;
+  text-align:center;
+  font-size:20px;
+}
+.box {
+  border-style:double;
+  border-color:#5D0102;
+  background-color:#5D010233;
+  padding:5px;
+  border-radius:15px;
+}
+</style>
+<h1>Customise Your Hermit Crab</h1>
+<p>Asher North, Oliver James, and Jett Whitney have teamed up to give hermit crabs their own man made happy exotic homes. Don't worry, we used non toxic, waterproof paint. Press <button class="box" id="buttonp" onclick="prices()">Hat prices</button> to see the prices.</p>
+<p id="prices">&nbsp;</p>
+<div class="box">Hermit Crab Accessories has been sponsored by the Blasting Grounds.</div>
+<p>We also sell hermit crabs of all different shapes and sizes. These hermit crabs have been looked after well, and we look forward to you adopting one and giving them a happy home. Press <button class="box" id="buttond" onclick="pricesMore()">Crab prices</button> to see more prices.
+<p id="pricesm">&nbsp;</p><div><button onclick="confirm('Sorry, the page was having trouble connecting to the server.\nDo you wish to continue?')" class="box" style="text-align:center;">Purchase a product</button></div>
+<img src="hermit1.png" alt="Hermit Crab with top hat.">
+<p>Artist's impression by Jett Whitney.</p>
+<script>
+const a = "Normal: $15 Special: $20 Rare: $25";
+const b = "Small: $15 Medium: $20 Large: $25 XL: $30";
+function prices() {
+  document.getElementById('prices').innerHTML = a;
+  document.getElementById('buttonp').disabled = true;
+}
+
+function pricesMore() {
+  document.getElementById('pricesm').innerHTML = b;
+  document.getElementById('buttond').disabled = true;
+}
+</script>
+</body>
+</html>
