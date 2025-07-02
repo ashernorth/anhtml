@@ -40,7 +40,7 @@
 	<p>Decreases the chance of being hacked on all buttons by 50%. Costs 10000 CyberCredits.</p>
 	<button onclick="purchase9()" id="purchaseBtn9">Purchase</button>
 	<hr>
-	<p>Makes it impossible for the +1/+2 button to get hacked. Costs 12500 CyberCredits.</p>
+	<p>Makes it impossible for the +1/+2 button to get hacked. Costs 10500 CyberCredits.</p>
 	<button onclick="purchase10()" id="purchaseBtn10">Purchase</button>
   </small></div>
 </div></p>
@@ -348,14 +348,14 @@ function purchase9() {
 }
 
 function purchase10() {
-  if (cyberCredits >= 12500) {
+  if (cyberCredits >= 10500) {
     infiniteOnes = 1.797693134862315E+309;
     document.getElementById('purchaseBtn10').disabled = true;
     document.getElementById('purchaseBtn10').style.borderColor = "grey";
     document.getElementById('purchaseBtn10').style.color = "grey";
     document.getElementById('purchaseBtn10').style.borderStyle = "solid";
 	document.getElementById('purchaseBtn10').innerHTML = 'Purchased';
-    cyberCredits -= 12500;
+    cyberCredits -= 10500;
     document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
 	alert('Purchased!');
   } else {
