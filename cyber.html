@@ -9,9 +9,9 @@
 <!--<button onclick="">Test Button</button>-->
 
 <p><div class="dropdown" style="float:left;">
-  <button onclick="myFunction()" class="dropbtn test">CyberCredit Shop</button>&nbsp;<!--<button onclick="chronicleCheck()">Chips McGee Chronicles</button>&nbsp;--><button onclick="alert('This website was developed by Asher North.\n\nVersion 1.1\n\nWhat to do:\nPress the buttons below the title to gain CyberCredits, but be careful because the more profitable the button you press, the higher chance you are to get hacked when you press it. Use CyberCredits to buy upgrades from the shop.\n\nChances for different buttons to get you hacked:\n+1/+2 is a 1 in 1000 chance.\n+5 is a 1 in 100 chance.\n+10 is a 1 in 50 chance.\n+25 is a 1 in 25 chance.\n+100/+150 is a 1 in 10 chance.\n+250 is a 1 in 9 chance.')">Info</button>
   <div id="myDropdown" class="dropdown-content">
-    <h2>CyberCredit Shop</h2>
+    <a onclick="myFunction()" style="color:red; float:right; font-size:20px;"><b><big>X</big></b></a>
+    <p><h2 style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CyberCredit Shop</h2></p>
 	<hr>
 	<small><p>Adds CyberCredit insurance, which gives back 50% of stolen CyberCredits. Decimals are rounded. Costs 600 CyberCredits.</p>
     <button onclick="purchase1()" id="purchaseBtn1">Purchase</button>
@@ -42,8 +42,22 @@
 	<hr>
 	<p>Makes it impossible for the +1/+2 button to get hacked. Costs 10000 CyberCredits.</p>
 	<button onclick="purchase10()" id="purchaseBtn10">Purchase</button>
+	<hr>
+	<p>Changes the +250 button to +300. The chance of being hacked remains the same. Costs 10500 CyberCredits.</p>
+	<button onclick="purchase11()" id="purchaseBtn11">Purchase</button>
+	<hr>
+	<p>Unlocks the invest button. When pressed, you invest 500 CyberCredits and have a 2 in 3 chance that your investment is a success and you get 1500 CyberCredits back, but you have a 1 in 3 chance that your investment is a failure and you get nothing back. Costs 11000 CyberCredits.</p>
+	<button onclick="purchase12()" id="purchaseBtn12">Purchase</button>
+	<hr>
+	<p>Adds a +500 button. Costs 15000 CyberCredits.</p>
+	<button onclick="purchase13()" id="purchaseBtn13">Purchase</button>
   </small></div>
 </div></p>
+<button onclick="myFunction()" class="dropbtn" style="text-align:left;">CyberCredit Shop</button>&nbsp;
+
+&nbsp;<button onclick='invest()' id="investBtn" style="border-color:grey; border-style:solid; color:grey; float:left;" disabled>Locked</button>&nbsp;
+
+&nbsp;<button onclick="alert('This website was developed by Asher North.\n\nVersion 1.2\n\nWhat to do:\nPress the buttons below the title to gain CyberCredits, but be careful because the more profitable the button you press, the higher chance you are to get hacked when you press it. Use CyberCredits to buy upgrades from the shop.\n\nChances for different buttons to get you hacked:\n+1/+2 is a 1 in 1000 chance.\n+5 is a 1 in 100 chance.\n+10 is a 1 in 50 chance.\n+25 is a 1 in 25 chance.\n+100/+150 is a 1 in 10 chance.\n+250/+300 is a 1 in 9 chance.\n+500 is a 1 in 8 chance.')" style="float:left;">Info</button>
 
 <p>&nbsp;</p>
 
@@ -56,7 +70,6 @@
 <a id="addThePlus0"></a>
 
 <button id="plus1" onclick="stealChance = 1000 * chanceOfHack * infiniteOnes; cyberCreditDeal(); if(stealRandomiser >= 1) cyberCredits += plus1Plus1; getElementById('cyberCreditCount').innerHTML = cyberCredits; cyberCreditDeal(); document.getElementById('plus1').disabled = true; document.getElementById('plus1').disabled = false;">+1</button> 
-
 <button id="plus5" onclick="stealChance = 100 * chanceOfHack; cyberCreditDeal(); if(stealRandomiser >= 1) cyberCredits += 5; getElementById('cyberCreditCount').innerHTML = cyberCredits; document.getElementById('plus5').disabled = true; document.getElementById('plus5').disabled = false;">+5</button> 
 
 <button id="plus10" onclick="stealChance = 50 * chanceOfHack; cyberCreditDeal(); if(stealRandomiser >= 1) cyberCredits += 10; getElementById('cyberCreditCount').innerHTML = cyberCredits; document.getElementById('plus10').disabled = true; document.getElementById('plus10').disabled = false;">+10</button> 
@@ -67,7 +80,9 @@
 
 <a id="addThePlus250"></a>
 
-<p><b>CyberCredit Account:</b></p>
+<a id="addThePlus500"></a>
+
+<p><b><u><a contenteditable="true">Your name here</a></u>'s CyberCredit Account</b></p>
 
 <div class="cyberCreditCountStyle"><h2><a id="cyberCreditCount">0</a><a id="cyberCreditsImg"><img src="faviconCyber.png" width="85" height="85"></a></h2></div>
 
@@ -87,7 +102,6 @@ body {
   font-family:arial;
   padding:10px;
   letter-spacing:3px;
-  height:1000px;
 }
 hr {
   border-color:var(--cyan);
@@ -115,10 +129,10 @@ button {
   border-color:var(--cyan);
   background-color:#383838;
   color:var(--cyan);
-  padding:5px;
+  padding:15px;
   border-radius:5px;
   border-style:outset;
-  width:1300px;
+  width:1280px;
 }
 
 .dropbtn {
@@ -145,6 +159,8 @@ var r = document.querySelector(':root');
 var chanceOfHack = 1;
 var a = '<img src="faviconCyberPro.png" width="85" height="85">';
 var infiniteOnes = 1;
+var plus250Plus50 = 250;
+var plus250PurchaseDeterminer = 0;
 
 alert('Alert!\n\nBeware of Chips McGee, the well known CyberCredits hacker. Don\'t take too many CyberCredits, or Chips McGee may take them all! Unless you are insured.');
 
@@ -175,7 +191,7 @@ function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
 
-// Close the dropdown if the user clicks outside of it
+/* Close the dropdown if the user clicks outside of it
 window.onclick = function(event) {
   if (!event.target.matches('.dropbtn')) {
     var dropdowns = document.getElementsByClassName("dropdown-content");
@@ -187,13 +203,49 @@ window.onclick = function(event) {
       }
     }
   }
-}
+}*/
 
 function add0Btn() {
   document.getElementById('addThePlus0').innerHTML = '<button id="plus0" onclick="stealChance = 1500 * chanceOfHack; cyberCreditDeal(); if(stealRandomiser >= 1) cyberCredits += 0; getElementById(\'cyberCreditCount\').innerHTML = cyberCredits; cyberCreditDeal(); document.getElementById(\'plus0\').disabled = true; document.getElementById(\'plus0\').disabled = false;">+0</button>';
   document.getElementById('secretBtn1').disabled = true;
   alert('You found a secret! Have a +0 button! \(Yes, you can actually get hacked by pressing this button. It\'s a 1 in 1500 chance.\)');
   document.getElementById('secretBtn1').style.borderStyle = 'solid';
+}
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms))
+}
+
+async function invest() {
+  document.getElementById("investBtn").style.borderStyle = "inset";
+  await sleep(0)
+  document.getElementById("investBtn").style.borderStyle = "outset";
+  if (cyberCredits >= 500) {
+    alert('You have invested 500 CyberCredits. Wait 15 seconds to see the results of your investment.');
+    cyberCredits -= 500;
+    document.getElementById('investBtn').style.borderColor = "grey";
+    document.getElementById('investBtn').style.color = "grey";
+    document.getElementById('investBtn').style.borderStyle = "solid";
+    document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
+    document.getElementById('investBtn').disabled = true;
+    document.getElementById('investBtn').innerHTML = 'Investing...';
+    await sleep(15000)
+    document.getElementById('investBtn').style.borderColor = "var(--cyan)";
+    document.getElementById('investBtn').style.color = "var(--cyan)";
+    document.getElementById('investBtn').style.borderStyle = "outset";
+    document.getElementById('investBtn').disabled = false;
+    let successChance = Math.random() * 1.5;
+    if (successChance < 1) {
+      alert('Your investment was a total success! You gained 1500 CyberCredits!');
+	  cyberCredits += 1500
+    } else {
+      alert('Oh no! Your investment was a total failure! You gained nothing!');
+    }
+      document.getElementById('investBtn').innerHTML = 'Invest';
+	  document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
+  } else {
+      alert('You need 500 CyberCredits for that!');
+	}
 }
 
 function purchase1() {
@@ -299,7 +351,8 @@ function purchase6() {
 
 function purchase7() {
   if (cyberCredits >= 5000) {
-    document.getElementById('addThePlus250').innerHTML = '<button id="plus250" onclick="stealChance = 9 * chanceOfHack; cyberCreditDeal(); if(stealRandomiser >= 1) cyberCredits += 250; getElementById(\'cyberCreditCount\').innerHTML = cyberCredits; document.getElementById(\'plus250\').disabled = true; document.getElementById(\'plus250\').disabled = false;">+250</button>';
+    document.getElementById('addThePlus250').innerHTML = '<button id="plus250" onclick="stealChance = 9 * chanceOfHack; cyberCreditDeal(); if(stealRandomiser >= 1) cyberCredits += plus250Plus50; getElementById(\'cyberCreditCount\').innerHTML = cyberCredits; document.getElementById(\'plus250\').disabled = true; document.getElementById(\'plus250\').disabled = false;">+250</button>';
+	plus250PurchaseDeterminer += 1;
     document.getElementById('purchaseBtn7').disabled = true;
     document.getElementById('purchaseBtn7').style.borderColor = "grey";
     document.getElementById('purchaseBtn7').style.color = "grey";
@@ -361,6 +414,62 @@ function purchase10() {
 	alert('Purchased!');
   } else {
       alert('You need more CyberCredits for that!');
+  }  
+}
+
+function purchase11() {
+  if (cyberCredits >= 10500) {
+    if (plus250PurchaseDeterminer > 0) {
+      document.getElementById('plus250').innerHTML = "+300";
+	  plus250Plus50 += 50;
+      document.getElementById('purchaseBtn11').disabled = true;
+      document.getElementById('purchaseBtn11').style.borderColor = "grey";
+      document.getElementById('purchaseBtn11').style.color = "grey";
+      document.getElementById('purchaseBtn11').style.borderStyle = "solid";
+      document.getElementById('purchaseBtn11').innerHTML = 'Purchased';
+      cyberCredits -= 10500;
+      document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
+	  alert('Purchased!');
+	  } else {
+          alert('This upgrade can\'t be purchased unless the +250 button has been purchased first.');
+      }  
+    } else {
+        alert('You need more CyberCredits for that!');
+  }  
+}
+
+function purchase12() {
+  if (cyberCredits >= 11000) {
+    document.getElementById('investBtn').style.borderColor = "var(--cyan)";
+    document.getElementById('investBtn').style.color = "var(--cyan)";
+    document.getElementById('investBtn').style.borderStyle = "outset";
+    document.getElementById('investBtn').disabled = false;
+	document.getElementById('investBtn').innerHTML = 'Invest';
+    document.getElementById('purchaseBtn12').disabled = true;
+    document.getElementById('purchaseBtn12').style.borderColor = "grey";
+    document.getElementById('purchaseBtn12').style.color = "grey";
+    document.getElementById('purchaseBtn12').style.borderStyle = "solid";
+    document.getElementById('purchaseBtn12').innerHTML = 'Purchased';
+    cyberCredits -= 11000;
+    document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
+	alert('Purchased!');
+  } else {
+        alert('You need more CyberCredits for that!');
+  }  
+}
+function purchase13() {
+  if (cyberCredits >= 15000) {
+    document.getElementById('addThePlus500').innerHTML = '<button id="plus500" onclick="stealChance = 8 * chanceOfHack; cyberCreditDeal(); if(stealRandomiser >= 1) cyberCredits += 500; getElementById(\'cyberCreditCount\').innerHTML = cyberCredits; document.getElementById(\'plus500\').disabled = true; document.getElementById(\'plus500\').disabled = false;">+500</button> ';
+    document.getElementById('purchaseBtn13').disabled = true;
+    document.getElementById('purchaseBtn13').style.borderColor = "grey";
+    document.getElementById('purchaseBtn13').style.color = "grey";
+    document.getElementById('purchaseBtn13').style.borderStyle = "solid";
+    document.getElementById('purchaseBtn13').innerHTML = 'Purchased';
+    cyberCredits -= 15000;
+    document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
+	alert('Purchased!');
+  } else {
+        alert('You need more CyberCredits for that!');
   }  
 }
 </script>
