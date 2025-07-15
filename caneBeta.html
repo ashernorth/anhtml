@@ -527,7 +527,7 @@ async function rescue() {
   document.getElementById('button2disable').disabled = true;
   document.getElementById('button4disable').disabled = true;
   await sleep(3000 / cutTime)
-  xp += 99 * caneExp;
+  xp += 1 * caneExp;
   document.getElementById('exp').innerHTML = xp;
   if (xp >= 5) document.getElementById('rank').innerHTML = 'Copper';
   if (xp >= 30) document.getElementById('rank').innerHTML = 'Silver';
