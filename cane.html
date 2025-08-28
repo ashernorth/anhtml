@@ -72,7 +72,8 @@
 <small style="color:grey;" id="button4disable"></small>
 
 <p><small>Vers<a onclick="specialPass()">i</a>on 1.11</small></p>
-
+<p id="test0Place"></p>
+<p id="test1Place"></p>
 <style>
 button.purchaseBtnStyle {
   background-color:yellow;
@@ -223,7 +224,7 @@ var achDiv = '<div class="divLog"><a id="porktest">Email from Professor Cain Tod
   if (beetleCoinCount >= 30) document.getElementById('button3disable').disabled = false;
   function specialPass() {
   let text;
-  let person = prompt("Rank image testing.", "Type image name here.");
+  let person = prompt("Rank image testing.", "");
   if (person == "faviconCane") {
     image.src = "faviconCane.png";
 	document.getElementById('rank').innerHTML = 'Favicon';
@@ -304,7 +305,8 @@ var achDiv = '<div class="divLog"><a id="porktest">Email from Professor Cain Tod
     image.src = "antisilver.png";
 	document.getElementById('rank').innerHTML = 'Antisilver';
   }
-  document.getElementById("demo").innerHTML = text;
+  document.getElementById("test0Place").innerHTML = "<h2>Dev Cheats:</h2>";
+  document.getElementById("test1Place").innerHTML = "Image testing: True";
 }
 function purchase1() {
   if (beetleCoinCount >= 30) {
