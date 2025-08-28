@@ -71,7 +71,7 @@
 <a id="glassPaper"></a>
 <small style="color:grey;" id="button4disable"></small>
 
-<p><small>Version 1.1</small></p>
+<p><small>Vers<a onclick="specialPass()">i</a>on 1.11</small></p>
 
 <style>
 button.purchaseBtnStyle {
@@ -216,6 +216,56 @@ var newDropButton = '<button onclick="achDrop2()" class="info" id="achBtn2">Emai
 var achDiv = '<div class="divLog"><a id="porktest">Email from Professor Cain Todd, Sun Jan 13 2008 23:39</a><a style="float:right; color:red; font-family:arial;" onclick="ridDrop()"><b>X</b></a><small><a id="newInfo"><p>Hello. I am writing this important request to anybody out there, anywhere, who can help me. I am Professor Cain Todd, and I have a very important job for you. I need cane toads. I have discovered that cane toads are more advanced than us humans in ways we could never imagine! So I need as many cane toads as possible!</p><p>Ok. Here\'s how to get cane toads. First, press the \'go on a beetle search\' button. That will send a crew of men to search for a bunch of beetles for you. these guys get the job done really fast, and they will get you up to 10 beetles! Next, once you get a good number of beetles that you\'re happy with, press the \'convert to beetlecoin\' button. This will send all of your beetles over to some beetle obsessed guy, who will trade you one beetlecoin for each beetle.</p><p>Beetlecoin can be used for lots of things. They can be used for buying upgrades, which will make life easier for you. Beetlecoin can also be used for paying for cane toad rescues. Once you get thirty beetlecoin, you can press the \'rescue a cane toad\' button. This will pay thirty beetlecoin for a crew of men to go and rescue a cane toad, and give it to you.</p><p>Okay. That\'s how you get cane toads, but let me explain how ranks work. One cane toad will get you one exp. If you get enough exp, your rank will go up, and you will reach the next rank. Each time your rank goes up, you unlock a new upgrade, but you still need to pay for it. Once you reach the tenth rank, the plutonium rank, you will unlock the tenth upgrade, which will pay for cane toad shipping, and will let you send all of the cane toads over to me, and then you have completed my request!</p><p>Thanks in advance!</p></small></a></div>';
 
   if (beetleCoinCount >= 30) document.getElementById('button3disable').disabled = false;
+  function specialPass() {
+  let text;
+  let person = prompt("Rank image testing.", "Type image name here.");
+  if (person == "faviconCane") {
+    image.src = "faviconCane.png";
+  }
+  if (person == "tin") {
+    image.src = "tin.png";
+  }
+  if (person == "copper") {
+    image.src = "copper.png";
+  }
+  if (person == "silver") {
+    image.src = "silver.png";
+  }
+  if (person == "gold") {
+    image.src = "gold.png";
+  }
+  if (person == "platinum") {
+    image.src = "platinum.png";
+  }
+  if (person == "tungsten") {
+    image.src = "tungsten.png";
+  }
+  if (person == "mercury") {
+    image.src = "mercury.png";
+  }
+  if (person == "uranium") {
+    image.src = "uranium.png";
+  }
+  if (person == "plutonium") {
+    image.src = "plutonium.png";
+  }
+  if (person == "indium") {
+    image.src = "indium.png";
+  }
+  if (person == "cadmium") {
+    image.src = "cadmium.png";
+  }
+  if (person == "antitin") {
+    image.src = "antitin.png";
+  }
+  if (person == "anticopper") {
+    image.src = "anticopper.png";
+  }
+  if (person == "antisilver") {
+    image.src = "antisilver.png";
+  }
+  document.getElementById("demo").innerHTML = text;
+}
 function purchase1() {
   if (beetleCoinCount >= 30) {
     	if (caneToadCount >= 5 && beetleCoinCount >= 10) {
