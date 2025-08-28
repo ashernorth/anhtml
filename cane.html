@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Cane Toad Kerfuffle</title>
+<title id="tabTitle">Cane Toad Kerfuffle</title>
 <link rel="icon" type="image/png" href="faviconCane.png"/>
 <link rel="apple-touch-icon" href="faviconCane.png">
 </head>
@@ -8,7 +8,7 @@
 <!--button onclick="document.getElementById('test1').innerHTML = insureUpgrade3;">test</button>
 <p id="test1"></p>-->
 
-<div class="rankBox"><a style="text-align:left; border-left: solid; padding:5px; border-width:5px; background-color:rgb(4, 2, 82);"><a id="rank" style="padding:5px; background-color:rgb(4, 2, 82)">Tin</a><a style="background-color:rgb(4, 2, 82); padding:5px;">Rank</a></a><img id="thimg" style="float:right; border-radius:1000px;" src="tin.png" width="85" height="85"><p style="text-align:left;"><a style="border-left: solid; padding:5px; border-width:5px; background-color:rgb(4, 2, 82);">&nbsp;&nbsp;Exp:<a id="exp" style="background-color:rgb(4, 2, 82); padding:5px;">0</a><a style="background-color:rgb(4, 2, 82); padding:5px;" id="xpAmount">/ &nbsp;5</a></a></p></div>
+<div class="rankBox"><a style="text-align:left; border-left: solid; padding:5px; border-width:5px; background-color:rgb(4, 2, 82);"><a id="rank" style="padding:5px; background-color:rgb(4, 2, 82)">Tin</a><a style="background-color:rgb(4, 2, 82); padding:5px;" onclick="document.getElementById('title').innerHTML = 'Cane Toad Kerfuffle'; document.getElementById('tabTitle').innerHTML = 'Cane Toad Kerfuffle';">Rank</a></a><img id="thimg" style="float:right; border-radius:1000px;" src="tin.png" width="85" height="85"><p style="text-align:left;"><a style="border-left: solid; padding:5px; border-width:5px; background-color:rgb(4, 2, 82);">&nbsp;&nbsp;Exp:<a id="exp" style="background-color:rgb(4, 2, 82); padding:5px;">0</a><a style="background-color:rgb(4, 2, 82); padding:5px;" id="xpAmount">/ &nbsp;5</a></a></p></div>
 <div class="dropdown">
   <div id="dropfo" class="dropfoContent">
 <a style="float:right; color:red; font-family:arial;" onclick="document.getElementById('dropfo').classList.toggle('show');"><b>X</b></a><h2>Upgrades</h2>
@@ -20,7 +20,7 @@
 <button onclick="purchase2()" id="purchaseBtn2" class="purchaseBtnStyle" disabled>Locked</button> Increases exp per cane toad by 2. Costs 150 beetlecoin.
 
 <hr class="upgradeHr">
-<button onclick="purchase3()" id="purchaseBtn3" class="purchaseBtnStyle" disabled>Locked</button> Halves waiting time for all buttons. Costs 400 beetlecoin.
+<button onclick="purchase3()" id="purchaseBtn3" class="purchaseBtnStyle" disabled>Locked</button> Halves waiting time for all buttons. Costs 300 beetlecoin.
 
 <hr class="upgradeHr">
 <button onclick="purchase4()" id="purchaseBtn4" class="purchaseBtnStyle" disabled>Locked</button> Doubles beetlecoin per beetle. Costs 500 beetlecoin.
@@ -41,13 +41,22 @@
 <button onclick="purchase9()" id="purchaseBtn9" class="purchaseBtnStyle" disabled>Locked</button> Increases exp per cane toad by 10 and exp per poison dart toad by 20. Costs 2500 beetlecoin.
 
 <hr class="upgradeHr">
-<button onclick="purchase10()" id="purchaseBtn10" class="purchaseBtnStyle" disabled>Locked</button> Send toads to Professor Cain Todd. Costs 10000 beetlecoin.
+<button onclick="purchase10()" id="purchaseBtn10" class="purchaseBtnStyle" disabled>Locked</button> Send toads to Professor Cain Todd. Also increases exp per cane toad by 20 and exp per poison dart toad by 30. Costs 10000 beetlecoin.
+
+<hr class="upgradeHr">
+<button onclick="purchase11()" id="purchaseBtn11" class="purchaseBtnStyle" disabled>Locked</button> Doubles beetlecoin per beetle. Costs 12500 beetlecoin.
+
+<hr class="upgradeHr">
+<button onclick="purchase12()" id="purchaseBtn12" class="purchaseBtnStyle" disabled>Locked</button> Halves waiting time for all buttons. Costs 15000 beetlecoin.
+
+<hr class="upgradeHr">
+<button onclick="purchase13()" id="purchaseBtn13" class="purchaseBtnStyle" disabled>Locked</button> In next update, unlocks the antimatter upgrades. New updates coming soon. Costs 20000 beetlecoin.
 </small>
   </div>
 </div>
 
-<p><h1 style="text-align:left;">Cane Toad Kerfuffle</h1></p>
-<p><h3 style="text-align:left;">By Asher North</h3>
+<p><h1 style="text-align:left;" id="title">Cane Toad Kerfuffle</h1></p>
+<p><h3 style="text-align:left;"><a onclick="document.getElementById('title').innerHTML = 'Brain Node Kerfuffle'; document.getElementById('tabTitle').innerHTML = 'Brain Node Kerfuffle';">By</a> Asher North</h3>
 <a id="achDivPlace"></a>
 
 <button class="dropbtnfo info" id="upgradeDropdown" onclick="infoDrop()">Upgrades</button> 
@@ -62,6 +71,8 @@
 <a id="glassPaper"></a>
 <small style="color:grey;" id="button4disable"></small>
 
+<p><small>Version 1.1</small></p>
+
 <style>
 button.purchaseBtnStyle {
   background-color:yellow;
@@ -70,7 +81,7 @@ button.purchaseBtnStyle {
 }
 @layer {
 div.rankbox {
-  width:300px;
+  width:350px;
   padding:10px;
   letter-spacing:2px;
   border-radius:20px;
@@ -182,6 +193,9 @@ var insureUpgrade7 = 0;
 var insureUpgrade8 = 0;
 var insureUpgrade9 = 0;
 var insureUpgrade10 = 0;
+var insureUpgrade11 = 0;
+var insureUpgrade12 = 0;
+var insureUpgrade13 = 0;
 var doubleBeetleCoin = 1;
 var b = new Date();
 var finalBtn = "<p>Send all poison dart toads over to Professor Cane Todd?</p><p><button id='sendBtn' onclick=\"lastFunc0()\" style=\"background-color:#b8b8b8; border-radius:100px; padding:7px;\">Send</button></p><p id=\"finalMsgPlace\"></p>";
@@ -197,8 +211,9 @@ var beetleFindAmount = 9;
 var caneExp = 1;
 var poisonExp = 10;
 var cutTime = 1;
+var finalMsg = 'error';
 var newDropButton = '<button onclick="achDrop2()" class="info" id="achBtn2">Email</button>';
-var achDiv = '<div class="divLog"><a id="porktest">Email from Professor Cain Todd, Sun Jan 13 2008 23:39</a><a style="float:right; color:red; font-family:arial;" onclick="ridDrop()"><b>X</b></a><small><a id="newInfo"><p>Hello. I am writing this important request to anybody out there, anywhere, who can help me. I am Professor Cain Todd, and I have a very important job for you. I need cane toads. I have discovered that cane toads are more advanced than us humans in ways we could never imagine! So I need as many cane toads as possible!</p><p>Ok. Here\'s how to get cane toads. First, press the \'go on a beetle search\' button. That will send a crew of men to search for a bunch of beetles for you. these guys get the job done really fast, and they will get you up to 10 beetles! Next, once you get a good number of beetles that you\'re happy with, press the \'convert to beetlecoin\' button. This will send all of your beetles over to some beetle obsessed guy, who will trade you one beetlecoin for each beetle.</p><p>Beetlecoin can be used for lots of things. They can be used for buying upgrades, which will make life easier for you. Beetlecoin can also be used for paying for cane toad rescues. Once you get thirty beetlecoin, you can press the \'rescue a cane toad\' button. This will pay thirty beetlecoin for a crew of men to go and rescue a cane toad, and give it to you.</p><p>Okay. That\'s how you get cane toads, but let me explain how ranks work. One cane toad will get you one exp. If you get enough exp, your rank will go up, and you will reach the next rank. Each time your rank goes up, you unlock a new upgrade, but you still need to pay for it. Once you reach the tenth and final rank, the plutonium rank, you will unlock the final upgrade, which will pay for cane toad shipping, and will let you send all of the cane toads over to me, and then you have completed my request!</p><p>Thanks in advance!</p></small></a></div>';
+var achDiv = '<div class="divLog"><a id="porktest">Email from Professor Cain Todd, Sun Jan 13 2008 23:39</a><a style="float:right; color:red; font-family:arial;" onclick="ridDrop()"><b>X</b></a><small><a id="newInfo"><p>Hello. I am writing this important request to anybody out there, anywhere, who can help me. I am Professor Cain Todd, and I have a very important job for you. I need cane toads. I have discovered that cane toads are more advanced than us humans in ways we could never imagine! So I need as many cane toads as possible!</p><p>Ok. Here\'s how to get cane toads. First, press the \'go on a beetle search\' button. That will send a crew of men to search for a bunch of beetles for you. these guys get the job done really fast, and they will get you up to 10 beetles! Next, once you get a good number of beetles that you\'re happy with, press the \'convert to beetlecoin\' button. This will send all of your beetles over to some beetle obsessed guy, who will trade you one beetlecoin for each beetle.</p><p>Beetlecoin can be used for lots of things. They can be used for buying upgrades, which will make life easier for you. Beetlecoin can also be used for paying for cane toad rescues. Once you get thirty beetlecoin, you can press the \'rescue a cane toad\' button. This will pay thirty beetlecoin for a crew of men to go and rescue a cane toad, and give it to you.</p><p>Okay. That\'s how you get cane toads, but let me explain how ranks work. One cane toad will get you one exp. If you get enough exp, your rank will go up, and you will reach the next rank. Each time your rank goes up, you unlock a new upgrade, but you still need to pay for it. Once you reach the tenth rank, the plutonium rank, you will unlock the tenth upgrade, which will pay for cane toad shipping, and will let you send all of the cane toads over to me, and then you have completed my request!</p><p>Thanks in advance!</p></small></a></div>';
 
   if (beetleCoinCount >= 30) document.getElementById('button3disable').disabled = false;
 function purchase1() {
@@ -253,9 +268,9 @@ function purchase2() {
 }
 
 function purchase3() {
-  if (beetleCoinCount >= 400) {
+  if (beetleCoinCount >= 300) {
     alert('Purchased!');
-	beetleCoinCount -= 400;
+	beetleCoinCount -= 300;
 	cutTime *= 2;
 	document.getElementById('purchaseBtn3').disabled = true;
 	document.getElementById('purchaseBtn3').innerHTML = "Purchased";
@@ -279,7 +294,7 @@ function purchase4() {
   if (beetleCoinCount >= 500) {
     alert('Purchased!');
 	beetleCoinCount -= 500;
-	doubleBeetleCoin += 1;
+	doubleBeetleCoin *= 2;
 	document.getElementById('purchaseBtn4').disabled = true;
 	document.getElementById('purchaseBtn4').innerHTML = "Purchased";
 	if (caneToadCount >= 5 && beetleCoinCount >= 10) {
@@ -413,19 +428,113 @@ function purchase9() {
 	}
   document.getElementById('beetlecoin').innerHTML = beetleCoinCount;
 }
-
+function dropDowner() {
+  document.getElementById('achDivPlace').innerHTML = finalMsg;
+  document.getElementById('email3Btn').style.borderColor = '#b8b8b8';
+}
+var email3 = "<button id='email3Btn' onclick='dropDowner()' class='info'>Email</button>";
 function purchase10() {
   if (beetleCoinCount >= 10000) {
-    alert('Purchased');
-    document.getElementById('youWin').style.backgroundColor = 'black';
-    document.getElementById('youWin').style.color = '#b8b8b8';
-    document.getElementById('youWin').style.fontFamily = 'Courier New';
-    document.getElementById('youWin').style.padding = '50px';
-    document.getElementById('youWin').style.textAlign = 'center';
-    document.getElementById('youWin').innerHTML = finalBtn;
+    alert('Purchased!');
+	alert('New email received!');
+	beetleCoinCount -= 10000;
+	dr = new Date();
+    finalMsg = '<div class="divLog">Email from Professor Cain Todd, ' + dr.toDateString() + '&nbsp;' + dr.getHours() + ':' + ('0' + dr.getMinutes()).slice(-2) + "<a style=\"float:right; color:red; font-family:arial;\" onclick=\"document.getElementById('achDivPlace').innerHTML = '';\"><b>X</b></a><p><small>Thank you for all of the poison dart toads! I have been waiting for so long for this! But I have news. I apologise, but you can have them back. In fact, I'm sending them back now. You see, I have discovered that cane toads and poison dart toads are actually just pests, and aren't that advanced at all, so I don't need them anymore. Before I made that realisation, I actually introduced some poison dart toads into Australia, and now they live in harmony with cane toads and are thriving and taking over Australia. Don't worry though! Neither of us live in Australia, so we'll be just fine! Wait... do you? I don't think I ever asked where you're from. Any way, I'll be off, since I saw a wanted poster with my name on it on it for endangering the environment, so I'm gonna flee to some foreign country or something. Feel free to keep getting more toads and exp and unlocking more ranks above plutonium.</p><p>See you another time!</p></small><p>Credits:</p><small><p>Developer: Asher North</p><p>Artist: Benjamin North</p><p>Special thanks: Nathaniel North, Oscar Hawkins, Campbell Black, Oliver Sexton.</p></small></div>";
+	var finalMsgBtn = '<button id="achBtn" onclick="achDrop3()" class="info">Email</button>';
+	document.getElementById('dropBtnPlace').innerHTML = email3;
+	caneExp += 20;
+	poisonExp += 30;
+    if (beetleCoinCount >= 30) document.getElementById('button3disable').disabled = false;
+    if (beetleCoinCount >= 10) {
+    if (caneToadCount >= 5) document.getElementById('button4disable').disabled = false;
+	}
+	else {
+	document.getElementById('button4disable').disabled = true;
+	}
+	document.getElementById('purchaseBtn10').disabled = true;
+	document.getElementById('purchaseBtn10').innerHTML = "Purchased";
+	if (caneToadCount >= 5 && beetleCoinCount >= 10) {
+	  document.getElementById('button4disable').disabled = false;
+	} else {
+	    document.getElementById('button4disable').disabled = true;
+	  }
+	if (beetleCoinCount >= 30) {
+	  document.getElementById('button3disable').disabled = false;
+	} else {
+	    document.getElementById('button3disable').disabled = true;
+	  }
   } else {
       alert('You need more beetlecoin for that!');
 	}
+  document.getElementById('beetlecoin').innerHTML = beetleCoinCount;
+}
+function purchase11() {
+  if (beetleCoinCount >= 12500) {
+    alert('Purchased!');
+	beetleCoinCount -= 12500;
+	doubleBeetleCoin *= 2;
+	document.getElementById('purchaseBtn11').disabled = true;
+	document.getElementById('purchaseBtn11').innerHTML = "Purchased";
+	if (caneToadCount >= 5 && beetleCoinCount >= 10) {
+	  document.getElementById('button4disable').disabled = false;
+	} else {
+	    document.getElementById('button4disable').disabled = true;
+	  }
+	if (beetleCoinCount >= 30) {
+	  document.getElementById('button3disable').disabled = false;
+	} else {
+	    document.getElementById('button3disable').disabled = true;
+	  }
+  } else {
+      alert('You need more beetlecoin for that!');
+	}
+  document.getElementById('beetlecoin').innerHTML = beetleCoinCount;
+}
+
+function purchase12() {
+  if (beetleCoinCount >= 15000) {
+    alert('Purchased!');
+	beetleCoinCount -= 15000;
+	cutTime *= 2;
+	document.getElementById('purchaseBtn12').disabled = true;
+	document.getElementById('purchaseBtn12').innerHTML = "Purchased";
+	if (caneToadCount >= 5 && beetleCoinCount >= 10) {
+	  document.getElementById('button4disable').disabled = false;
+	} else {
+	    document.getElementById('button4disable').disabled = true;
+	  }
+	if (beetleCoinCount >= 30) {
+	  document.getElementById('button3disable').disabled = false;
+	} else {
+	    document.getElementById('button3disable').disabled = true;
+	  }
+  } else {
+      alert('You need more beetlecoin for that!');
+	}
+  document.getElementById('beetlecoin').innerHTML = beetleCoinCount;
+}
+
+function purchase13() {
+  if (beetleCoinCount >= 20000) {
+    alert('Purchased!');
+	beetleCoinCount -= 20000;
+	alert('You got the final upgrade! In future updates, this upgrade will unlock the antimatter upgrades. Until then, you can keep getting more exp and more toads.');
+	document.getElementById('purchaseBtn13').disabled = true;
+	document.getElementById('purchaseBtn13').innerHTML = "Purchased";
+	if (caneToadCount >= 5 && beetleCoinCount >= 10) {
+	  document.getElementById('button4disable').disabled = false;
+	} else {
+	    document.getElementById('button4disable').disabled = true;
+	  }
+	if (beetleCoinCount >= 30) {
+	  document.getElementById('button3disable').disabled = false;
+	} else {
+	    document.getElementById('button3disable').disabled = true;
+	  }
+  } else {
+      alert('You need more beetlecoin for that!');
+	}
+  document.getElementById('beetlecoin').innerHTML = beetleCoinCount;
 }
 
 function infoDrop() {
@@ -441,6 +550,10 @@ function achDrop() {
 	  function achDrop2() {
         document.getElementById('achDivPlace').innerHTML = newInfoText;
         document.getElementById('achBtn2').style.borderColor = '#b8b8b8';
+      }
+	   function achDrop3() {
+        document.getElementById('achDivPlace').innerHTML = finalMsg;
+        document.getElementById('achBtn3').style.borderColor = '#b8b8b8';
       }
 
 function ridDrop() {
@@ -538,6 +651,9 @@ async function rescue() {
   if (xp >= 1500) document.getElementById('rank').innerHTML = 'Uranium';
   if (xp >= 3000) document.getElementById('rank').innerHTML = 'Einsteinium';
   if (xp >= 5000) document.getElementById('rank').innerHTML = 'Plutonium';
+  if (xp >= 7500) document.getElementById('rank').innerHTML = 'Indium';
+  if (xp >= 10000) document.getElementById('rank').innerHTML = 'Cadmium';
+  if (xp >= 13000) document.getElementById('rank').innerHTML = 'Antitin';
   if (xp >= 5) document.getElementById('xpAmount').innerHTML = '/ &nbsp;30';
   if (xp >= 30) document.getElementById('xpAmount').innerHTML = '/ &nbsp;100';
   if (xp >= 100) document.getElementById('xpAmount').innerHTML = '/ &nbsp;250';
@@ -546,7 +662,10 @@ async function rescue() {
   if (xp >= 1000) document.getElementById('xpAmount').innerHTML = '/ &nbsp;1500';
   if (xp >= 1500) document.getElementById('xpAmount').innerHTML = '/ &nbsp;3000';
   if (xp >= 3000) document.getElementById('xpAmount').innerHTML = '/ &nbsp;5000';
-  if (xp >= 5000) document.getElementById('xpAmount').innerHTML = '';
+  if (xp >= 5000) document.getElementById('xpAmount').innerHTML = '/ &nbsp;7500';
+  if (xp >= 7500) document.getElementById('xpAmount').innerHTML = '/ &nbsp;10000';
+  if (xp >= 10000) document.getElementById('xpAmount').innerHTML = '/ &nbsp;13000';
+  if (xp >= 13000) document.getElementById('xpAmount').innerHTML = '';
   if (image.src.match("tin.png") && xp >= 5) image.src = "copper.png";
   if (image.src.match("copper.png") && xp >= 30) image.src = "silver.png";
   if (image.src.match("silver.png") && xp >= 100) image.src = "gold.png";
@@ -556,6 +675,9 @@ async function rescue() {
   if (image.src.match("mercury.png") && xp >= 1500) image.src = "uranium.png";
   if (image.src.match("uranium.png") && xp >= 3000) image.src = "einsteinium.png";
   if (image.src.match("einsteinium.png") && xp >= 5000) image.src = "plutonium.png";
+  if (image.src.match("plutonium.png") && xp >= 7500) image.src = "indium.png";
+  if (image.src.match("indium.png") && xp >= 10000) image.src = "cadmium.png";
+  if (image.src.match("cadmium.png") && xp >= 13000) image.src = "antitin.png";
   if (xp >= 5 && insureUpgrade2 < 1) { document.getElementById('purchaseBtn2').disabled = false; insureUpgrade2 += 1; document.getElementById('purchaseBtn2').innerHTML = "Purchase";  document.getElementById('upgradeDropdown').style.borderColor = "red"; }
   if (xp >= 30 && insureUpgrade3 < 1) { document.getElementById('purchaseBtn3').disabled = false; insureUpgrade3 += 1; document.getElementById('purchaseBtn3').innerHTML = "Purchase"; document.getElementById('upgradeDropdown').style.borderColor = "red"; }
   if (xp >= 100 && insureUpgrade4 < 1) { document.getElementById('purchaseBtn4').disabled = false; insureUpgrade4 += 1; document.getElementById('purchaseBtn4').innerHTML = "Purchase"; document.getElementById('upgradeDropdown').style.borderColor = "red"; }
@@ -565,6 +687,9 @@ async function rescue() {
   if (xp >= 1500 && insureUpgrade8 < 1) { document.getElementById('purchaseBtn8').disabled = false; insureUpgrade8 += 1; document.getElementById('purchaseBtn8').innerHTML = "Purchase"; document.getElementById('upgradeDropdown').style.borderColor = "red"; }
   if (xp >= 3000 && insureUpgrade9 < 1) { document.getElementById('purchaseBtn9').disabled = false; insureUpgrade9 += 1; document.getElementById('purchaseBtn9').innerHTML = "Purchase"; document.getElementById('upgradeDropdown').style.borderColor = "red"; }
   if (xp >= 5000 && insureUpgrade10 < 1) { document.getElementById('purchaseBtn10').disabled = false; insureUpgrade10 += 1; document.getElementById('purchaseBtn10').innerHTML = "Purchase"; document.getElementById('upgradeDropdown').style.borderColor = "red"; }
+  if (xp >= 7500 && insureUpgrade11 < 1) { document.getElementById('purchaseBtn11').disabled = false; insureUpgrade11 += 1; document.getElementById('purchaseBtn11').innerHTML = "Purchase"; document.getElementById('upgradeDropdown').style.borderColor = "red"; }
+  if (xp >= 10000 && insureUpgrade12 < 1) { document.getElementById('purchaseBtn12').disabled = false; insureUpgrade12 += 1; document.getElementById('purchaseBtn12').innerHTML = "Purchase"; document.getElementById('upgradeDropdown').style.borderColor = "red"; }
+  if (xp >= 13000 && insureUpgrade13 < 1) { document.getElementById('purchaseBtn13').disabled = false; insureUpgrade13 += 1; document.getElementById('purchaseBtn13').innerHTML = "Purchase"; document.getElementById('upgradeDropdown').style.borderColor = "red"; }
   beetleCoinCount -= 30;
   caneToadCount += 1;
   if (beetleCount > 0) document.getElementById('button2disable').disabled = false;
@@ -576,7 +701,7 @@ async function rescue() {
       document.getElementById('glassPaper').innerHTML = sus;
 	  b = new Date();
 	  poisonDartToadCount -= 0.5;
-	  newInfoText = '<div class="divLog">Email from Professor Cain Todd, ' + b.toDateString() + '&nbsp;' + b.getHours() + ':' + ('0' + b.getMinutes()).slice(-2) + "<a style=\"float:right; color:red; font-family:arial;\" onclick=\"ridDrop()\"><b>X</b></a><p><small><p>Hello. I have noticed activity on the beetlecoin market and countless cane toad rescues with your name under them! So I figured someone has finally responded to my decade old message. I have good news and bad news though. The bad news is that I realised that I just got excited about cane toads all those years ago. They're actually just pests, so I don't need them anymore. Sorry about that. But the good news is that I have created a new toad!</p><p>I was experimenting with DNA a few years ago, and I combined the DNA of a poison dart toad with cane toad DNA, and then cloned a toad with that DNA, and there it was! My greatest creation! The poison dart toad! Poison dart toads are like poison dart frogs, but bigger, wartier and they are even more toxic than poison dart frogs, since they have the cane toad's toxic glands!</p><p>Anyway, now I believe that poison dart toads are more advanced than us humans in ways we could never imagine, and I need you to send me more of them. For one poison dart toad, you will need five cane toads, and ten beetlecoin. Once you have those things, you can press the \'trade for a poison dart toad\' button, which will clone a poison dart toad \(Don't worry, the cane toads don't suffer any pain, and are freed afterwards\). Each poison dart toad will give you ten exp. Anyway, once you get to plutonium rank, you can get the final upgrade in the shop, and you can pay ten thousand beetlecoin to send your poison dart toads over to me!</p><p> Thanks in advance! See you soon.</p></small></p></div>";
+	  newInfoText = '<div class="divLog">Email from Professor Cain Todd, ' + b.toDateString() + '&nbsp;' + b.getHours() + ':' + ('0' + b.getMinutes()).slice(-2) + "<a style=\"float:right; color:red; font-family:arial;\" onclick=\"ridDrop()\"><b>X</b></a><p><small><p>Hello. I have noticed activity on the beetlecoin market and countless cane toad rescues with your name under them! So I figured someone has finally responded to my decade old message. I have good news and bad news though. The bad news is that I realised that I just got excited about cane toads all those years ago. They're actually just pests, so I don't need them anymore. Sorry about that. But the good news is that I have created a new toad!</p><p>I was experimenting with DNA a few years ago, and I combined the DNA of a poison dart toad with cane toad DNA, and then cloned a toad with that DNA, and there it was! My greatest creation! The poison dart toad! Poison dart toads are like poison dart frogs, but bigger, wartier and they are even more toxic than poison dart frogs, since they have the cane toad's toxic glands!</p><p>Anyway, now I believe that poison dart toads are more advanced than us humans in ways we could never imagine, and I need you to send me more of them. For one poison dart toad, you will need five cane toads, and ten beetlecoin. Once you have those things, you can press the \'trade for a poison dart toad\' button, which will clone a poison dart toad \(Don't worry, the cane toads don't suffer any pain, and are freed afterwards\). Each poison dart toad will give you ten exp. Anyway, once you get to plutonium rank, you can get the tenth upgrade in the shop, and you can pay ten thousand beetlecoin to send your poison dart toads over to me!</p><p> Thanks in advance! See you soon.</p></small></p></div>";
       document.getElementById('dropBtnPlace').innerHTML = newDropButton;
 	  ridDrop();
 	  alert('New email received!');
@@ -609,14 +734,9 @@ async function trade() {
   if (xp >= 1500) document.getElementById('rank').innerHTML = 'Uranium';
   if (xp >= 3000) document.getElementById('rank').innerHTML = 'Einsteinium';
   if (xp >= 5000) document.getElementById('rank').innerHTML = 'Plutonium';
-  if (image.src.match("copper.png") && xp >= 30) image.src = "silver.png";
-  if (image.src.match("silver.png") && xp >= 100) image.src = "gold.png";
-  if (image.src.match("gold.png") && xp >= 250) image.src = "platinum.png";
-  if (image.src.match("platinum.png") && xp >= 500) image.src = "tungsten.png";
-  if (image.src.match("tungsten.png") && xp >= 1000) image.src = "mercury.png";
-  if (image.src.match("mercury.png") && xp >= 1500) image.src = "uranium.png";
-  if (image.src.match("uranium.png") && xp >= 3000) image.src = "einsteinium.png";
-  if (image.src.match("einsteinium.png") && xp >= 5000) image.src = "plutonium.png";
+  if (xp >= 7500) document.getElementById('rank').innerHTML = 'Indium';
+  if (xp >= 10000) document.getElementById('rank').innerHTML = 'Cadmium';
+  if (xp >= 13000) document.getElementById('rank').innerHTML = 'Antitin';
   if (xp >= 5) document.getElementById('xpAmount').innerHTML = '/ &nbsp;30';
   if (xp >= 30) document.getElementById('xpAmount').innerHTML = '/ &nbsp;100';
   if (xp >= 100) document.getElementById('xpAmount').innerHTML = '/ &nbsp;250';
@@ -625,7 +745,22 @@ async function trade() {
   if (xp >= 1000) document.getElementById('xpAmount').innerHTML = '/ &nbsp;1500';
   if (xp >= 1500) document.getElementById('xpAmount').innerHTML = '/ &nbsp;3000';
   if (xp >= 3000) document.getElementById('xpAmount').innerHTML = '/ &nbsp;5000';
-  if (xp >= 5000) document.getElementById('xpAmount').innerHTML = '';
+  if (xp >= 5000) document.getElementById('xpAmount').innerHTML = '/ &nbsp;7500';
+  if (xp >= 7500) document.getElementById('xpAmount').innerHTML = '/ &nbsp;10000';
+  if (xp >= 10000) document.getElementById('xpAmount').innerHTML = '/ &nbsp;13000';
+  if (xp >= 13000) document.getElementById('xpAmount').innerHTML = '';
+  if (image.src.match("tin.png") && xp >= 5) image.src = "copper.png";
+  if (image.src.match("copper.png") && xp >= 30) image.src = "silver.png";
+  if (image.src.match("silver.png") && xp >= 100) image.src = "gold.png";
+  if (image.src.match("gold.png") && xp >= 250) image.src = "platinum.png";
+  if (image.src.match("platinum.png") && xp >= 500) image.src = "tungsten.png";
+  if (image.src.match("tungsten.png") && xp >= 1000) image.src = "mercury.png";
+  if (image.src.match("mercury.png") && xp >= 1500) image.src = "uranium.png";
+  if (image.src.match("uranium.png") && xp >= 3000) image.src = "einsteinium.png";
+  if (image.src.match("einsteinium.png") && xp >= 5000) image.src = "plutonium.png";
+  if (image.src.match("plutonium.png") && xp >= 7500) image.src = "indium.png";
+  if (image.src.match("indium.png") && xp >= 10000) image.src = "cadmium.png";
+  if (image.src.match("cadmium.png") && xp >= 13000) image.src = "antitin.png";
   if (xp >= 5 && insureUpgrade2 < 1) { document.getElementById('purchaseBtn2').disabled = false; insureUpgrade2 += 1; document.getElementById('purchaseBtn2').innerHTML = "Purchase";  document.getElementById('upgradeDropdown').style.borderColor = "red"; }
   if (xp >= 30 && insureUpgrade3 < 1) { document.getElementById('purchaseBtn3').disabled = false; insureUpgrade3 += 1; document.getElementById('purchaseBtn3').innerHTML = "Purchase"; document.getElementById('upgradeDropdown').style.borderColor = "red"; }
   if (xp >= 100 && insureUpgrade4 < 1) { document.getElementById('purchaseBtn4').disabled = false; insureUpgrade4 += 1; document.getElementById('purchaseBtn4').innerHTML = "Purchase"; document.getElementById('upgradeDropdown').style.borderColor = "red"; }
@@ -635,6 +770,9 @@ async function trade() {
   if (xp >= 1500 && insureUpgrade8 < 1) { document.getElementById('purchaseBtn8').disabled = false; insureUpgrade8 += 1; document.getElementById('purchaseBtn8').innerHTML = "Purchase"; document.getElementById('upgradeDropdown').style.borderColor = "red"; }
   if (xp >= 3000 && insureUpgrade9 < 1) { document.getElementById('purchaseBtn9').disabled = false; insureUpgrade9 += 1; document.getElementById('purchaseBtn9').innerHTML = "Purchase"; document.getElementById('upgradeDropdown').style.borderColor = "red"; }
   if (xp >= 5000 && insureUpgrade10 < 1) { document.getElementById('purchaseBtn10').disabled = false; insureUpgrade10 += 1; document.getElementById('purchaseBtn10').innerHTML = "Purchase"; document.getElementById('upgradeDropdown').style.borderColor = "red"; }
+  if (xp >= 7500 && insureUpgrade11 < 1) { document.getElementById('purchaseBtn11').disabled = false; insureUpgrade11 += 1; document.getElementById('purchaseBtn11').innerHTML = "Purchase"; document.getElementById('upgradeDropdown').style.borderColor = "red"; }
+  if (xp >= 10000 && insureUpgrade12 < 1) { document.getElementById('purchaseBtn12').disabled = false; insureUpgrade12 += 1; document.getElementById('purchaseBtn12').innerHTML = "Purchase"; document.getElementById('upgradeDropdown').style.borderColor = "red"; }
+  if (xp >= 13000 && insureUpgrade13 < 1) { document.getElementById('purchaseBtn13').disabled = false; insureUpgrade13 += 1; document.getElementById('purchaseBtn13').innerHTML = "Purchase"; document.getElementById('upgradeDropdown').style.borderColor = "red"; }
   beetleCoinCount -= 10;
   caneToadCount -= 5;
   poisonDartToadCount += 1;
@@ -655,7 +793,7 @@ async function trade() {
 </script>
 </body>
 <script>
-var finalMsg = 'error';
+
 var dr = 'error';
 var credits = "Developer: Asher North<p>Artist: Benjamin North</p><p>Special thanks to Campbell Black, Oscar Hawkins, Nathaniel North and Oliver Sexton.</p><p><button onclick=\"lastFunc2()\"  style=\"background-color:#b8b8b8; border-radius:100px; padding:7px;\">Complete the game</button></p>";
 var finalFinalMsg = '<h1>You have completed Cane Toad Kerfuffle!</h1><hr><p>Congratulations!</p><p><hr><img src="caneToadRoyal.png" width="400" height="400"></p><hr><p style="color:#00000000;">(:</p>';
@@ -663,7 +801,7 @@ function lastFunc0() {
   document.getElementById('sendBtn').innerHTML = 'Sent';
   document.getElementById('sendBtn').disabled = true;
   dr = new Date();
-  finalMsg = 'Email from Professor Cain Todd, ' + dr.toDateString() + '&nbsp;' + dr.getHours() + ':' + ('0' + dr.getMinutes()).slice(-2) + "<p>Thank you for all of the poison dart toads! I have been waiting for so long for this! But I have news. I apologise, but I have discovered that cane toads and poison dart toads are actually just pests, and aren't that advanced at all, so I don't need them anymore. Before I made that realisation, I actually introduced some poison dart toads into Australia, and now they live in harmony with cane toads and are thriving and taking over Australia. Don't worry though! Neither of us live in Australia, so we'll be just fine! Wait... do you? I don't think I ever asked where you're from. Any way, I'll be off, since I saw a wanted poster with my name on it on it for endangering the environment, so I'm gonna flee to some foreign country or something.</p><p>See you another time!</p><p><button id=\"creditsBtn\" onclick=\"lastFunc1()\" style=\"background-color:#b8b8b8; border-radius:100px; padding:7px;\">Credits</button><p id=\"creditsPlace\"></p></p>";
+  finalMsg = 'Email from Professor Cain Todd, ' + dr.toDateString() + '&nbsp;' + dr.getHours() + ':' + ('0' + dr.getMinutes()).slice(-2) + "<p>Thank you for all of the poison dart toads! I have been waiting for so long for this! But I have news. I apologise, but I have discovered that cane toads and poison dart toads are actually just pests, and aren't that advanced at all, so I don't need them anymore. Before I made that realisation, I actually introduced some poison dart toads into Australia, and now they live in harmony with cane toads and are thriving and taking over Australia. Don't worry though! Neither of us live in Australia, so we'll be just fine! Wait... do you? I don't think I ever asked where you're from. Any way, I'll be off, since I saw a wanted poster with my name on it on it for endangering the environment, so I'm gonna flee to some foreign country or something. Feel free to keep getting more toads and exp and unlocking more ranks above plutonium.</p><p>See you another time!</p><p><button id=\"creditsBtn\" onclick=\"lastFunc1()\" style=\"background-color:#b8b8b8; border-radius:100px; padding:7px;\">Credits</button><p id=\"creditsPlace\"></p></p>";
   document.getElementById('finalMsgPlace').innerHTML = finalMsg;
   alert('New email received!');
 }
