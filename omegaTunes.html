@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Omega Tunes</title>
+<link rel="icon" type="image/png" href="faviconOmega.png">
+</head>
+<body>
+<p id="dropDownPlc" class="center"></p>
+<p><small><button style="border:2px solid #ea6868; background-color:black; color:white; border-radius:5px;" onclick='alert("This website was created by Asher North.\n\nClick on an album name or image to see the album.\n\nCyber, Hypersphere, and Polarity were all made in GarageBand.\n\nVersion 1.0");'>Info</button></small></p>
+<hr>
+<h1 class="title">Omega Tunes</h1>
+<hr>
+
+
+
+<div style="float:center;"><img src="cyber.jpeg" alt="Cyber Album Art" width="300" height="300" onclick="cyberDropDown()"><br><br><button style="background-color:black; color:white; border-radius:15px; border: 5px solid #ea6868; font-size:30px; letter-spacing:2px; padding:5px;" onclick="cyberDropDown()">Cyber</button></div>
+<br>
+<br>
+<hr>
+<br>
+<div style="float:center;"><img src="hypersphere.jpeg" alt="Hypersphere Album Art" width="300" height="300" onclick="hypersphereDropDown()"><br><br><button style="background-color:black; color:white; border-radius:15px; border: 5px solid #ea6868; font-size:30px; letter-spacing:2px; padding:5px;" onclick="hypersphereDropDown()">Hypersphere</button></div>
+<br>
+<br>
+<hr>
+<br>
+<div style="float:center;"><img src="polarity.jpeg" alt="Polarity Album Art" width="300" height="300" onclick="polarityDropDown()"><br><br><button style="background-color:black; color:white; border-radius:15px; border: 5px solid #ea6868; font-size:30px; letter-spacing:2px; padding:5px;" onclick="polarityDropDown()">Polarity</button></div>
+<br>
+<br>
+<hr>
+</body>
+<script>
+var cyber = "<div class='cyberDropDown'><a class='x' onclick=\"ridDrop()\">X</a><h1>Cyber</h1><h3>Artist: The Musical Clam</h3><p>1. No Refund Policy </p><p><audio controls><source src='No Refund Policy.m4a' type='audio/mp4'></audio></p><p>2. Positron </p><p><audio controls><source src='Positron.m4a' type='audio/mp4'></audio></p><p>3. Vortexes </p><p><audio controls><source src='Vortexes.m4a' type='audio/mp4'></audio></p><p>4. Banished </p><p><audio controls><source src='Banished.m4a' type='audio/mp4'></audio></p><p>5. Electron </p><p><audio controls><source src='Electron.m4a' type='audio/mp4'></audio></p><p>6. Teddy Bear Go Kaboom (Remastered) </p><p><audio controls><source src='Teddy Bear Go Kaboom (Remastered).m4a' type='audio/mp4'></audio></p><p>7. Lastinistabidabula </p><p><audio controls><source src='Lastinistabidabula.m4a' type='audio/mp4'></audio></p><p>8. Disguise </p><p><audio controls><source src='Disguise.m4a' type='audio/mp4'></audio></p></div>";
+
+var hypersphere = "<div class='hypersphereDropDown'><a class='x' onclick=\"ridDrop()\">X</a><h1>Hypersphere - Single</h1><h3>Artist: The Musical Clam</h3><p>Hypersphere</p><p><audio controls><source src='Hypersphere.m4a' type='audio/mp4'></audio></p></div>";
+
+var polarity = "<div class='polarityDropDown'><a class='x' onclick=\"ridDrop()\">X</a><h1>Polarity</h1><h3>Artist: The Musical Clam</h3><p>2. Plus Minus</p><p><audio controls><source src='Plus Minus.m4a' type='audio/mp4'></audio></p><p>3. Nucleus</p><p><audio controls><source src='Nucleus.m4a' type='audio/mp4'></audio></p><p>4. Recovered Tunes From A Missing Spaceman</p><p><audio controls><source src='Recovered Tunes From A Missing Spaceman.m4a' type='audio/mp4'></audio></p><p>5. Aftermath</p><p><audio controls><source src='Aftermath.m4a' type='audio/mp4'></audio></p><p>7. Poison</p><p><audio controls><source src='Poison.m4a' type='audio/mp4'></audio></p></div>";
+
+function cyberDropDown() {
+  document.getElementById('dropDownPlc').innerHTML = cyber;
+}
+
+function hypersphereDropDown() {
+  document.getElementById('dropDownPlc').innerHTML = hypersphere;
+}
+
+function polarityDropDown() {
+  document.getElementById('dropDownPlc').innerHTML = polarity;
+}
+
+function ridDrop() {
+  document.getElementById('dropDownPlc').innerHTML = '';
+}
+</script>
+<style>
+
+body {
+    background-color:black;
+    font-family:arial;
+    color:white;
+    text-align:center;
+}
+
+html {
+    scrollbar-color: #ea6868 #00000000;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.x {
+  font-size:30px;
+  color:red;
+  font-family:arial;
+  float:right;
+}
+
+hr {
+  border-color:#ea6868;
+}
+
+button {
+  border-color:#ea6868;
+}
+
+.title {
+  text-shadow: 3px 3px 5px #ea6868;
+  font-size:50px;
+}
+
+.cyberDropDown {
+    padding:25px;
+    background-color:black;
+    border-color:#00ffff;
+    color:white;
+    border-style:solid;
+    border-radius:10px;
+    border-width:5px;
+    position:absolute;
+    text-align:center;
+    width:90%;
+    height:90%;
+    position:fixed;
+    overflow-y: scroll;
+    scrollbar-color: #009ba0 #00ffff;
+}
+
+.hypersphereDropDown {
+    padding:25px;
+    background-color:black;
+    color:white;
+    border-style:solid;
+    border-radius:10px;
+    border-width:5px;
+    position:absolute;
+    text-align:center;
+    border-left-color:yellow;
+    border-top-color:blue;
+    border-right-color:red;
+    border-bottom-color:lime;
+    width:60%;
+    height:60%;
+    position:fixed;
+}
+
+.polarityDropDown {
+    padding:25px;
+    background-color:black;
+    color:white;
+    border-style:solid;
+    border-radius:10px;
+    border-width:5px;
+    position:absolute;
+    text-align:center;
+    border-left-color:lime;
+    border-top-color:white;
+    border-right-color:red;
+    border-bottom-color:white;
+    width:90%;
+    height:90%;
+    position:fixed;
+    overflow-y: scroll;
+    scrollbar-color: #8b0000 red;
+}
+
+
+
+</style>
+</html>
