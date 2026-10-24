@@ -6,14 +6,12 @@
 </head>
 <body id="body">
 
-<!--<button onclick="">Test Button</button>-->
-
 <p><div class="dropdown" style="float:left;">
-  <div id="myDropdown" class="dropdown-content">
-    <a onclick="myFunction()" style="color:red; float:right; font-size:20px;"><b><big>X</big></b></a>
-    <p><h2 style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CyberCredit Shop</h2></p>
+  <div id="myDropdown" style="height:600px;" class="dropdown-content">
+    <a onclick="dropShop1()" style="color:red; float:right; font-size:20px; z-index:10; position:absolute; top:0px; right:0px;"><b><big>X</big></b></a>
+    <p style="text-align:center;"><h2 id="shopTitle">CyberCredit Shop</h2></p>
 	<hr>
-	<small><p>Adds CyberCredit insurance, which gives back 50% of stolen CyberCredits. Decimals are rounded. Costs 600 CyberCredits.</p>
+	<small id="shopArea"><p>Adds CyberCredit insurance, which gives back 50% of stolen CyberCredits. Decimals are rounded. Costs 600 CyberCredits.</p>
     <button onclick="purchase1()" id="purchaseBtn1">Purchase</button>
 	<hr>
 	<p>Extends title. Costs 750 CyberCredits.</p>
@@ -28,19 +26,19 @@
 	<p>Changes the +100 button to +150. The chance of being hacked remains the same. Costs 2250 CyberCredits.</p>
 	<button onclick="purchase5()" id="purchaseBtn5">Purchase</button>
 	<hr>
-    <p>Increases CyberCredit insurance to give back 75%. Can't be purchased unless CyberCredit insurance has been purchased first. Costs 3000 CyberCredits.</p>
+    <p>Increases CyberCredit insurance to give back 70%. Can't be purchased unless CyberCredit insurance has been purchased first. Costs 3000 CyberCredits.</p>
 	<button onclick="purchase6()" id="purchaseBtn6">Purchase</button>
 	<hr>
     <p>Adds a +250 button. Costs 5000 CyberCredits.</p>
 	<button onclick="purchase7()" id="purchaseBtn7">Purchase</button>
 	<hr>
-    <p>Changes website's the theme colours. Costs 7000 CyberCredits.</p>
+    <p>Adds the Crypto Green colour theme. Costs 7000 CyberCredits.</p>
 	<button onclick="purchase8()" id="purchaseBtn8">Purchase</button>
 	<hr>
-	<p>Decreases the chance of being hacked on all buttons by 50%. Costs 8000 CyberCredits.</p>
+	<p>Halves the chance of being hacked on all buttons. Costs 8000 CyberCredits.</p>
 	<button onclick="purchase9()" id="purchaseBtn9">Purchase</button>
 	<hr>
-	<p>Makes it impossible for the +1/+2 button to get hacked. Costs 10000 CyberCredits.</p>
+	<p>Makes the chance of being hacked on the +1/+2 button a 1 in 10000 chance. Costs 10000 CyberCredits.</p>
 	<button onclick="purchase10()" id="purchaseBtn10">Purchase</button>
 	<hr>
 	<p>Changes the +250 button to +300. The chance of being hacked remains the same. Costs 10500 CyberCredits.</p>
@@ -51,11 +49,32 @@
 	<hr>
 	<p>Adds a +500 button. Costs 15000 CyberCredits.</p>
 	<button onclick="purchase13()" id="purchaseBtn13">Purchase</button>
+  <hr>
+	<p>Unlocks the CyberCredit Forge. Costs 16000 CyberCredits.</p>
+	<button onclick="purchase14()" id="purchaseBtn14" style="border-color:grey; color:grey; border-style:solid;" disabled>Locked</button>
   </small></div>
 </div></p>
-<a style="float:left;"><button onclick="myFunction()" class="dropbtn">CyberCredit Shop</button><button onclick='invest()' id="investBtn" style="border-color:grey; border-style:solid; color:grey;" disabled>Locked</button><button onclick="alert('This website was developed by Asher North.\n\nVersion 1.3\n\nWhat to do:\nPress the buttons below the title to gain CyberCredits, but be careful because the more profitable the button you press, the higher chance you are to get hacked when you press it. Use CyberCredits to buy upgrades from the shop.\n\nChances for different buttons to get you hacked:\n+1/+2 is a 1 in 1000 chance.\n+5 is a 1 in 100 chance.\n+10 is a 1 in 50 chance.\n+25 is a 1 in 25 chance.\n+100/+150 is a 1 in 10 chance.\n+250/+300 is a 1 in 9 chance.\n+500 is a 1 in 8 chance.\n\nThis website autosaves.')">Info</button>
+<p><div class="dropdown" style="float:left;">
+  <div id="themeSelect" style="height:auto;" class="dropdown-content">
+    <a onclick="dropThemeSelect()" style="color:red; float:right; font-size:20px; position:absolute; z-index:10; top:0px; right:0px;"><b><big>X</big></b></a>
+    <p><h2 style="text-align:center;">Theme Selection</h2></p>
+    <hr>
+    <p><button style="border-color:cyan; color:cyan; background-color:#383838;" onclick="r.style.setProperty('--cyan', 'cyan'); r.style.setProperty('--grey', '#383838'); document.getElementById('cyberCreditsImg').innerHTML = cyberCreditsImg; (localStorage.theme) = 1;">Cyber Blue</button></p>
+    <hr>
+    <p id="cryptoThemeBtnPlc"><button style="border-color:grey; color:grey; border-style:solid;">Locked</button></p>
+    <hr>
+    <p id="quantumThemeBtnPlc"><button style="border-color:grey; color:grey; border-style:solid;">Locked</button></p>
+    <hr>
+    <p id="hackerThemeBtnPlc"><button style="border-color:grey; color:grey; border-style:solid;">Secret</button></p>
+    <hr>
+    <p id="completionistThemeBtnPlc"><button style="border-color:grey; color:grey; border-style:solid;">Locked</button></p>
+    <hr>
 
-<button class="delete" onclick="deleteProgress();">Delete Progress</button><button class="nameChange" onclick="nameChange();">Change Name</button></a>
+  </small></div>
+</div></p>
+<a style="float:left;"><font id="shopAndInvestBtns"><button id="shopBtn" onclick="dropShop1()" class="dropbtn">CyberCredit Shop</button><button onclick='invest()' id="investBtn" style="border-color:grey; border-style:solid; color:grey;" disabled>Locked</button></font> 
+
+<button onclick="alert('This rage game was developed by Asher North.\n\nVersion 1.4\n\nWhat to do:\nPress the buttons below the title to gain CyberCredits, but be careful because the more profitable the button you press, the higher chance you are to get hacked when you press it. Use CyberCredits to buy upgrades from the shop.\n\nChances for different buttons to get you hacked:\n+0 is a 1 in 1500 chance.\n+1/+2 is a 1 in 1000 chance.\n+5 is a 1 in 100 chance.\n+10 is a 1 in 50 chance.\n+25 is a 1 in 25 chance.\n+100/+150 is a 1 in 10 chance.\n+250/+300 is a 1 in 9 chance.\n+500 is a 1 in 8 chance.\nHack is a 1 in 10 chance.\n\nThis website autosaves.\n\nYou have found ' + secretsFound + ' out of 2 secrets.' + hundredComplete)">Info</button><button onclick="deleteProgress();">Delete Progress</button><font id="nameChangeBtn"><button onclick="nameChange();">Change Name</button><button onclick="dropThemeSelect()">Themes</button></font></a>
 
 <p>&nbsp;</p>
 
@@ -64,21 +83,23 @@
 <h1 id="title" class="test">The Internet Bank Of CyberCredits</h1>
 
 <hr><br>
-
+<font id="allPlusBtns">
 <a id="addThePlus0"></a>
 
 <button id="plus1" onclick="stealChance = 1000 * chanceOfHack * infiniteOnes; cyberCreditDeal(); if(stealRandomiser >= 1) cyberCredits += plus1Plus1; getElementById('cyberCreditCount').innerHTML = cyberCredits; cyberCreditDeal(); document.getElementById('plus1').disabled = true; document.getElementById('plus1').disabled = false; saveCyberCredits();">+1</button> 
+
 <button id="plus5" onclick="stealChance = 100 * chanceOfHack; cyberCreditDeal(); if(stealRandomiser >= 1) cyberCredits += 5; getElementById('cyberCreditCount').innerHTML = cyberCredits; document.getElementById('plus5').disabled = true; document.getElementById('plus5').disabled = false; saveCyberCredits();">+5</button> 
 
 <button id="plus10" onclick="stealChance = 50 * chanceOfHack; cyberCreditDeal(); if(stealRandomiser >= 1) cyberCredits += 10; getElementById('cyberCreditCount').innerHTML = cyberCredits; document.getElementById('plus10').disabled = true; document.getElementById('plus10').disabled = false; saveCyberCredits();">+10</button> 
 
-<button id="plus25" onclick="stealChance = 25 * chanceOfHack; cyberCreditDeal(); if(stealRandomiser >= 1) cyberCredits += 25; getElementById('cyberCreditCount').innerHTML = cyberCredits; document.getElementById('plus25').disabled = true; document.getElementById('plus25').disabled = false; saveCyberCredits();">+25</button> 
+<button id="plus25" onclick="stealChance = 25 * chanceOfHack; cyberCreditDeal(); if(stealRandomiser >= 1) cyberCredits += plus25Plus25; getElementById('cyberCreditCount').innerHTML = cyberCredits; document.getElementById('plus25').disabled = true; document.getElementById('plus25').disabled = false; saveCyberCredits();">+25</button> 
 
 <button id="plus100" onclick="stealChance = 10 * chanceOfHack; cyberCreditDeal(); if(stealRandomiser >= 1) cyberCredits += plus100Plus50; getElementById('cyberCreditCount').innerHTML = cyberCredits; document.getElementById('plus100').disabled = true; document.getElementById('plus100').disabled = false; saveCyberCredits();">+100</button> 
 
 <a id="addThePlus250"></a>
 
 <a id="addThePlus500"></a>
+</font>
 
 <p><b><a id="namePlc">Your</a>'s CyberCredit Account</b></p>
 
@@ -90,11 +111,11 @@
 <style>
 :root {
   --cyan: cyan;
-  --red: red;
+  --grey: #383838;
 }
 
 body {
-  background-color:#383838;
+  background-color:var(--grey);
   color:var(--cyan);
   text-align:center;
   font-family:arial;
@@ -111,20 +132,6 @@ button {
   padding:5px;
   border-radius:5px;
 }
-.delete {
-  border-color:rgb(255, 0, 0);
-  background-color:#00000000;
-  color:rgb(255, 0, 0);
-  padding:5px;
-  border-radius:5px;
-}
-.nameChange {
-  border-color:white;
-  background-color:#00000000;
-  color:white;
-  padding:5px;
-  border-radius:5px;
-}
 .cyberCreditCountStyle {
   font-size:75px;
 }
@@ -138,12 +145,15 @@ button {
   display: none;
   position: absolute;
   border-color:var(--cyan);
-  background-color:#383838;
+  background-color:var(--grey);
   color:var(--cyan);
   padding:15px;
   border-radius:5px;
   border-style:outset;
   width:1280px;
+  float:center;
+  overflow-y: auto;
+  scrollbar-color: var(--cyan) var(--grey);
 }
 
 .dropbtn {
@@ -159,25 +169,32 @@ button {
 .show {display: block;}
 </style>
 <script>
-  function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms))
-}
-if (!localStorage.name) {
-  let name = prompt("Hey you! What's your name?", "Mr Insert Name Here");
-  if (name == null) name = 'Mystery Dude';
-  (localStorage.name) = name;
-  alert('Well ' + name + ', beware of Chips McGee, the well known CyberCredits hacker. Don\'t take too many CyberCredits, or Chips McGee may take them all! Unless you are insured.');
-} else {
-    name = (localStorage.name);
-}
-document.getElementById('namePlc').innerHTML = (localStorage.name);
+// Base JS code stuff sits around here at the start.
 
-function nameChange() {
-  let name = prompt("What would you like to change your name to?", "Mr Insert Name Here");
-  if (name == null) name = 'Mystery Dude';
-  (localStorage.name) = name;
-  alert('From this moment on, I shall call you ' + name + '.\nOkay Jeff?\n\nWhoops! I meant to say ' + name + '.');
-  document.getElementById('namePlc').innerHTML = (localStorage.name);
+window.addEventListener('keydown', function(event) {
+  if (event.key === 'Enter') {
+    event.preventDefault();
+  }
+});
+var hundredComplete = "";
+function hundredCheck() {
+  if (localStorage.purchased1 && localStorage.purchased2 && localStorage.purchased3 == 1 && localStorage.purchased4 && localStorage.purchased5 && localStorage.purchased6 && localStorage.purchased7 && localStorage.purchased8 && localStorage.purchased9 && localStorage.purchased10 && localStorage.purchased11 && localStorage.purchased12 && localStorage.purchased13 && localStorage.purchased14 && localStorage.purchased15 && localStorage.purchased16 && localStorage.purchased17 && localStorage.purchased18 && localStorage.purchased19 && localStorage.purchased20 && localStorage.previousChipsMcGeeLogin) {
+    hundredComplete = "\nYou have 100% completed this game. Congrats."
+    if (!localStorage.completeAlreadyDone) {
+    alert('Game 100% complete!\n\nFor getting all of the upgrades and unlocking all of the secrets in the game, you have unlocked a new theme. Completionist Gold.');
+    r.style.setProperty('--cyan', '#d4af37');
+    r.style.setProperty('--grey', '#420000');
+    document.getElementById('cyberCreditsImg').innerHTML = royalCyberCreditsImg;
+    (localStorage.theme) = 5;
+    document.getElementById('completionistThemeBtnPlc').innerHTML = '<button style="border-color:#d4af37; color:#d4af37; background-color:#420000;" onclick="r.style.setProperty(\'--cyan\', \'#d4af37\'); r.style.setProperty(\'--grey\', \'#420000\'); document.getElementById(\'cyberCreditsImg\').innerHTML = royalCyberCreditsImg; (localStorage.theme) = 5;">Completionist Gold</button>';
+    }
+    (localStorage.completeAlreadyDone) = 0;
+  }
+}
+hundredCheck();
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms))
 }
 
 var cyberCredits;
@@ -194,144 +211,298 @@ var insurancePercentage = 50;
 var insurancePurchaseDeterminer = 0;
 var r = document.querySelector(':root');
 var chanceOfHack = 1;
-var a = '<img src="faviconCyberPro.png" width="85" height="85">';
+var cyberCreditsImg = '<img src="faviconCyber.png" width="85" height="85">';
+var proCyberCreditsImg = '<img src="faviconCyberPro.png" width="85" height="85">';
+var darkCyberCreditsImg = '<img src="faviconCyberDark.png" width="85" height="85">';
+var magnoCyberCreditsImg = '<img src="faviconCyberMagno.png" width="85" height="85">';
+var royalCyberCreditsImg = '<img src="faviconCyberRoyal.png" width="85" height="85">';
 var infiniteOnes = 1;
 var plus250Plus50 = 250;
 var plus250PurchaseDeterminer = 0;
 var plus250Btn = '<button id="plus250" onclick="stealChance = 9 * chanceOfHack; cyberCreditDeal(); if(stealRandomiser >= 1) cyberCredits += plus250Plus50; getElementById(\'cyberCreditCount\').innerHTML = cyberCredits; document.getElementById(\'plus250\').disabled = true; document.getElementById(\'plus250\').disabled = false; saveCyberCredits();">+250</button>';
 var plus500Btn = '<button id="plus500" onclick="stealChance = 8 * chanceOfHack; cyberCreditDeal(); if(stealRandomiser >= 1) cyberCredits += 500; getElementById(\'cyberCreditCount\').innerHTML = cyberCredits; document.getElementById(\'plus500\').disabled = true; document.getElementById(\'plus500\').disabled = false; saveCyberCredits();">+500</button>';
 var plus0Btn = '<button id="plus0" onclick="stealChance = 1500 * chanceOfHack; cyberCreditDeal(); if(stealRandomiser >= 1) cyberCredits += 0; getElementById(\'cyberCreditCount\').innerHTML = cyberCredits; cyberCreditDeal(); document.getElementById(\'plus0\').disabled = true; document.getElementById(\'plus0\').disabled = false; saveCyberCredits();">+0</button>';
-if (localStorage.purchased1) { 
-  	insureInsurance += 1;
-	  insurancePurchaseDeterminer += 1;
-    document.getElementById('purchaseBtn1').disabled = true;
-    document.getElementById('purchaseBtn1').style.borderColor = "grey";
-    document.getElementById('purchaseBtn1').style.color = "grey";
-    document.getElementById('purchaseBtn1').style.borderStyle = "solid";
-	  document.getElementById('purchaseBtn1').innerHTML = 'Purchased';
-  }
+var investmentSuccessChanceIncrease = 3;
+var plus25Plus25 = 25;
+var cutTimeInvest = 1;
+var investmentSuccessAmount = 1500;
 
-if (localStorage.purchased2) {
-    document.getElementById('title').innerHTML = "The One And Only Internet Bank Of CyberCredits";
+var secretsFound = 0;
+
+var forgeUpgrades = '<p>Adds the Quantum Purple colour theme. Costs 17000 CyberCredits.</p><button onclick="purchase15()" id="purchaseBtn15">Purchase</button><hr><p>Halves invest button waiting time. Costs 18000 CyberCredits.</p><button onclick="purchase16()" id="purchaseBtn16">Purchase</button><hr><p>Increases the +25 button to +50. The chance of being hacked remains the same. Costs 19000 CyberCredits.</p><button onclick="purchase17()" id="purchaseBtn17">Purchase</button><hr><p>Increases CyberCredit insurance to give back 80%. Costs 20000 CyberCredits.</p><button onclick="purchase18()" id="purchaseBtn18">Purchase</button><hr><p>Increases the amount of CyberCredits you get from a successful investment to 2500. Costs 21000 CyberCredits.</p><button onclick="purchase19()" id="purchaseBtn19">Purchase</button><hr><p>Makes the title more grand. Costs 22000 CyberCredits.</p><button onclick="purchase20()" id="purchaseBtn20">Purchase</button><hr>';
+
+var name;
+if (!localStorage.name) {
+  let selectName = prompt("Hey you! What's your name?", "Mr Insert Name Here");
+  name = selectName;
+  if (selectName == null || name == '') name = 'Mystery Dude';
+    (localStorage.name) = name;
+    if (name != 'Chips McGee') {
+    alert('Well ' + name + ', beware of Chips McGee, the well known CyberCredits hacker. Don\'t take too many CyberCredits, or Chips McGee may take them all! Unless you are insured.');
+    } else {
+      alert('Well ' + name + ', beware of Chips McGee, the well known CyberCredits hacker. Wait a minute, you\'re Chips McGee! I\'d better get out of here before you take my CyberCredits!');
+    }
+  var name = (localStorage.name);
+}
+document.getElementById('namePlc').innerHTML = (localStorage.name);
+if (name == 'FULLRESET') {localStorage.removeItem('previousChipsMcGeeLogin'); revert();}
+
+function nameChange() {
+  let selectName = prompt("What would you like to change your name to?", "Mr Insert Name Here");
+  name = selectName;
+  if (selectName == null || name == '') name = 'Mystery Dude';
+  if (selectName == 'Chips McGee') location.reload();
+  (localStorage.name) = name;
+  alert('From this moment on, I shall call you ' + name + '.\nOkay Jeff?\n\nWhoops! I meant to say ' + name + '.');
+  document.getElementById('namePlc').innerHTML = name;
+  name = (localStorage.name);
+  if (selectName == 'FULLRESET') {localStorage.removeItem('previousChipsMcGeeLogin'); revert();}
+}
+name = (localStorage.name);
+
+function add0Btn() {  document.getElementById('addThePlus0').innerHTML = plus0Btn;
+  (localStorage.purchased3) = 1;
+  document.getElementById('secretBtn1').disabled = true;
+  alert('You found a secret! You unlocked a +0 button! Oh, and by the way, you can still get hacked by pressing this button.');
+  document.getElementById('secretBtn1').style.borderStyle = 'solid';
+  document.getElementById('secretBtn1').innerHTML = 'Purchased';
+  secretsFound += 1;
+}
+
+function purchaseFunc1() {
+  insureInsurance += 1;
+	insurancePurchaseDeterminer += 1;
+  document.getElementById('purchaseBtn1').disabled = true;
+  document.getElementById('purchaseBtn1').style.borderColor = "grey";
+  document.getElementById('purchaseBtn1').style.color = "grey";
+  document.getElementById('purchaseBtn1').style.borderStyle = "solid";
+	document.getElementById('purchaseBtn1').innerHTML = 'Purchased';
+}
+
+function purchaseFunc2() {
+  document.getElementById('title').innerHTML = "The One And Only Internet Bank Of CyberCredits";
 	document.getElementById('tabTitle').innerHTML = "The One And Only Internet Bank Of CyberCredits";
-    document.getElementById('purchaseBtn2').disabled = true;
-    document.getElementById('purchaseBtn2').style.borderColor = "grey";
-    document.getElementById('purchaseBtn2').style.color = "grey";
-    document.getElementById('purchaseBtn2').style.borderStyle = "solid";
+  document.getElementById('purchaseBtn2').disabled = true;
+  document.getElementById('purchaseBtn2').style.borderColor = "grey";
+  document.getElementById('purchaseBtn2').style.color = "grey";
+  document.getElementById('purchaseBtn2').style.borderStyle = "solid";
 	document.getElementById('purchaseBtn2').innerHTML = 'Purchased';
 }
 
-if (localStorage.purchased3) {
+function purchaseFunc3() {
   document.getElementById('cyberCreditCount').style.fontFamily = "Times New Roman";
-	document.getElementById('secretArea1').innerHTML = '<button style="border-color:grey; color:grey;" id="secretBtn1" onclick="add0Btn()">Purchased</button>';
+	document.getElementById('secretArea1').innerHTML = '<button style="border-color:grey; color:grey;" id="secretBtn1" onclick="add0Btn()">Purchase</button>';
+}
+
+function purchaseFunc4() {
+  document.getElementById('purchaseBtn4').disabled = true;
+  document.getElementById('purchaseBtn4').style.borderColor = "grey";
+  document.getElementById('purchaseBtn4').style.color = "grey";
+  document.getElementById('purchaseBtn4').style.borderStyle = "solid";
+	document.getElementById('purchaseBtn4').innerHTML = 'Purchased';
+  document.getElementById('plus1').innerHTML = "+2";
+	plus1Plus1 += 1;
+}
+
+function purchaseFunc5() {
+  document.getElementById('plus100').innerHTML = "+150";
+  plus100Plus50 += 50;
+  document.getElementById('purchaseBtn5').disabled = true;
+  document.getElementById('purchaseBtn5').style.borderColor = "grey";
+  document.getElementById('purchaseBtn5').style.color = "grey";
+  document.getElementById('purchaseBtn5').style.borderStyle = "solid";
+  document.getElementById('purchaseBtn5').innerHTML = 'Purchased';
+}
+
+function purchaseFunc6() {
+  insurancePercentage += 20;
+  document.getElementById('purchaseBtn6').disabled = true;
+  document.getElementById('purchaseBtn6').style.borderColor = "grey";
+  document.getElementById('purchaseBtn6').style.color = "grey";
+  document.getElementById('purchaseBtn6').style.borderStyle = "solid";
+  document.getElementById('purchaseBtn6').innerHTML = 'Purchased';
+}
+
+function purchaseFunc7() {
+  document.getElementById('addThePlus250').innerHTML = plus250Btn;
+  plus250PurchaseDeterminer += 1;
+  document.getElementById('purchaseBtn7').disabled = true;
+  document.getElementById('purchaseBtn7').style.borderColor = "grey";
+  document.getElementById('purchaseBtn7').style.color = "grey";
+  document.getElementById('purchaseBtn7').style.borderStyle = "solid";
+  document.getElementById('purchaseBtn7').innerHTML = 'Purchased';
+}
+
+function purchaseFunc8() {
+  document.getElementById('purchaseBtn8').disabled = true;
+  document.getElementById('purchaseBtn8').style.borderColor = "grey";
+  document.getElementById('purchaseBtn8').style.color = "grey";
+  document.getElementById('purchaseBtn8').style.borderStyle = "solid";
+  document.getElementById('purchaseBtn8').innerHTML = 'Purchased';
+  document.getElementById('cryptoThemeBtnPlc').innerHTML = '<button style="border-color:lime; color:lime; background-color:#1c1c1c;" onclick="r.style.setProperty(\'--cyan\', \'lime\'); r.style.setProperty(\'--grey\', \'#1c1c1c\'); document.getElementById(\'cyberCreditsImg\').innerHTML = proCyberCreditsImg; (localStorage.theme) = 2;">Crypto Green</button>';
+}
+
+function purchaseFunc9() {
+  chanceOfHack += 1;
+  document.getElementById('purchaseBtn9').disabled = true;
+  document.getElementById('purchaseBtn9').style.borderColor = "grey";
+  document.getElementById('purchaseBtn9').style.color = "grey";
+  document.getElementById('purchaseBtn9').style.borderStyle = "solid";
+	document.getElementById('purchaseBtn9').innerHTML = 'Purchased';
+}
+
+function purchaseFunc10() {
+  infiniteOnes = 10;
+  document.getElementById('purchaseBtn10').disabled = true;
+  document.getElementById('purchaseBtn10').style.borderColor = "grey";
+  document.getElementById('purchaseBtn10').style.color = "grey";
+  document.getElementById('purchaseBtn10').style.borderStyle = "solid";
+	document.getElementById('purchaseBtn10').innerHTML = 'Purchased';
+}
+
+function purchaseFunc11() {
+  document.getElementById('plus250').innerHTML = "+300";
+	plus250Plus50 += 50;
+  document.getElementById('purchaseBtn11').disabled = true;
+  document.getElementById('purchaseBtn11').style.borderColor = "grey";
+  document.getElementById('purchaseBtn11').style.color = "grey";
+  document.getElementById('purchaseBtn11').style.borderStyle = "solid";
+  document.getElementById('purchaseBtn11').innerHTML = 'Purchased';
+}
+
+function purchaseFunc12() {
+  document.getElementById('investBtn').style.borderColor = "var(--cyan)";
+  document.getElementById('investBtn').style.color = "var(--cyan)";
+  document.getElementById('investBtn').style.borderStyle = "outset";
+  document.getElementById('investBtn').disabled = false;
+	document.getElementById('investBtn').innerHTML = 'Invest';
+  document.getElementById('purchaseBtn12').disabled = true;
+  document.getElementById('purchaseBtn12').style.borderColor = "grey";
+  document.getElementById('purchaseBtn12').style.color = "grey";
+  document.getElementById('purchaseBtn12').style.borderStyle = "solid";
+  document.getElementById('purchaseBtn12').innerHTML = 'Purchased';
+}
+
+function purchaseFunc13() {
+  document.getElementById('addThePlus500').innerHTML = plus500Btn;
+  document.getElementById('purchaseBtn13').disabled = true;
+  document.getElementById('purchaseBtn13').style.borderColor = "grey";
+  document.getElementById('purchaseBtn13').style.color = "grey";
+  document.getElementById('purchaseBtn13').style.borderStyle = "solid";
+  document.getElementById('purchaseBtn13').innerHTML = 'Purchased';
+}
+
+function purchaseFunc14() {
+  document.getElementById('shopArea').innerHTML = forgeUpgrades;
+  document.getElementById('shopTitle').innerHTML = "The CyberCredit Forge";
+  document.getElementById('shopBtn').innerHTML = "The CyberCredit Forge";
+  document.getElementById('shopArea').style.fontFamily = "Times New Roman";
+  document.getElementById('shopTitle').style.fontFamily = "Times New Roman";
+  document.getElementById('shopBtn').style.fontFamily = "Times New Roman";
+}
+
+function purchaseFunc15() {
+  document.getElementById('purchaseBtn15').disabled = true;
+  document.getElementById('purchaseBtn15').style.borderColor = "grey";
+  document.getElementById('purchaseBtn15').style.color = "grey";
+  document.getElementById('purchaseBtn15').style.borderStyle = "solid";
+  document.getElementById('purchaseBtn15').innerHTML = 'Purchased';
+  document.getElementById('quantumThemeBtnPlc').innerHTML = '<button style="border-color:magenta; color:magenta; background-color:black;" onclick="r.style.setProperty(\'--cyan\', \'magenta\'); r.style.setProperty(\'--grey\', \'black\'); document.getElementById(\'cyberCreditsImg\').innerHTML = magnoCyberCreditsImg; (localStorage.theme) = 4;">Quantum Purple</button>';
+
+}
+
+function purchaseFunc16() {
+  cutTimeInvest = 2;
+  document.getElementById('purchaseBtn16').disabled = true;
+  document.getElementById('purchaseBtn16').style.borderColor = "grey";
+  document.getElementById('purchaseBtn16').style.color = "grey";
+  document.getElementById('purchaseBtn16').style.borderStyle = "solid";
+  document.getElementById('purchaseBtn16').innerHTML = 'Purchased';
+
+}
+
+function purchaseFunc17() {
+  document.getElementById('purchaseBtn17').disabled = true;
+  document.getElementById('purchaseBtn17').style.borderColor = "grey";
+  document.getElementById('purchaseBtn17').style.color = "grey";
+  document.getElementById('purchaseBtn17').style.borderStyle = "solid";
+  document.getElementById('purchaseBtn17').innerHTML = 'Purchased';
+  document.getElementById('plus25').innerHTML = "+50";
+	plus25Plus25 += 25;
+
+}
+
+function purchaseFunc18() {
+  insurancePercentage += 10;
+  document.getElementById('purchaseBtn18').disabled = true;
+  document.getElementById('purchaseBtn18').style.borderColor = "grey";
+  document.getElementById('purchaseBtn18').style.color = "grey";
+  document.getElementById('purchaseBtn18').style.borderStyle = "solid";
+  document.getElementById('purchaseBtn18').innerHTML = 'Purchased';
+
+}
+
+function purchaseFunc19() {
+  investmentSuccessAmount += 1000;
+  document.getElementById('purchaseBtn19').disabled = true;
+  document.getElementById('purchaseBtn19').style.borderColor = "grey";
+  document.getElementById('purchaseBtn19').style.color = "grey";
+  document.getElementById('purchaseBtn19').style.borderStyle = "solid";
+  document.getElementById('purchaseBtn19').innerHTML = 'Purchased';
+}
+
+function purchaseFunc20() {
+  document.getElementById('title').innerHTML = "The Grand Internet Bank Of CyberCredits";
+	document.getElementById('tabTitle').innerHTML = "The Grand Internet Bank Of CyberCredits";
+  document.getElementById('purchaseBtn20').disabled = true;
+  document.getElementById('purchaseBtn20').style.borderColor = "grey";
+  document.getElementById('purchaseBtn20').style.color = "grey";
+  document.getElementById('purchaseBtn20').style.borderStyle = "solid";
+  document.getElementById('purchaseBtn20').innerHTML = 'Purchased';
+}
+
+if (localStorage.purchased1) purchaseFunc1();
+if (localStorage.purchased2) purchaseFunc2();
+if (localStorage.purchased3) {
+  purchaseFunc3();
   if (localStorage.purchased3 == 1) {
     document.getElementById('addThePlus0').innerHTML = plus0Btn;
     document.getElementById('secretBtn1').disabled = true;
     document.getElementById('secretBtn1').style.borderStyle = 'solid';
+    document.getElementById('secretBtn1').innerHTML = 'Purchased';
+    secretsFound += 1;
+  }
+}
+if (localStorage.purchased4) purchaseFunc4();
+if (localStorage.purchased5) purchaseFunc5();
+if (localStorage.purchased6) purchaseFunc6();
+if (localStorage.purchased7) purchaseFunc7();
+if (localStorage.purchased8) purchaseFunc8();
+if (localStorage.purchased9) purchaseFunc9();
+if (localStorage.purchased10) purchaseFunc10();
+if (localStorage.purchased11) purchaseFunc11();
+if (localStorage.purchased12) purchaseFunc12();
+if (localStorage.purchased13) purchaseFunc13();
+
+function checkForgeUpgrade() {
+  if (localStorage.purchased1 && localStorage.purchased2 && localStorage.purchased3 && localStorage.purchased4 && localStorage.purchased5 && localStorage.purchased6 && localStorage.purchased7 && localStorage.purchased8 && localStorage.purchased9 && localStorage.purchased10 && localStorage.purchased11 && localStorage.purchased12 && localStorage.purchased13) {
+    document.getElementById('purchaseBtn14').disabled = false;
+    document.getElementById('purchaseBtn14').style.borderColor = "var(--cyan)";
+    document.getElementById('purchaseBtn14').style.color = "var(--cyan)";
+    document.getElementById('purchaseBtn14').style.borderStyle = "outset";
+    document.getElementById('purchaseBtn14').innerHTML = 'Purchase';
   }
 }
 
-if (localStorage.purchased4) {
-    document.getElementById('purchaseBtn4').disabled = true;
-    document.getElementById('purchaseBtn4').style.borderColor = "grey";
-    document.getElementById('purchaseBtn4').style.color = "grey";
-    document.getElementById('purchaseBtn4').style.borderStyle = "solid";
-	  document.getElementById('purchaseBtn4').innerHTML = 'Purchased';
-    document.getElementById('plus1').innerHTML = "+2";
-	  plus1Plus1 += 1;
-}
+checkForgeUpgrade();
 
-if (localStorage.purchased5) {
-    document.getElementById('plus100').innerHTML = "+150";
-  	plus100Plus50 += 50;
-    document.getElementById('purchaseBtn5').disabled = true;
-    document.getElementById('purchaseBtn5').style.borderColor = "grey";
-    document.getElementById('purchaseBtn5').style.color = "grey";
-    document.getElementById('purchaseBtn5').style.borderStyle = "solid";
-  	document.getElementById('purchaseBtn5').innerHTML = 'Purchased';
-}
-
-if (localStorage.purchased6) {
-      insurancePercentage += 25;
-      document.getElementById('purchaseBtn6').disabled = true;
-      document.getElementById('purchaseBtn6').style.borderColor = "grey";
-      document.getElementById('purchaseBtn6').style.color = "grey";
-      document.getElementById('purchaseBtn6').style.borderStyle = "solid";
-      document.getElementById('purchaseBtn6').innerHTML = 'Purchased';
-}
-
-if (localStorage.purchased7) {
-    document.getElementById('addThePlus250').innerHTML = plus250Btn;
-  	plus250PurchaseDeterminer += 1;
-    document.getElementById('purchaseBtn7').disabled = true;
-    document.getElementById('purchaseBtn7').style.borderColor = "grey";
-    document.getElementById('purchaseBtn7').style.color = "grey";
-    document.getElementById('purchaseBtn7').style.borderStyle = "solid";
-  	document.getElementById('purchaseBtn7').innerHTML = 'Purchased';
-}
-
-if (localStorage.purchased8) {
-    r.style.setProperty('--cyan', 'lime');
-	  document.getElementById('body').style.backgroundColor = "#1c1c1c";
-  	document.getElementById('myDropdown').style.backgroundColor = "#1c1c1c";
-	  document.getElementById('cyberCreditsImg').innerHTML = a;
-    document.getElementById('purchaseBtn8').disabled = true;
-    document.getElementById('purchaseBtn8').style.borderColor = "grey";
-    document.getElementById('purchaseBtn8').style.color = "grey";
-    document.getElementById('purchaseBtn8').style.borderStyle = "solid";
-  	document.getElementById('purchaseBtn8').innerHTML = 'Purchased';
-}
-
-if (localStorage.purchased9) {
-    chanceOfHack += 0.5;
-    document.getElementById('purchaseBtn9').disabled = true;
-    document.getElementById('purchaseBtn9').style.borderColor = "grey";
-    document.getElementById('purchaseBtn9').style.color = "grey";
-    document.getElementById('purchaseBtn9').style.borderStyle = "solid";
-	  document.getElementById('purchaseBtn9').innerHTML = 'Purchased';
-}
-
-if (localStorage.purchased10) {
-    infiniteOnes = 1.797693134862315E+309;
-    document.getElementById('purchaseBtn10').disabled = true;
-    document.getElementById('purchaseBtn10').style.borderColor = "grey";
-    document.getElementById('purchaseBtn10').style.color = "grey";
-    document.getElementById('purchaseBtn10').style.borderStyle = "solid";
-	  document.getElementById('purchaseBtn10').innerHTML = 'Purchased';
-}
-
-if (localStorage.purchased11) {
-    document.getElementById('plus250').innerHTML = "+300";
-	  plus250Plus50 += 50;
-    document.getElementById('purchaseBtn11').disabled = true;
-    document.getElementById('purchaseBtn11').style.borderColor = "grey";
-    document.getElementById('purchaseBtn11').style.color = "grey";
-    document.getElementById('purchaseBtn11').style.borderStyle = "solid";
-    document.getElementById('purchaseBtn11').innerHTML = 'Purchased';
-}
-
-if (localStorage.purchased12) {
-    document.getElementById('investBtn').style.borderColor = "var(--cyan)";
-    document.getElementById('investBtn').style.color = "var(--cyan)";
-    document.getElementById('investBtn').style.borderStyle = "outset";
-    document.getElementById('investBtn').disabled = false;
-	  document.getElementById('investBtn').innerHTML = 'Invest';
-    document.getElementById('purchaseBtn12').disabled = true;
-    document.getElementById('purchaseBtn12').style.borderColor = "grey";
-    document.getElementById('purchaseBtn12').style.color = "grey";
-    document.getElementById('purchaseBtn12').style.borderStyle = "solid";
-    document.getElementById('purchaseBtn12').innerHTML = 'Purchased';
-}
-
-if (localStorage.purchased13) {
-    document.getElementById('addThePlus500').innerHTML = plus500Btn;
-    document.getElementById('purchaseBtn13').disabled = true;
-    document.getElementById('purchaseBtn13').style.borderColor = "grey";
-    document.getElementById('purchaseBtn13').style.color = "grey";
-    document.getElementById('purchaseBtn13').style.borderStyle = "solid";
-    document.getElementById('purchaseBtn13').innerHTML = 'Purchased';
-}
-
+if (localStorage.purchased14) purchaseFunc14();
+if (localStorage.purchased15) purchaseFunc15();
+if (localStorage.purchased16) purchaseFunc16();
+if (localStorage.purchased17) purchaseFunc17();
+if (localStorage.purchased18) purchaseFunc18();
+if (localStorage.purchased19) purchaseFunc19();
+if (localStorage.purchased20) purchaseFunc20();
 function saveCyberCredits() {
   (localStorage.cyberCredits) = cyberCredits;
 }
@@ -343,11 +514,11 @@ function chronicleCheck() {
     alert('Purchased!');
     alert('The first page says:\n\nChips McGee\'s Notebook\n\nToday I logged into the Internet Bank Of CyberCredits for the first time, but for some reason, I have no buttons that add CyberCredits! The only way I can get CyberCredits is to...\n\nThat\'s all the page says.\n\n');
   } else {
-    alert('You need 1000 CyberCredits for this notebook page.')
+    alert('You need 10000 CyberCredits for this notebook page.')
   }
 }
 
-function cyberCreditDeal() {
+async function cyberCreditDeal() {
   stealRandomiser = Math.random() * stealChance;
   if (stealRandomiser < 1) {
 	document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
@@ -362,29 +533,41 @@ function cyberCreditDeal() {
   }
   document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
 }
-function myFunction() {
+
+if (localStorage.previousChipsMcGeeLogin) { document.getElementById('hackerThemeBtnPlc').innerHTML = '<button style="border-color:red; color:red; background-color:#181818;" onclick="r.style.setProperty(\'--cyan\', \'red\'); r.style.setProperty(\'--grey\', \'#181818\'); document.getElementById(\'cyberCreditsImg\').innerHTML = darkCyberCreditsImg; (localStorage.theme) = 3;">Hacker Red</button>'; secretsFound += 1; }
+if (localStorage.completeAlreadyDone) document.getElementById('completionistThemeBtnPlc').innerHTML = '<button style="border-color:#d4af37; color:#d4af37; background-color:#420000;" onclick="r.style.setProperty(\'--cyan\', \'#d4af37\'); r.style.setProperty(\'--grey\', \'#420000\'); document.getElementById(\'cyberCreditsImg\').innerHTML = royalCyberCreditsImg; (localStorage.theme) = 5;">Completionist Gold</button>';
+function dropThemeSelect() {
+  document.getElementById("themeSelect").classList.toggle("show");
+}
+
+function dropShop1() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
 
-/* Close the dropdown if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}*/
-
-function add0Btn() {  document.getElementById('addThePlus0').innerHTML = plus0Btn;
-  (localStorage.purchased3) = 1;
-  document.getElementById('secretBtn1').disabled = true;
-  alert('You found a secret! Have a +0 button! \(Yes, you can actually get hacked by pressing this button. It\'s a 1 in 1500 chance.\)');
-  document.getElementById('secretBtn1').style.borderStyle = 'solid';
+if (!localStorage.theme || localStorage.theme == 1) {
+  r.style.setProperty('--cyan', 'cyan');
+  r.style.setProperty('--grey', '#383838');
+  document.getElementById('cyberCreditsImg').innerHTML = cyberCreditsImg;
+}
+if (localStorage.theme == 2) {
+  r.style.setProperty('--cyan', 'lime');
+  r.style.setProperty('--grey', '#1c1c1c');
+  document.getElementById('cyberCreditsImg').innerHTML = proCyberCreditsImg;
+}
+if (localStorage.theme == 3) {
+  r.style.setProperty('--cyan', 'red');
+  r.style.setProperty('--grey', '#181818');
+  document.getElementById('cyberCreditsImg').innerHTML = darkCyberCreditsImg;
+}
+if (localStorage.theme == 4) {
+  r.style.setProperty('--cyan', 'magenta');
+  r.style.setProperty('--grey', 'black');
+  document.getElementById('cyberCreditsImg').innerHTML = magnoCyberCreditsImg;
+}
+if (localStorage.theme == 5) {
+  r.style.setProperty('--cyan', '#d4af37');
+  r.style.setProperty('--grey', '#420000');
+  document.getElementById('cyberCreditsImg').innerHTML = royalCyberCreditsImg;
 }
 
 function revert() {
@@ -403,6 +586,15 @@ function revert() {
   localStorage.removeItem('purchased11');
   localStorage.removeItem('purchased12');
   localStorage.removeItem('purchased13');
+  localStorage.removeItem('purchased14');
+  localStorage.removeItem('purchased15');
+  localStorage.removeItem('purchased16');
+  localStorage.removeItem('purchased17');
+  localStorage.removeItem('purchased18');
+  localStorage.removeItem('purchased19');
+  localStorage.removeItem('purchased20');
+  localStorage.removeItem('theme');
+  localStorage.removeItem('completeAlreadyDone');
   location.reload();
 }
 
@@ -422,10 +614,14 @@ function deleteProgress() {
               alert('Fine then. Have it your way. Progress deleted.')
               revert();
             } else {
+              if (name != 'Chips McGee') {
                 alert('Good choice. You earned yourself a whole of 3 CyberCredits.')
                 cyberCredits += 3;
                 document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
                 saveCyberCredits();
+              } else {
+                alert('Wait, I\'m not giving you any of my CyberCredits! You already steal enough of them, Chips McGee!')
+              }
             }
           } else {
               alert('Good choice.')
@@ -449,7 +645,7 @@ async function invest() {
   await sleep(0)
   document.getElementById("investBtn").style.borderStyle = "outset";
   if (cyberCredits >= 500) {
-    alert('You have invested 500 CyberCredits. Wait 15 seconds to see the results of your investment.');
+    alert('You have invested 500 CyberCredits. Wait ' + (15 / cutTimeInvest) + ' seconds to see the results of your investment.');
     cyberCredits -= 500;
     saveCyberCredits();
     document.getElementById('investBtn').style.borderColor = "grey";
@@ -458,15 +654,15 @@ async function invest() {
     document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
     document.getElementById('investBtn').disabled = true;
     document.getElementById('investBtn').innerHTML = 'Investing...';
-    await sleep(15000)
+    await sleep(15000 / cutTimeInvest);
     document.getElementById('investBtn').style.borderColor = "var(--cyan)";
     document.getElementById('investBtn').style.color = "var(--cyan)";
     document.getElementById('investBtn').style.borderStyle = "outset";
     document.getElementById('investBtn').disabled = false;
-    let successChance = Math.random() * 1.5;
-    if (successChance < 1) {
-      alert('Your investment was a total success! You gained 1500 CyberCredits!');
-	    cyberCredits += 1500;
+    let successChance = Math.random() * investmentSuccessChanceIncrease;
+    if (successChance > 1) {
+      alert('Your investment was a total success! You gained ' + investmentSuccessAmount + ' CyberCredits!');
+	    cyberCredits += investmentSuccessAmount;
       saveCyberCredits();
     } else {
       alert('Oh no! Your investment was a total failure! You gained nothing!');
@@ -480,108 +676,89 @@ async function invest() {
 
 function purchase1() {
   if (cyberCredits >= 600) {
-  	insureInsurance += 1;
-  	insurancePurchaseDeterminer += 1;
-    document.getElementById('purchaseBtn1').disabled = true;
-    document.getElementById('purchaseBtn1').style.borderColor = "grey";
-    document.getElementById('purchaseBtn1').style.color = "grey";
-    document.getElementById('purchaseBtn1').style.borderStyle = "solid";
-	  document.getElementById('purchaseBtn1').innerHTML = 'Purchased';
+    purchaseFunc1();
     cyberCredits -= 600;
     saveCyberCredits();
     document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
     (localStorage.purchased1) = 0;
-  	alert('Purchased!');
-  } else {
-      alert('You need more CyberCredits for that!');
-  }  
-}  
-
-function purchase2() {
-  if (cyberCredits >= 750) {
-    document.getElementById('title').innerHTML = "The One And Only Internet Bank Of CyberCredits";
-  	document.getElementById('tabTitle').innerHTML = "The One And Only Internet Bank Of CyberCredits";
-    document.getElementById('purchaseBtn2').disabled = true;
-    document.getElementById('purchaseBtn2').style.borderColor = "grey";
-    document.getElementById('purchaseBtn2').style.color = "grey";
-    document.getElementById('purchaseBtn2').style.borderStyle = "solid";
-  	document.getElementById('purchaseBtn2').innerHTML = 'Purchased';
-    cyberCredits -= 750;
-    saveCyberCredits();
-    document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
-    (localStorage.purchased2) = 0;
-	  alert('Purchased!');
-  } else {
-      alert('You need more CyberCredits for that!');
-  }  
-}
-
-function purchase3() {
-  if (cyberCredits >= 1000) {
-  	document.getElementById('cyberCreditCount').style.fontFamily = "Times New Roman";
-	  document.getElementById('secretArea1').innerHTML = '<button style="border-color:grey; color:grey;" id="secretBtn1" onclick="add0Btn()">Purchased</button>';
-    cyberCredits -= 1000;
-    saveCyberCredits();
-    document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
-    (localStorage.purchased3) = 0;
+    checkForgeUpgrade();
   	alert('Purchased!');
   } else {
       alert('You need more CyberCredits for that!');
   }
+  hundredCheck();
+}  
+
+function purchase2() {
+  if (cyberCredits >= 750) {
+    purchaseFunc2();
+    cyberCredits -= 750;
+    saveCyberCredits();
+    document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
+    (localStorage.purchased2) = 0;
+    checkForgeUpgrade();
+	  alert('Purchased!');
+  } else {
+      alert('You need more CyberCredits for that!');
+  }
+  hundredCheck();
+}
+
+function purchase3() {
+  if (cyberCredits >= 1000) {
+  	purchaseFunc3();
+    cyberCredits -= 1000;
+    saveCyberCredits();
+    document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
+    (localStorage.purchased3) = 0;
+    checkForgeUpgrade();
+  	alert('Purchased!');
+  } else {
+      alert('You need more CyberCredits for that!');
+  }
+  hundredCheck();
 }
 
 function purchase4() {
   if (cyberCredits >= 1650) {
-    document.getElementById('purchaseBtn4').disabled = true;
-    document.getElementById('purchaseBtn4').style.borderColor = "grey";
-    document.getElementById('purchaseBtn4').style.color = "grey";
-    document.getElementById('purchaseBtn4').style.borderStyle = "solid";
-	  document.getElementById('purchaseBtn4').innerHTML = 'Purchased';
-    document.getElementById('plus1').innerHTML = "+2";
-	  plus1Plus1 += 1;
+  	purchaseFunc4();
     cyberCredits -= 1650;
     saveCyberCredits();
     document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
     (localStorage.purchased4) = 0;
+    checkForgeUpgrade();
   	alert('Purchased!');
   } else {
       alert('You need more CyberCredits for that!');
-  }  
+  }
+  hundredCheck();
 }
 
 function purchase5() {
   if (cyberCredits >= 2250) {
-    document.getElementById('plus100').innerHTML = "+150";
-  	plus100Plus50 += 50;
-    document.getElementById('purchaseBtn5').disabled = true;
-    document.getElementById('purchaseBtn5').style.borderColor = "grey";
-    document.getElementById('purchaseBtn5').style.color = "grey";
-    document.getElementById('purchaseBtn5').style.borderStyle = "solid";
-  	document.getElementById('purchaseBtn5').innerHTML = 'Purchased';
+  	purchaseFunc5();
     cyberCredits -= 2250;
     saveCyberCredits();
     document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
   	alert('Purchased!');
     (localStorage.purchased5) = 0;
+    checkForgeUpgrade();
   } else {
       alert('You need more CyberCredits for that!');
-  }  
+  }
+  hundredCheck();
 }
 
 function purchase6() {
   if (cyberCredits >= 3000) {
     if (insurancePurchaseDeterminer > 0) {
-      insurancePercentage += 25;
-      document.getElementById('purchaseBtn6').disabled = true;
-      document.getElementById('purchaseBtn6').style.borderColor = "grey";
-      document.getElementById('purchaseBtn6').style.color = "grey";
-      document.getElementById('purchaseBtn6').style.borderStyle = "solid";
-      document.getElementById('purchaseBtn6').innerHTML = 'Purchased';
+    	purchaseFunc6();
       cyberCredits -= 3000;
       saveCyberCredits();
       document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
       alert('Purchased!');
       (localStorage.purchased6) = 0;
+      checkForgeUpgrade();
     } else {
        alert('This upgrade can\'t be purchased unless CyberCredit insurance has been purchased first.');
 	
@@ -589,144 +766,257 @@ function purchase6() {
   } else {
       alert('You need more CyberCredits for that!');
     }
+  hundredCheck();
 }
 
 function purchase7() {
   if (cyberCredits >= 5000) {
-    document.getElementById('addThePlus250').innerHTML = plus250Btn;
-  	plus250PurchaseDeterminer += 1;
-    document.getElementById('purchaseBtn7').disabled = true;
-    document.getElementById('purchaseBtn7').style.borderColor = "grey";
-    document.getElementById('purchaseBtn7').style.color = "grey";
-    document.getElementById('purchaseBtn7').style.borderStyle = "solid";
-  	document.getElementById('purchaseBtn7').innerHTML = 'Purchased';
+  	purchaseFunc7();
     cyberCredits -= 5000;
     saveCyberCredits();
     document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
     (localStorage.purchased7) = 0;
+    checkForgeUpgrade();
 	  alert('Purchased!');
   } else {
       alert('You need more CyberCredits for that!');
-  }  
+  }
+  hundredCheck();
 }
 
 function purchase8() {
   if (cyberCredits >= 7000) {
     r.style.setProperty('--cyan', 'lime');
-	  document.getElementById('body').style.backgroundColor = "#1c1c1c";
-  	document.getElementById('myDropdown').style.backgroundColor = "#1c1c1c";
-	  document.getElementById('cyberCreditsImg').innerHTML = a;
-    document.getElementById('purchaseBtn8').disabled = true;
-    document.getElementById('purchaseBtn8').style.borderColor = "grey";
-    document.getElementById('purchaseBtn8').style.color = "grey";
-    document.getElementById('purchaseBtn8').style.borderStyle = "solid";
-  	document.getElementById('purchaseBtn8').innerHTML = 'Purchased';
+    r.style.setProperty('--grey', '#1c1c1c');
+    document.getElementById('cyberCreditsImg').innerHTML = proCyberCreditsImg;
+    (localStorage.theme) = 2;
+    purchaseFunc8();
     cyberCredits -= 7000;
     saveCyberCredits();
     document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
     (localStorage.purchased8) = 0;
+    checkForgeUpgrade();
   	alert('Purchased!');
   } else {
       alert('You need more CyberCredits for that!');
-  }  
+  }
+  hundredCheck();
 }
 
 function purchase9() {
   if (cyberCredits >= 8000) {
-    chanceOfHack += 0.5;
-    document.getElementById('purchaseBtn9').disabled = true;
-    document.getElementById('purchaseBtn9').style.borderColor = "grey";
-    document.getElementById('purchaseBtn9').style.color = "grey";
-    document.getElementById('purchaseBtn9').style.borderStyle = "solid";
-	  document.getElementById('purchaseBtn9').innerHTML = 'Purchased';
+    purchaseFunc9();
     cyberCredits -= 8000;
     saveCyberCredits();
     document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
     (localStorage.purchased9) = 0;
+    checkForgeUpgrade();
 	  alert('Purchased!');
   } else {
       alert('You need more CyberCredits for that!');
-  }  
+  }
+  hundredCheck();
 }
 
 function purchase10() {
   if (cyberCredits >= 10000) {
-    infiniteOnes = 1.797693134862315E+309;
-    document.getElementById('purchaseBtn10').disabled = true;
-    document.getElementById('purchaseBtn10').style.borderColor = "grey";
-    document.getElementById('purchaseBtn10').style.color = "grey";
-    document.getElementById('purchaseBtn10').style.borderStyle = "solid";
-	  document.getElementById('purchaseBtn10').innerHTML = 'Purchased';
+    purchaseFunc10();
     cyberCredits -= 10000;
     saveCyberCredits();
     document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
     (localStorage.purchased10) = 0;
+    checkForgeUpgrade();
 	  alert('Purchased!');
   } else {
       alert('You need more CyberCredits for that!');
-  }  
+  }
+  hundredCheck();
 }
 
 function purchase11() {
   if (cyberCredits >= 10500) {
     if (plus250PurchaseDeterminer > 0) {
-      document.getElementById('plus250').innerHTML = "+300";
-	    plus250Plus50 += 50;
-      document.getElementById('purchaseBtn11').disabled = true;
-      document.getElementById('purchaseBtn11').style.borderColor = "grey";
-      document.getElementById('purchaseBtn11').style.color = "grey";
-      document.getElementById('purchaseBtn11').style.borderStyle = "solid";
-      document.getElementById('purchaseBtn11').innerHTML = 'Purchased';
+      purchaseFunc11();
       cyberCredits -= 10500;
       saveCyberCredits();
       document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
       (localStorage.purchased11) = 0;
+      checkForgeUpgrade();
 	    alert('Purchased!');
 	  } else {
           alert('This upgrade can\'t be purchased unless the +250 button has been purchased first.');
       }  
     } else {
         alert('You need more CyberCredits for that!');
-  }  
+  }
+  hundredCheck();
 }
 
 function purchase12() {
   if (cyberCredits >= 11000) {
-    document.getElementById('investBtn').style.borderColor = "var(--cyan)";
-    document.getElementById('investBtn').style.color = "var(--cyan)";
-    document.getElementById('investBtn').style.borderStyle = "outset";
-    document.getElementById('investBtn').disabled = false;
-	  document.getElementById('investBtn').innerHTML = 'Invest';
-    document.getElementById('purchaseBtn12').disabled = true;
-    document.getElementById('purchaseBtn12').style.borderColor = "grey";
-    document.getElementById('purchaseBtn12').style.color = "grey";
-    document.getElementById('purchaseBtn12').style.borderStyle = "solid";
-    document.getElementById('purchaseBtn12').innerHTML = 'Purchased';
+    purchaseFunc12();
     cyberCredits -= 11000;
     saveCyberCredits();
     document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
     (localStorage.purchased12) = 0;
+    checkForgeUpgrade();
 	  alert('Purchased!');
   } else {
         alert('You need more CyberCredits for that!');
-  }  
+  }
+  hundredCheck();
 }
 function purchase13() {
   if (cyberCredits >= 15000) {
-    document.getElementById('addThePlus500').innerHTML = plus500Btn;
-    document.getElementById('purchaseBtn13').disabled = true;
-    document.getElementById('purchaseBtn13').style.borderColor = "grey";
-    document.getElementById('purchaseBtn13').style.color = "grey";
-    document.getElementById('purchaseBtn13').style.borderStyle = "solid";
-    document.getElementById('purchaseBtn13').innerHTML = 'Purchased';
+    purchaseFunc13();
     cyberCredits -= 15000;
     saveCyberCredits();
     document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
     (localStorage.purchased13) = 0;
+    checkForgeUpgrade();
   	alert('Purchased!');
   } else {
         alert('You need more CyberCredits for that!');
-  }  
+  }
+  hundredCheck();
 }
+function purchase14() {
+  if (cyberCredits >= 16000) {
+    purchaseFunc14();
+    cyberCredits -= 16000;
+    saveCyberCredits();
+    document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
+    (localStorage.purchased14) = 0;
+    dropShop1();
+  	alert('Purchased!');
+    alert('You have now unlocked the second CyberCredits shop! It is called, the CyberCredit Forge.\nIt is where the greatest blacksmiths across the globe work together to forge the greatest CyberCredit bank account upgrades in all the land, and sell them for CyberCredits!\nIt has all new upgrades to unlock!');
+  } else {
+        alert('You need more CyberCredits for that!');
+  } 
+  hundredCheck();
+}
+
+function purchase15() {
+  if (cyberCredits >= 17000) {
+    r.style.setProperty('--cyan', 'magenta');
+    r.style.setProperty('--grey', 'black');
+	  document.getElementById('cyberCreditsImg').innerHTML = magnoCyberCreditsImg;
+    (localStorage.theme) = 4;
+    purchaseFunc15();
+    cyberCredits -= 17000;
+    saveCyberCredits();
+    document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
+    (localStorage.purchased15) = 0;
+  	alert('Purchased!');
+  } else {
+      alert('You need more CyberCredits for that!');
+  }
+  hundredCheck();
+}
+
+function purchase16() {
+  if (cyberCredits >= 18000) {
+    purchaseFunc16();
+    cyberCredits -= 18000;
+    saveCyberCredits();
+    document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
+    (localStorage.purchased16) = 0;
+	  alert('Purchased!');
+  } else {
+      alert('You need more CyberCredits for that!');
+  } 
+  hundredCheck();
+}
+
+function purchase17() {
+  if (cyberCredits >= 19000) {
+    purchaseFunc17();
+    cyberCredits -= 19000;
+    saveCyberCredits();
+    document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
+    alert('Purchased!');
+    (localStorage.purchased17) = 0;
+    } else {
+        alert('You need more CyberCredits for that!');
+      }
+  hundredCheck();
+}
+
+function purchase18() {
+  if (cyberCredits >= 20000) {
+    purchaseFunc18();
+    cyberCredits -= 20000;
+    saveCyberCredits();
+    document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
+    alert('Purchased!');
+    (localStorage.purchased18) = 0;
+    } else {
+        alert('You need more CyberCredits for that!');
+      }
+  hundredCheck();
+}
+
+function purchase19() {
+  if (cyberCredits >= 21000) {
+    purchaseFunc19();
+    cyberCredits -= 21000;
+    saveCyberCredits();
+    document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
+    (localStorage.purchased19) = 0;
+  	alert('Purchased!');
+  } else {
+      alert('You need more CyberCredits for that!');
+  }  
+  hundredCheck();
+}
+
+function purchase20() {
+  if (cyberCredits >= 22000) {
+    purchaseFunc20();
+    cyberCredits -= 22000;
+    saveCyberCredits();
+    document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
+    alert('Purchased!');
+    (localStorage.purchased20) = 0;
+    } else {
+        alert('You need more CyberCredits for that!');
+      }
+  hundredCheck();
+}
+
+// McGee code is past here
+
+function chipsUser() {
+  if (name == 'Chips McGee') {
+    if (!localStorage.previousChipsMcGeeLogin) { (localStorage.previousChipsMcGeeLogin) = 1; secretsFound += 1; }
+    r.style.setProperty('--cyan', 'red');
+    document.getElementById('body').style.backgroundColor = "#181818";
+    document.getElementById('allPlusBtns').innerHTML = "<button onclick='hack();'>Hack</button>";
+    document.getElementById('shopAndInvestBtns').innerHTML = "";
+    document.getElementById('nameChangeBtn').innerHTML = "";
+    document.getElementById('cyberCreditsImg').innerHTML = darkCyberCreditsImg;
+    if (localStorage.previousChipsMcGeeLogin == 1) alert('You found a secret! You have unlocked the theme, Hacker Red! Delete your progress to see it on a non-hacker account. Also, no matter how many times you delete progress, you will forever have Hacker Red unlocked (on non-hacker accounts).'); 
+    (localStorage.previousChipsMcGeeLogin) = 2;
+
+  }
+}
+
+function hack() {
+  let robChance = Math.random() * 10;
+  if (robChance < 1) { 
+      cyberCredits = 0;
+      document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
+      saveCyberCredits();
+      alert('Some white hat CyberCredit hackers managed to hack into your CyberCredit account and steal all the CyberCredits that you rightfully stole! But you kind of deserved it to be honest.')
+  } else {
+      let stealAmount = Math.round(Math.random() * 1000);
+      cyberCredits += stealAmount;
+      document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
+      saveCyberCredits();
+      alert('You hacked a user\'s CyberCredit account and stole ' + stealAmount + ' CyberCredits from them, you monster!')
+      }
+}
+
+chipsUser();
 </script>
 </html>
