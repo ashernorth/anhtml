@@ -390,9 +390,9 @@ function hundredCheck() {
     (localStorage.theme) = 5;
     document.getElementById('completionistThemeBtnPlc').innerHTML = '<button style="border-color:#d4af37; color:#d4af37; background-color:#420000;" onclick="r.style.setProperty(\'--cyan\', \'#d4af37\'); r.style.setProperty(\'--grey\', \'#420000\'); document.getElementById(\'cyberCreditsImg\').innerHTML = royalCyberCreditsImg; (localStorage.theme) = 5;">Completionist Gold</button>';
     (localStorage.completeAlreadyDone) = true;
+    hundredComplete = "\nYou have 100% completed this game. Congrats."
   }
 }
-//hundredCheck();
 
 if (!localStorage.name) {
   let selectName = prompt("Hey you! What's your name?", "Mr Insert Name Here");
@@ -1219,14 +1219,14 @@ function eraseCyberCredits() {
 
 if (localStorage.previousChipsMcGeeLogin) { document.getElementById('hackerThemeBtnPlc').innerHTML = '<p><button style="border-color:red; color:red; background-color:#181818;" onclick="r.style.setProperty(\'--cyan\', \'red\'); r.style.setProperty(\'--grey\', \'#181818\'); document.getElementById(\'cyberCreditsImg\').innerHTML = darkCyberCreditsImg; (localStorage.theme) = 3;">Hacker Red</button></p><hr>'; secretsFound += 1; }
 
-if(localStorage.completeAlreadyDone) { document.getElementById('completionistThemeBtnPlc').innerHTML = '<button style="border-color:#d4af37; color:#d4af37; background-color:#420000;" onclick="r.style.setProperty(\'--cyan\', \'#d4af37\'); r.style.setProperty(\'--grey\', \'#420000\'); document.getElementById(\'cyberCreditsImg\').innerHTML = royalCyberCreditsImg; (localStorage.theme) = 5;">Completionist Gold</button>'; hundredComplete = "\nYou have 100% completed this game. Congrats." }
+if(localStorage.completeAlreadyDone) { document.getElementById('completionistThemeBtnPlc').innerHTML = '<button style="border-color:#d4af37; color:#d4af37; background-color:#420000;" onclick="r.style.setProperty(\'--cyan\', \'#d4af37\'); r.style.setProperty(\'--grey\', \'#420000\'); document.getElementById(\'cyberCreditsImg\').innerHTML = royalCyberCreditsImg; (localStorage.theme) = 5;">Completionist Gold</button>'; hundredComplete = "\nYou have 100% completed this game. Congrats."; }
 
 if (localStorage.fiftyThousand) document.getElementById('astralThemeBtnPlc').innerHTML = '<p><button style="border-color:yellow; color:yellow; background-color:#171929;" onclick="r.style.setProperty(\'--cyan\', \'yellow\'); r.style.setProperty(\'--grey\', \'#171929\'); document.getElementById(\'cyberCreditsImg\').innerHTML = galacticCyberCreditsImg; (localStorage.theme) = 7;">Astral Yellow</button></p><hr>';
 
 if (localStorage.currentMsg >= 11) { document.getElementById('blindingThemeBtnPlc').innerHTML = '<p><button style="border-color:black; color:black; background-color:white;" onclick="r.style.setProperty(\'--cyan\', \'black\'); r.style.setProperty(\'--grey\', \'white\'); document.getElementById(\'cyberCreditsImg\').innerHTML = lightCyberCreditsImg; (localStorage.theme) = 12;">Blinding White</button></p><hr>'; secretsFound += 1; }
 
 if (localStorage.cornerStoreUnlocked) {
-  document.getElementById('cornerStorePlc').innerHTML = "<p><button onclick='dropOptions(); dropCornerStore();'>CyberCredit Corner Store</button></p><hr>"
+  document.getElementById('cornerStorePlc').innerHTML = "<p><button onclick='dropOptions(); dropCornerStore();'>CyberCredit Corner Store</button></p><hr>";
   secretsFound += 1;
 }
 
