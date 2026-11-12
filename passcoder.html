@@ -10,6 +10,13 @@ var b = 0;
 var achievers = 0;
 var d = false;
 const e = new Date();
+var catDone = 0;
+var cannonDone = 0;
+var pigDone = 0;
+var challengeDone = 0;
+var waveDone = 0;
+var challenge2Done = 0;
+var cyberCreditsCode = "";
 
 function event1() {
   if (e.getMonth() == 7 && e.getDate() == 2) {
@@ -53,6 +60,9 @@ function checkform() {
 	{
 	    document.getElementById("omed").innerHTML = "<big>The Cat Trophy:</big><p><font size=\"+9\" style=\"color:#ffff55;\">≈^..^≈</font></p>";
 		alert('Correct.');
+		localStorage.card18 = true;
+        catDone = 1;
+		checkForCyberCredits();
 		return false;
 	}
 	
@@ -60,6 +70,9 @@ function checkform() {
 	{
 	    document.getElementById("omed0").innerHTML = "<big>The Cannon Trophy:</big><p><font size=\"+9\" style=\"color:#444;\">*-\(_\(_\(\) =o</font></p>";
 		alert('Correct.');
+		localStorage.card19 = true;
+		cannonDone = 1;
+		checkForCyberCredits();
 		return false;
 	}
 	
@@ -67,6 +80,9 @@ function checkform() {
 	{
 	    document.getElementById("omed1").innerHTML = "<big>The Pig Trophy:</big><p><font size=\"+9\" style=\"color:#ff8ab9\">\(°\(• •\)°\)</font></p>";
 		alert('Correct.');
+		localStorage.card21 = true;
+		pigDone = 1;
+		checkForCyberCredits();
 		return false;
 	}
 	
@@ -74,6 +90,9 @@ function checkform() {
 	{
 	    document.getElementById("omed2").innerHTML = "<big>The Wave Trophy:</big><p><font size=\"+9\" style=\"color:#5487ff\">J ͡ ~͡ ~͡ J 𝄢</font></p>";
 		alert('Correct.');
+		localStorage.card22 = true;
+		waveDone = 1;
+		checkForCyberCredits();
 		return false;
 	}
 	
@@ -81,6 +100,9 @@ function checkform() {
 	{
 	    document.getElementById("omed3").innerHTML = "<big>The Challenge Trophy:</big><p><font size=\"+9\" style=\"color:#7711cc\">°~°7</font></p>";
 		alert('Correct.');
+		localStorage.card20 = true;
+		challengeDone = 1;
+		checkForCyberCredits();
 		return false;
 	}
 	
@@ -88,6 +110,9 @@ function checkform() {
 	{
 	    document.getElementById("omed4").innerHTML = "<big>The Next Challenge Trophy:</big><p><font size=\"+9\" style=\"color:#7711cc\">o_o7</font></p>";
 		alert('Correct.');
+		localStorage.card23 = true;
+		challenge2Done = 1;
+		checkForCyberCredits();
 		return false;
 	}
 		
@@ -95,6 +120,7 @@ function checkform() {
 	{
 	    document.getElementById("omedx").innerHTML = "<big>The Lenny Trophy:</big><p><font size=\"+9\" style=\"color:#ffffff\">( ͡° ͜ʖ ͡°)</font></p>";
 		alert('Correct.');
+		localStorage.cardX2 = true;
 		return false;
 	}
 		if(myForm.value == "WowCongratsYouActuallyDidIt")
@@ -102,6 +128,7 @@ function checkform() {
 	{
 	    document.getElementById("omedy").innerHTML = "<big>The Achievement Trophy:</big><p><font size=\"+9\" style=\"color:red\">∑<u>_1st_</u>]</font></p>";
 		alert('Correct.');
+		localStorage.cardX3 = true;
 		return false;
 	}
 
@@ -114,7 +141,13 @@ function checkform() {
 	{
 	alert('Incorrect.')
 	}
-	return true;
+}
+
+function checkForCyberCredits() {
+		if(!localStorage.tcbComplete && catDone == 1 && cannonDone == 1 && pigDone == 1 && challengeDone == 1 && waveDone == 1 && challenge2Done == 1) {
+	localStorage.tcbComplete = 0;
+    alert('Now that you have completed the CodeBlock, you can now use the theme, \'The CodeBlock Blue\' in the Internet Bank of CyberCredits, by using the code, \'passcode21908837\'\n\nYou should probably write that down.');
+	}
 }
 
 function alertFunc() {
