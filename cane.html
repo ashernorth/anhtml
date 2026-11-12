@@ -74,6 +74,7 @@
 <p><small>Vers<a onclick="specialPass()">i</a>on 1.11</small></p>
 <p id="test0Place"></p>
 <p id="test1Place"></p>
+<p id="codePlc" style="color:black;"></p>
 <style>
 button.purchaseBtnStyle {
   background-color:yellow;
@@ -528,7 +529,9 @@ var email3 = "<button id='email3Btn' onclick='dropDowner()' class='info'>Email</
 function purchase10() {
   if (beetleCoinCount >= 10000) {
     alert('Purchased!');
-	alert('New email received!');
+  	alert('New email received!');
+    localStorage.ctkComplete = 0;
+    alert('Now that you have completed the main story of Cane Toad Kerfuffle, you can now use the theme, \'Cane Toad Kerfuffle Blue\' in the Internet Bank of CyberCredits, by using the code, \'toad09547283\'.\n\nYou should probably write that down.');
 	beetleCoinCount -= 10000;
 	dr = new Date();
     finalMsg = '<div class="divLog">Email from Professor Cain Todd, ' + dr.toDateString() + '&nbsp;' + dr.getHours() + ':' + ('0' + dr.getMinutes()).slice(-2) + "<a style=\"float:right; color:red; font-family:arial;\" onclick=\"document.getElementById('achDivPlace').innerHTML = '';\"><b>X</b></a><p><small>Thank you for all of the poison dart toads! I have been waiting for so long for this! But I have news. I apologise, but you can have them back. In fact, I'm sending them back now. You see, I have discovered that cane toads and poison dart toads are actually just pests, and aren't that advanced at all, so I don't need them anymore. Before I made that realisation, I actually introduced some poison dart toads into Australia, and now they live in harmony with cane toads and are thriving and taking over Australia. Don't worry though! Neither of us live in Australia, so we'll be just fine! Wait... do you? I don't think I ever asked where you're from. Any way, I'll be off, since I saw a wanted poster with my name on it on it for endangering the environment, so I'm gonna flee to some foreign country or something. Feel free to keep getting more toads and exp and unlocking more ranks above plutonium.</p><p>See you another time!</p></small><p>Credits:</p><small><p>Developer: Asher North</p><p>Artist: Benjamin North</p><p>Special thanks: Nathaniel North, Oscar Hawkins, Campbell Black, Oliver Sexton.</p></small></div>";
