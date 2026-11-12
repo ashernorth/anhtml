@@ -7,7 +7,7 @@
 <body id="body">
 
 <p><div class="dropdown" style="float:left;">
-  <div id="myDropdown" style="height:600px;" class="dropdown-content">
+  <div id="shopDropPlc" style="height:600px;" class="dropdown-content">
     <a onclick="dropShop1()" style="color:red; float:right; font-size:20px; z-index:10; position:absolute; top:0px; right:0px;"><b><big>X</big></b></a>
     <p style="text-align:center;"><h2 id="shopTitle">CyberCredit Shop</h2></p>
 	<hr>
@@ -52,12 +52,33 @@
   <hr>
 	<p>Unlocks the CyberCredit Forge. Costs 16000 CyberCredits.</p>
 	<button onclick="purchase14()" id="purchaseBtn14" style="border-color:grey; color:grey; border-style:solid;" disabled>Locked</button>
+  <hr>
   </small></div>
 </div></p>
+
+<p><div class="dropdown" style="float:left;">
+  <div id="settings" style="height:auto;" class="dropdown-content">
+    <a onclick="dropOptions()" style="color:red; float:right; font-size:20px; position:absolute; z-index:10; top:0px; right:0px;"><b><big>X</big></b></a>
+    <p><h2 style="text-align:center;">Options</h2></p>
+    <hr>
+    <p><button onclick="alert('This rage game was developed by Asher North.\nVersion 1.5\n\nWhat to do:\nPress the buttons below the title to gain CyberCredits, but be careful because the more profitable the button you press, the higher chance you have to get hacked when you press it. Use CyberCredits to buy upgrades from the shop.\n\nChances for different buttons to get you hacked:\n+0 is a 1 in 1500 chance.\n+1 is a 1 in 1000 chance.\n+5 is a 1 in 100 chance.\n+10 is a 1 in 50 chance.\n+25 is a 1 in 25 chance.\n+100 is a 1 in 10 chance.\n+250 is a 1 in 9 chance.\n+500 is a 1 in 8 chance.\n+1000 is a permanent 1 in 2 chance.\nHack is a 1 in 10 chance.\n\nThis website autosaves.\n' + disableCode + 'You have found ' + secretsFound + ' out of 4 secrets.' + hundredComplete)">Info</button></p>
+    <hr>
+    <p><button onclick="deleteProgress();">Delete Progress</button></p>
+    <hr><!--<button onclick="nameChange();">Change Name</button>-->
+    <p><button onclick="dropThemeSelect(); dropOptions();">Themes</button></p>
+    <hr>
+    <p><button id="codeBtn" onclick="codeCheck()">Codes</button></p>
+    <hr>
+    <p id="cornerStorePlc"></p>
+    <p id="zero"></p>
+  </div>
+</div></p>
+
 <p><div class="dropdown" style="float:left;">
   <div id="themeSelect" style="height:auto;" class="dropdown-content">
     <a onclick="dropThemeSelect()" style="color:red; float:right; font-size:20px; position:absolute; z-index:10; top:0px; right:0px;"><b><big>X</big></b></a>
     <p><h2 style="text-align:center;">Theme Selection</h2></p>
+    <p id="hiddenPagePlc"></p>
     <hr>
     <p><button style="border-color:cyan; color:cyan; background-color:#383838;" onclick="r.style.setProperty('--cyan', 'cyan'); r.style.setProperty('--grey', '#383838'); document.getElementById('cyberCreditsImg').innerHTML = cyberCreditsImg; (localStorage.theme) = 1;">Cyber Blue</button></p>
     <hr>
@@ -65,32 +86,80 @@
     <hr>
     <p id="quantumThemeBtnPlc"><button style="border-color:grey; color:grey; border-style:solid;">Locked</button></p>
     <hr>
-    <p id="hackerThemeBtnPlc"><button style="border-color:grey; color:grey; border-style:solid;">Secret</button></p>
+    <p id="purgedThemeBtnPlc"><button style="border-color:grey; color:grey; border-style:solid;">Locked</button></p>
     <hr>
     <p id="completionistThemeBtnPlc"><button style="border-color:grey; color:grey; border-style:solid;">Locked</button></p>
     <hr>
-
-  </small></div>
+    <p id="blindingThemeBtnPlc"></p>
+    <p id="hackerThemeBtnPlc"></p>
+    <p id="astralThemeBtnPlc"></p>
+  </div>
 </div></p>
-<a style="float:left;"><font id="shopAndInvestBtns"><button id="shopBtn" onclick="dropShop1()" class="dropbtn">CyberCredit Shop</button><button onclick='invest()' id="investBtn" style="border-color:grey; border-style:solid; color:grey;" disabled>Locked</button></font> 
+<p><div class="dropdown" style="float:left;">
+  <div id="chronicle" style="height:auto;" class="dropdown-content">
+    <a onclick="dropChronicle();" style="color:red; float:right; font-size:20px; position:absolute; z-index:10; top:0px; right:0px;"><b><big>X</big></b></a>
+    <p><h2 style="text-align:center;">Chips McGee Chronicles</h2></p>
+    <p><button onclick="chronicleCheck();">Hand in mission</button></p>
+    <p id="chroniclePlc"></p>
+    <p id="notes" style="font-family:Courier New;"><big>A message from Michael McCungalow and his first mission for you:</big><br><br>Hey, my name is Michael McCungalow. I'm a police detective, and I'm looking for an assistant in tracking down and arresting the well known CyberCredits hacker, Chips McGee. Do you reckon you could be my assistant? Well your answer doesn't matter because I just signed you up, so now you have to.<br>Ok, so I have a mission for you. This guy on the CyberCredit market somehow found a page out of the journal of Chips McGee. I don't know how he got it, but my colleagues have confirmed that the page is legitimate. So my mission for you is to gather up 15000 CyberCredits and bring them to me. Then we can buy that journal page, and look into it further.<br>When you have the CyberCredits, press the hand in mission button to give me the CyberCredits. Thanks in advance.</p>
+  </div>
+</div></p>
+<p><div class="dropdown" style="float:left;">
+  <div id="topSecretStuff" style="height:auto;" class="dropdown-content">
+    <a onclick="dropSecret()" style="color:red; float:right; font-size:20px; position:absolute; z-index:10; top:0px; right:0px;"><b><big>X</big></b></a>
+    <p><h2 style="text-align:center;">Top Secret Police Files</h2></p>
+    <button onclick="document.getElementById('filePlc').innerHTML = '<b>The Caper Of The Missing Lunch</b><br><br>Garry from traffic control ate it.';">Food Caper</button> <button onclick="document.getElementById('filePlc').innerHTML = '<b>Shopping List:</b><br><br>Eggs, bread, milk, fluoroantimonic acid, and some chips. Preferably salt and vinegar.';">To Buy</button> <button onclick="document.getElementById('filePlc').innerHTML = '<b>Corruption</b><br><br>Clarence, the chief of organised crime arrests, is actually tangled up in business with multiple crime lords.';">Chief Clarence</button> <button onclick="document.getElementById('filePlc').innerHTML = '<b>Why didn\'t you listen?</b><br><br>Why would you willingly choose to view this file WHEN IT SAID NOT TO! DO YOU HAVE NO RESPECT FOR THE LAW?!';">Do Not View</button> <button onclick="document.getElementById('filePlc').innerHTML = '<b>Secret Code</b><br><br>Use the code, \'cornerStoresAreRad\' for a new secret shop.';">Corner Store</button> <button onclick="if(!localStorage.chipsInvestigationStuff) { alert('You can now hand in your mission.'); localStorage.chipsInvestigationStuff = 0; } document.getElementById('filePlc').innerHTML = '<b>Chips McGee Previous Investigations</b><br><br>There have been numerous investigations on Chips McGee, but every single investigation\'s attempts at getting concrete evidence on who Chips McGee really is has failed. The detectives on previous cases believe that if they could find a way to get some up-close information on Chips McGee, then they would have a chance at catching him, but no one has ever found any up-close info.';">Chips McGee</button> <button onclick="document.getElementById('filePlc').innerHTML = '<b>The Missing Basketball Sized Diamond</b><br><br>It\'s actually a diamond sized basketball, and it belonged to some school kid. He lost it and reported to the police that his basketball sized diamond went missing. Anyway, it took our best detectives about four minutes to find the basketball and realise that it wasn\'t a diamond.<br>Thanks for wasting our time, Timmy.';">Basketball Diamond</button>
 
-<button onclick="alert('This rage game was developed by Asher North.\n\nVersion 1.4\n\nWhat to do to play:\nPress the buttons below the title to gain CyberCredits, but be careful because the more profitable the button you press, the higher chance you are to get hacked when you press it. Use CyberCredits to buy upgrades from the shop.\n\nChances for different buttons to get you hacked:\n+0 is a 1 in 1500 chance.\n+1/+2 is a 1 in 1000 chance.\n+5 is a 1 in 100 chance.\n+10 is a 1 in 50 chance.\n+25 is a 1 in 25 chance.\n+100/+150 is a 1 in 10 chance.\n+250/+300 is a 1 in 9 chance.\n+500 is a 1 in 8 chance.\nHack is a 1 in 10 chance.\n\nThis website autosaves.\n\nYou have found ' + secretsFound + ' out of 2 secrets.' + hundredComplete)">Info</button><button onclick="deleteProgress();">Delete Progress</button><font id="nameChangeBtn"><button onclick="nameChange();">Change Name</button><button onclick="dropThemeSelect()">Themes</button></font></a>
+    <p id="filePlc">FILES APPEAR HERE</p>
+  </div>
+</div></p>
 
-<p>&nbsp;</p>
+<p><div class="dropdown" style="float:left;">
+  <div id="cornerStore" style="height:auto;" class="dropdown-content">
+    <a onclick="dropCornerStore()" style="color:red; float:right; font-size:20px; position:absolute; z-index:10; top:0px; right:0px;"><b><big>X</big></b></a>
+    <p><h2 style="text-align:center;">CyberCredit Corner Store</h2></p>
+  <small>
+	<hr>
+	<p>Increases the +10 button to +13. The chance of being hacked remains the same. Pretty lame upgrade if you ask me. Costs 10000 CyberCredits.</p>
+	<button onclick="purchaseA()" id="purchaseBtnA">Purchase</button>
+	<hr>
+	<p>Changes the font for your name. I know. Big whoop. Costs 20000 CyberCredits.</p>
+	<button onclick="purchaseB()" id="purchaseBtnB">Purchase</button>
+	<hr>
+  <p>Adds a Clear CyberCredits button, which deletes all CyberCredits. I don't know why you would want that, but it's a thing. Costs 30000 CyberCredits.</p>
+	<button onclick="purchaseC()" id="purchaseBtnC">Purchase</button>
+	<hr>
+  </small>
+  </div>
+</div></p>
+
+<p style="text-align:left;" id="topBtns">
+
+<button id="shopBtn" onclick="dropShop1()">CyberCredit Shop</button>
+<button onclick='invest()' id="investBtn" style="border-color:grey; border-style:solid; color:grey;" disabled>Locked</button>
+<button id="chronicleDropBtn" onclick="dropChronicle();" style="border-color:grey; border-style:solid; color:grey;" disabled>Locked</button>
+<button id="optionsBtn" onclick="dropOptions()">Options</button>
+<font id="topSecretPlc"></font>
+<font id="donatePlc"></font>
+<font id="chipsMsgPlc"></font>
+
+</p>
+
+
 
 <hr>
 
 <h1 id="title" class="test">The Internet Bank Of CyberCredits</h1>
 
 <hr><br>
-<font id="allPlusBtns">
+<div id="allPlusBtns">
 <a id="addThePlus0"></a>
 
 <button id="plus1" onclick="stealChance = 1000 * chanceOfHack * infiniteOnes; cyberCreditDeal(); if(stealRandomiser >= 1) cyberCredits += plus1Plus1; getElementById('cyberCreditCount').innerHTML = cyberCredits; cyberCreditDeal(); document.getElementById('plus1').disabled = true; document.getElementById('plus1').disabled = false; saveCyberCredits();">+1</button> 
 
 <button id="plus5" onclick="stealChance = 100 * chanceOfHack; cyberCreditDeal(); if(stealRandomiser >= 1) cyberCredits += 5; getElementById('cyberCreditCount').innerHTML = cyberCredits; document.getElementById('plus5').disabled = true; document.getElementById('plus5').disabled = false; saveCyberCredits();">+5</button> 
 
-<button id="plus10" onclick="stealChance = 50 * chanceOfHack; cyberCreditDeal(); if(stealRandomiser >= 1) cyberCredits += 10; getElementById('cyberCreditCount').innerHTML = cyberCredits; document.getElementById('plus10').disabled = true; document.getElementById('plus10').disabled = false; saveCyberCredits();">+10</button> 
+<button id="plus10" onclick="stealChance = 50 * chanceOfHack; cyberCreditDeal(); if(stealRandomiser >= 1) cyberCredits += plus10Plus3; getElementById('cyberCreditCount').innerHTML = cyberCredits; document.getElementById('plus10').disabled = true; document.getElementById('plus10').disabled = false; saveCyberCredits();">+10</button> 
 
 <button id="plus25" onclick="stealChance = 25 * chanceOfHack; cyberCreditDeal(); if(stealRandomiser >= 1) cyberCredits += plus25Plus25; getElementById('cyberCreditCount').innerHTML = cyberCredits; document.getElementById('plus25').disabled = true; document.getElementById('plus25').disabled = false; saveCyberCredits();">+25</button> 
 
@@ -99,14 +168,20 @@
 <a id="addThePlus250"></a>
 
 <a id="addThePlus500"></a>
-</font>
 
-<p><b><a id="namePlc">Your</a>'s CyberCredit Account</b></p>
+<a id="addThePlus1000"></a>
+</div>
+
+<p><b><a id="namePlc">Your</a> CyberCredit Account</b></p>
 
 <div class="cyberCreditCountStyle"><h2><a id="cyberCreditCount">0</a><a id="cyberCreditsImg"><img src="faviconCyber.png" width="85" height="85"></a></h2></div>
 
+<p id="behemothBucksBtn"></p>
+
+<big><p id="behemothBuckCount" style="font-family:'Times New Roman';"></p></big>
+<big><p id="jackhammerPlc"></p></big>
+
 <hr>
-<p id="devCheatsShowPlc"></p>
 </body>
 <style>
 :root {
@@ -121,7 +196,7 @@ body {
   font-family:arial;
   padding:10px;
   letter-spacing:3px;
-  touch-action: manipulation; 
+  touch-action: manipulation;
 }
 hr {
   border-color:var(--cyan);
@@ -157,10 +232,6 @@ button {
   scrollbar-color: var(--cyan) var(--grey);
 }
 
-.dropbtn {
-  float:left;
-}
-
 .dropdown-content a {
   color: black;
   padding: 12px 16px;
@@ -168,6 +239,7 @@ button {
 }
 
 .show {display: block;}
+.rid {display: none;}
 </style>
 <script>
 // Base JS code stuff sits around here at the start.
@@ -177,89 +249,249 @@ window.addEventListener('keydown', function(event) {
     event.preventDefault();
   }
 });
-var hundredComplete = "";
-function hundredCheck() {
-  if (localStorage.purchased1 && localStorage.purchased2 && localStorage.purchased3 == 1 && localStorage.purchased4 && localStorage.purchased5 && localStorage.purchased6 && localStorage.purchased7 && localStorage.purchased8 && localStorage.purchased9 && localStorage.purchased10 && localStorage.purchased11 && localStorage.purchased12 && localStorage.purchased13 && localStorage.purchased14 && localStorage.purchased15 && localStorage.purchased16 && localStorage.purchased17 && localStorage.purchased18 && localStorage.purchased19 && localStorage.purchased20 && localStorage.previousChipsMcGeeLogin) {
-    hundredComplete = "\nYou have 100% completed this game. Congrats."
-    if (!localStorage.completeAlreadyDone) {
-    alert('Game 100% complete!\n\nFor getting all of the upgrades and unlocking all of the secrets in the game, you have unlocked a new theme. Completionist Gold.');
-    r.style.setProperty('--cyan', '#d4af37');
-    r.style.setProperty('--grey', '#420000');
-    document.getElementById('cyberCreditsImg').innerHTML = royalCyberCreditsImg;
-    (localStorage.theme) = 5;
-    document.getElementById('completionistThemeBtnPlc').innerHTML = '<button style="border-color:#d4af37; color:#d4af37; background-color:#420000;" onclick="r.style.setProperty(\'--cyan\', \'#d4af37\'); r.style.setProperty(\'--grey\', \'#420000\'); document.getElementById(\'cyberCreditsImg\').innerHTML = royalCyberCreditsImg; (localStorage.theme) = 5;">Completionist Gold</button>';
-    }
-    (localStorage.completeAlreadyDone) = 0;
-  }
-}
-hundredCheck();
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms))
 }
 
-var cyberCredits;
+let cyberCredits = 0;
   if (localStorage.cyberCredits) {
   cyberCredits = Number(localStorage.cyberCredits); 
-  } else {
-  cyberCredits = 0;
   }
-var plus1Plus1 = 1;
-var insureInsurance = 0;
-var insureCyberCreditBackup = 0;
-var plus100Plus50 = 100;
-var insurancePercentage = 50;
-var insurancePurchaseDeterminer = 0;
+let plus1Plus1 = 1;
+let insureInsurance = 0;
+let insureCyberCreditBackup = 0;
+let plus100Plus50 = 100;
+let plus10Plus3 = 10;
+let insurancePercentage = 50;
+let insurancePurchaseDeterminer = 0;
 var r = document.querySelector(':root');
-var chanceOfHack = 1;
-var cyberCreditsImg = '<img src="faviconCyber.png" width="85" height="85">';
-var proCyberCreditsImg = '<img src="faviconCyberPro.png" width="85" height="85">';
-var darkCyberCreditsImg = '<img src="faviconCyberDark.png" width="85" height="85">';
-var magnoCyberCreditsImg = '<img src="faviconCyberMagno.png" width="85" height="85">';
-var royalCyberCreditsImg = '<img src="faviconCyberRoyal.png" width="85" height="85">';
-var infiniteOnes = 1;
-var plus250Plus50 = 250;
-var plus250PurchaseDeterminer = 0;
-var plus250Btn = '<button id="plus250" onclick="stealChance = 9 * chanceOfHack; cyberCreditDeal(); if(stealRandomiser >= 1) cyberCredits += plus250Plus50; getElementById(\'cyberCreditCount\').innerHTML = cyberCredits; document.getElementById(\'plus250\').disabled = true; document.getElementById(\'plus250\').disabled = false; saveCyberCredits();">+250</button>';
-var plus500Btn = '<button id="plus500" onclick="stealChance = 8 * chanceOfHack; cyberCreditDeal(); if(stealRandomiser >= 1) cyberCredits += 500; getElementById(\'cyberCreditCount\').innerHTML = cyberCredits; document.getElementById(\'plus500\').disabled = true; document.getElementById(\'plus500\').disabled = false; saveCyberCredits();">+500</button>';
-var plus0Btn = '<button id="plus0" onclick="stealChance = 1500 * chanceOfHack; cyberCreditDeal(); if(stealRandomiser >= 1) cyberCredits += 0; getElementById(\'cyberCreditCount\').innerHTML = cyberCredits; cyberCreditDeal(); document.getElementById(\'plus0\').disabled = true; document.getElementById(\'plus0\').disabled = false; saveCyberCredits();">+0</button>';
-var investmentSuccessChanceIncrease = 3;
-var plus25Plus25 = 25;
-var cutTimeInvest = 1;
-var investmentSuccessAmount = 1500;
+let chanceOfHack = 1;
+const cyberCreditsImg = '<img src="faviconCyber.png" width="85" height="85">';
+const proCyberCreditsImg = '<img src="faviconCyberPro.png" width="85" height="85">';
+const darkCyberCreditsImg = '<img src="faviconCyberDark.png" width="85" height="85">';
+const magnoCyberCreditsImg = '<img src="faviconCyberMagno.png" width="85" height="85">';
+const royalCyberCreditsImg = '<img src="faviconCyberRoyal.png" width="85" height="85">';
+const galacticCyberCreditsImg = '<img src="faviconCyberGalactic.png" width="85" height="85">';
+const xyzWorderImg = '<img src="favicon.png" width="85" height="85">';
+const theCodeBlockImg = '<img src="favicon2.png" width="85" height="85">';
+const theBlastingGroundsImg = '<img src="faviconBlast.png" width="85" height="85">';
+const caneToadKerfuffleImg = '<img src="faviconCane.png" width="85" height="85">';
+const pristineCyberCreditsImg = '<img src="faviconCyberPristine.png" width="85" height="85">';
+const lightCyberCreditsImg = '<img src="faviconCyberLight.png" width="85" height="85">';
+let infiniteOnes = 1;
+let plus250Plus50 = 250;
+let plus250PurchaseDeterminer = 0;
+const plus250Btn = '<button id="plus250" onclick="stealChance = 9 * chanceOfHack; cyberCreditDeal(); if(stealRandomiser >= 1) cyberCredits += plus250Plus50; getElementById(\'cyberCreditCount\').innerHTML = cyberCredits; document.getElementById(\'plus250\').disabled = true; document.getElementById(\'plus250\').disabled = false; saveCyberCredits();">+250</button>';
+const plus500Btn = '<button id="plus500" onclick="stealChance = 8 * chanceOfHack; cyberCreditDeal(); if(stealRandomiser >= 1) cyberCredits += plus500Plus125; getElementById(\'cyberCreditCount\').innerHTML = cyberCredits; document.getElementById(\'plus500\').disabled = true; document.getElementById(\'plus500\').disabled = false; saveCyberCredits();">+500</button>';
+const plus1000Btn = '<button id="plus1000" onclick="stealChance = 2 * chanceOfHack; cyberCreditDeal(); if(stealRandomiser >= 1) cyberCredits += 1000; getElementById(\'cyberCreditCount\').innerHTML = cyberCredits; document.getElementById(\'plus1000\').disabled = true; document.getElementById(\'plus1000\').disabled = false; saveCyberCredits();">+1000</button>';
+const plus0Btn = '<button id="plus0" onclick="stealChance = 1500 * chanceOfHack; cyberCreditDeal(); if(stealRandomiser >= 1) cyberCredits += 0; getElementById(\'cyberCreditCount\').innerHTML = cyberCredits; cyberCreditDeal(); document.getElementById(\'plus0\').disabled = true; document.getElementById(\'plus0\').disabled = false; saveCyberCredits();">+0</button>';
+let investmentSuccessChanceIncrease = 3;
+let plus25Plus25 = 25;
+let plus500Plus125 = 500;
+let cutTimeInvest = 1;
+let investmentSuccessAmount = 1500;
+let cyberTestCount = 0;
+const topSecretBtn = "<button onclick='dropSecret();'>Top Secret</button>"
+let disableCode = 0;
+if(localStorage.chroniclePage >= 4) disableCode = "Toggle plus buttons code: DISABLE/ENABLEPLUSBUTTONS\n"
+if (localStorage.cyberTestCount) cyberTestCount = Number(localStorage.cyberTestCount);
+let xyzCode = "";
+if(localStorage.xyzUsed) xyzCode = "\nXYZ Worder Red: xyz18437056";
+let passCode = "";
+if(localStorage.tcbComplete) passCode = "\nThe CodeBlock Blue: passcode21908837";
+let blastCode = "";
+if(localStorage.tbgComplete) blastCode = "\nThe Blasting Grounds Brown: blaster44932582";
+let caneCode = "";
+if(localStorage.ctkComplete) caneCode = "\nCane Toad Kerfuffle Blue: toad09547283";
 
-var secretsFound = 0;
+let behemothBucks = 0;
+if(localStorage.behemothBucks) behemothBucks = Number(localStorage.behemothBucks);
 
-var forgeUpgrades = '<p>Adds the Quantum Purple colour theme. Costs 17000 CyberCredits.</p><button onclick="purchase15()" id="purchaseBtn15">Purchase</button><hr><p>Halves invest button waiting time. Costs 18000 CyberCredits.</p><button onclick="purchase16()" id="purchaseBtn16">Purchase</button><hr><p>Increases the +25 button to +50. The chance of being hacked remains the same. Costs 19000 CyberCredits.</p><button onclick="purchase17()" id="purchaseBtn17">Purchase</button><hr><p>Increases CyberCredit insurance to give back 80%. Costs 20000 CyberCredits.</p><button onclick="purchase18()" id="purchaseBtn18">Purchase</button><hr><p>Increases the amount of CyberCredits you get from a successful investment to 2500. Costs 21000 CyberCredits.</p><button onclick="purchase19()" id="purchaseBtn19">Purchase</button><hr><p>Makes the title more grand. Costs 22000 CyberCredits.</p><button onclick="purchase20()" id="purchaseBtn20">Purchase</button><hr>';
+let hackerMan = "the well known CyberCredits hacker Chips McGee";
 
-var name;
+let secretsFound = 0;
+
+const forgeUpgrades = '<p>Adds the Quantum Purple colour theme. Costs 17000 CyberCredits.</p><button onclick="purchase15()" id="purchaseBtn15">Purchase</button><hr><p>Halves invest button waiting time. Costs 18000 CyberCredits.</p><button onclick="purchase16()" id="purchaseBtn16">Purchase</button><hr><p>Increases the +25 button to +50. The chance of being hacked remains the same. Costs 19000 CyberCredits.</p><button onclick="purchase17()" id="purchaseBtn17">Purchase</button><hr><p>Increases CyberCredit insurance to give back 80%. Costs 20000 CyberCredits.</p><button onclick="purchase18()" id="purchaseBtn18">Purchase</button><hr><p>Increases the amount of CyberCredits you get from a successful investment to 1750. Costs 21000 CyberCredits.</p><button onclick="purchase19()" id="purchaseBtn19">Purchase</button><hr><p>Makes the title more grand. Costs 22000 CyberCredits.</p><button onclick="purchase20()" id="purchaseBtn20">Purchase</button><hr><p>Begins the investigation. Costs 23000 CyberCredits.</p><button onclick="purchase21()" id="purchaseBtn21">Purchase</button><hr><p>Increases the +500 button to +625. The chance of being hacked remains the same. Costs 24000 CyberCredits.</p><button onclick="purchase22()" id="purchaseBtn22">Purchase</button><hr><p>Adds a +1000 button. It has a 1 in 2 chance to be hacked. It\'s really not that good. Costs 25000 CyberCredits.</p><button onclick="purchase23()" id="purchaseBtn23">Purchase</button><hr><p>Halves the chance of being hacked on all buttons. Costs 30000 CyberCredits.</p><button onclick="purchase24()" id="purchaseBtn24">Purchase</button><hr><p>Gives you one jackhammer. Costs 31250 CyberCredits.</p><button onclick="purchase25()" id="purchaseBtn25" style="border-color:grey; color:grey; border-style:solid;" disabled>Locked</button><hr>';
+
+const chronicle1 = "<font style='font:font-family: \'Noteworthy\';'><big>Journal of Chips McGee, Page 1</big><br><br>Today, I logged into the Internet Bank of CyberCredits for the first time, ready to earn some CyberCredits. I created my Internet Bank of CyberCredits account. But for some reason, none of the plus buttons were there. It was really weird. I couldn't get any CyberCredits! I only wanted to open my account! Is that too much to ask?! I'm gonna send an angry email to the creator of the bank.</font>";
+
+const mcCungalow1 = "<big>A message from Michael McCungalow and his second mission for you:</big><br><br>Woah. That looks almost like Chips McGee wasn't always set out to be a CyberCredits hacker! That's some pretty good info. I think next we should look into how Chips McGee hacks so many people's CyberCredit accounts all at once.<br>Good job assistant.<br>For now, I have a new mission for you. Let's conduct CyberCredit research.<br>Your mission is to press a plus button 100 times. While you do that I will examine the code block that gives you more CyberCredits and see if there are any weaknesses in the code where it could be hacked.";
+
+const chronicle2 = "";
+
+const mcCungalow2 = "<big>A message from Michael McCungalow and his third mission for you:</big><br><br>Ok. I have checked the code while you pressed the plus buttons and I actually found a direct link to Chips McGee's account in the code! That means, he hasn't just hacked your account. He has hacked the Internet Bank of CyberCredits itself! The way it works is that each button has a random chance for you to get hacked when pressing it. He has probably done this because if he made it so that you got hacked every single time, the bank would be forced to do something about it. But this way, you can still get CyberCredits, but just not as much. And since the Internet Bank of CyberCredits has a reputation for having terrible security, it just seems like a normal hack.<br>It's genius.<br>I found another seller who has somehow gotten the second page of Chips McGee's original journal. I want to get my hands on it. It's quite expensive though.<br>My next mission for you, my assistant, is to bring me 20000 CyberCredits.";
+
+const chronicle3 = "<font style='font:font-family: \'Noteworthy\';'><big>Journal of Chips McGee, Page 2</big><br><br>The creator of the bank won't respond. What am I meant to do?! Since there are no plus buttons on my account, it's literally impossible for me to get CyberCredits. Wait. I forgot about... the dark side of the CyberCredit.<br>Hacking.<br>I looked up a CyberCredit hacking tutorial online and I found that since the Internet Bank of CyberCredits has such terrible security, hacking is not that hard. I even figured out how to hack the bank's themes create a whole new theme for my account. I call it Hacker Red, and I'm the only one who has it, because I made it.<br>I am now a CyberCredit hacker.</font>";
+
+const mcCungalow3 = "<big>A message from Michael McCungalow and his fourth mission for you:</big><br><br>Well, I guess that's the start of Chips McGee's origin story. I am curious though, about why he had no plus buttons in the first place.<br>When I was looking in the code before, I actually found there were security measures that delete all plus buttons if you are caught hacking or anything like that. The bank has terrible security, so it can be easily avoided, but maybe it could glitch, and happen on the opening of a new account. I'm not sure.<br>I did find that it was possible to trigger the plus button deletion on command with a specific code. Don't worry, using the code again brings back the buttons. The code is 'DISABLE/ENABLEPLUSBUTTONS'.<br>My mission for you is to use the codes to delete your plus buttons and then bring them back, to see if the code works.<br><br>The reason I'm getting you to do it and not me is because... well... I don't want to risk it on my account. But don't worry about never being able to get CyberCredits again. I'm sure it'll all be fine.<br>And don't worry. If you ever forget the code, from now on it will be in the 'Info' area in 'Options'.";
+
+const chronicle4 = "";
+
+const mcCungalow4 = "<big>A message from Michael McCungalow and his fifth mission for you:</big><br><br>It works! That must have been what happened! Chips McGee's account glitched when it was first made, so he didn't have any plus buttons!<br>Excellent work, assistant!<br>Okay, your next mission is... uh, this is kind of embarrassing but... I'm kind of short on CyberCredits and I need to pay for my Wi-Fi. Could I borrow 5000 CyberCredits?<br><br>And when I say borrow, I mean have.<br>Thanks.";
+
+const chronicle5 = "";
+
+const mcCungalow5 = "<big>A message from Michael McCungalow and his sixth mission for you:</big><br><br>Thanks. I owe you one.<br>Ok next, I want you to get the next page of Chips McGee's journal. I actually bought it a while ago and just sent it to you. But since the Internet Bank Of CyberCredits has no message inbox, it probably got lost and ended up in some random place in your account. You should probably find it.<br>Your next mission is to find the third page of Chips McGee's journal, which is somewhere in you're bank account.<br>I know it makes no sense, but it's just the way it is. So get to it!";
+
+const chronicle6 = "<font style='font:font-family: \'Noteworthy\';'><big>Journal of Chips McGee, Page 3</big><br><br>I have become skilled at hacking. I have even implemented a button into my account that automatically hacks a random user! Take that, CyberCredits Bank creator! I don't need plus buttons!<br>Also, I have stumbled onto a way to possibly hack the entire bank itself, so that users get hacked by me automatically! Then I won't even have to press the hack button. All I'll have to do is wait and let the CyberCredits roll in.</font>";
+
+const mcCungalow6 = "<big>A message from Michael McCungalow and his seventh mission for you:</big><br><br>Okay. That pretty much proves what I said before about Chips McGee having hacked the bank itself.<br>Also, I am wondering whether we'll be able to find Chips McGee and arrest him. He has hid his personal information really well.<br>Maybe his journal will contain some information that we can use against him.<br>Online, I found a place where some dude is selling page 4 of Chips McGee's journal.<br>Side note, I don't know why Chips McGee's journal has been cut into so many pieces, but that's a mystery for another time.<br>Anyway, the journal page apparently shows some pretty good information. It costs a whopping 25000 CyberCredits though.<br>My mission for you is to bring me 25000 CyberCredits so we can get that journal page.";
+
+const chronicle7 = "<font style='font:font-family: \'Noteworthy\';'><big>Journal of Chips McGee, Page 4</big><br><br>My autohacking has been implemented. It is now a part of the bank.<br>Also, the authorites are starting to catch on. They're looking for me, but they don't have any parts of my journal, so they have no clue what to do to find me. And I'm surprised the Internet Bank of CyberCredits actually reported me. I always imagined, since they put no effort into their security, that there was just one guy running the whole thing, who made some website that somehow passes for a bank with, I don't know, around 2000 lines of code?<br>But that's just a guess.<br>Anyway, the authorities won't catch me.</font>";
+
+const mcCungalow7 = "<big>A message from Michael McCungalow and his eighth mission for you:</big><br><br>Wait. Are we the dudes looking for him? No, that can't be. This journal page wasn't created recently, and we do have parts of Chips McGee's journal, so it can't be us. Maybe there have been past investigations before.<br>Okay, I'm not supposed to do this, but I'm desperate for clues. What I am about to show you are top secret files, and to let you see this is super not allowed. I'm not even allowed to see them! I got them by managing to snatch them from the chief of police when he wasn't looking.<br>Since I'm too scared to get caught doing it, I'm gonna get you to do it.<br>I've sent over the top secret files to your account. I want you to look through and see if you can find anything to do with Chips McGee. That's my mission for you.";
+
+const chronicle8 = "<font style='font:font-family: \'Noteworthy\';'><big>Chips McGee Previous Investigations</big><br><br>There have been numerous investigations on Chips McGee, but every single investigation's attempts at getting concrete evidence on who Chips McGee really is has failed. The detectives on previous cases believe that if they could find a way to get some up-close information on Chips McGee, then they would have a chance at catching him, but no one has ever found any up-close info.</font>";
+
+const mcCungalow8 = "<big>A message from Michael McCungalow and his ninth mission for you:</big><br><br>So that's the secret file. Hm. I think we may have an advantage this investigation, since I came up with the idea of trying to find pages of Chips McGee's journal.<br>Anyway, thanks for looking at those files there. I've deleted them from your account now, since you aren't supposed to have them.<br>Also, I want to get some more information on Chips McGee's hacking. I want to see if anything else is unusual.<br>My mission for you is to get hacked 25 times, in hopes that we can find something useful.";
+
+const chronicle9 = "<font style='font:font-family: \'Noteworthy\';'><big>A Message From Chips McGee</big><br><br>Stop searching for me. Stop the investigation before things get serious.<br><br>I'm warning you now, stop searching.<br><br>Yours sincerely, Chips McGee.</font>";
+
+const mcCungalow9 = "<big>A message from Michael McCungalow and his tenth mission for you:</big><br><br>Hey, uh, I just recieved that weird message from Chips McGee. By the looks of things, you did too. I think he was actually talking directly to us. We must be getting close.<br>Should we actually call off the investigation?<br>Nah.<br>Since we must be getting close, we should focus. I'm going to trace the sources of that message he sent us. I'll need your help though. And by that, I mean I'll need you to fund my message tracing.<br>You see, it's super expensive to get all the tools needed to trace back a message through a bank, since people don't usually send messages through banks. It'll cost 100000 CyberCredits. But you don't have to pay it all at once. I'm giving you a 'Donate' button for this mission. If you have 20000 CyberCredits it'll donate 20000 CyberCredits to me when pressed. My mission for you is to donate five lots of 20000 CyberCredits so I can get a grand total of 100000 CyberCredits to spend on the message tracing tools.";
+
+const chronicle10 = "<font style='font:font-family: \'Noteworthy\';'><big>A Message From Chips McGee</big><br><br>I'm warning you. If you keep tracing these messages, I'm gonna be so mad.<br><br>Yours sincerely, Chips McGee.</font>";
+
+const mcCungalow10 = "<big>A message from Michael McCungalow and his eleventh mission for you:</big><br><br>It turns out I need at least two messages to I can find the location of the sender. It's a good thing he sent us another threatening message. I'm gonna trace it too.<br>You gave me more than enough CyberCredits to do it, so I'll get to work tracing the location of the messages. In the mean time, your mission is to bring me another 27500 CyberCredits for the final journal page.<br>It's the final one because all of the other pages between the ones we have and this one have been lost to time. And it actually turns out that this one was not written very long ago. In fact, it was quite recent.<br>It is page 49.<br>Oh, also I got rid of your 'Donate' button because you won't be needing it anymore.";
+
+const chronicle11 = "<font style='font:font-family: \'Noteworthy\';'><big>Journal of Chips McGee, Page 49</big><br><br>I know you will find this journal page, Michael McCungalow. Now hear this. If you keep looking for me, and trying to catch me, I will see to it that you never earn another CyberCredit again. I will delete the plus buttons from your account! And that goes for you too, " + localStorage.name + ".<br><br>That is your final warning.</font>";
+
+const mcCungalow11 = "<big>A message from Michael McCungalow and his twelfth mission for you:</big><br><br>Okay. That's worrying. But we can't stop now! We're so close! I have traced the message. His location is in some place called Informaticus City. We need more info though. I'm gonna search the Internet and try and see if there's anything on a 'Chips McGee' in Informaticus City. Meanwhile, my mission for you is to try and fend off Chips McGee if he tries anything funny.";
+
+const chronicle12 = "";
+
+const mcCungalow12 = "<big>A message from Michael McCungalow and his thirteenth mission for you:</big><br><br>Woah! Looks like you had a full on battle with Chips McGee! And you won! Great job assistant!<br>I did some police researching and found out there is a 'Chips McGee' in Informaticus City, and I also found out where he lives. I have informed the rest of the police force that we are close to catching Chips McGee. We are preparing a search party for him.<br>We're gonna catch him, assistant. We're gonna do it! And I can't wait. Until then, I am curious about how a bunch of random people found pieces of Chips McGee's journal. I have looked hard on the internet and found journal page 15. It was only found recently. I have heard rumors that it sheds light on the subject of why the journal was cut up and why so many people have pieces of it. The issue is that the guy that I am trying to buy it from is in some foreign country where the currency is Behemoth Bucks.<br>I have set up a currency exchange button on your account. 10 CyberCredits is equal to 1 Behemoth Buck, and my mission for you is to bring me 10000 Behemoth Bucks.";
+
+const chronicle13 = "<font style='font:font-family: \'Noteworthy\';'><big>Journal of Chips McGee, Page 15</big><br><br>So, now that I have become the official master CyberCredits hacker, I have decided to sell my journal. But I'm not gonna sell it as one big book. No, I'm gonna sell it page by page to whoever will pay the most for each page. Then when ever I make a new page of my journal, I'll just sell it! I'll be rich!<br>Sure, it's possible someone will gather up a bunch of the pieces and lock me in jail, but I'm sure it'll be fine.</font>";
+
+const mcCungalow13 = "<big>A message from Michael McCungalow and his fourteenth mission for you:</big><br><br>Huh. I guess that's it then. He just sells parts of his journal. Pretty smart, really.<br>Anyway, we have sent out the search party. Things are heating up in the investigation now! We're close and I can feel it. The search party has been able to identify where Chips McGee lives, and are on their way to bring him to prison.<br>The next time we talk, we should have Chips McGee locked up.<br>But until then, I have a mission for you. I heard there Chips McGee has sold one more journal page. Page 50. I'll need you to give me 30000 CyberCredits for the journal page.<br>Now it's time to finally catch Chips McGee.";
+
+const chronicle14 = "<font style='font:font-family: \'Noteworthy\';'><big>Journal of Chips McGee, Page 50</big><br><br>Hey, Michael McCungalow. I just wanted to let you know, this has been fun.<br>You see, I was never in Informaticus City. I just let you try to track me down for a bit of fun. It can get boring being at the top of the world, you know.<br>I have always been one step ahead of you. And you will never, ever, catch me.<br>I was never worried. I never had any reason to be.<br>I win. I always win. MUAHAHAHAHAHAHA!!!!</font>";
+
+const mcCungalow14 = "<big>A message from Michael McCungalow and his fifteenth mission for you:</big><br><br>Well that's just great. I was so sure we had Chips McGee.<br>You know, when we got to his home to arrest him there was nothing there, except on his kitchen table, there was a note. Wanna know what the note said?<br><br>Gotcha.<br><br>The weird thing is, that he actually seemed worried about us catching him before. And what's even weirder is that every so often we hear a noise that sounds like it's coming from downstairs. But there's no basement in this house. We are wondering if Chips McGee has set a trap for us. But the issue is that we are too curious to avoid the trap. We really want to know what it is, and if it's a trap or not. So we agreed we should buy a jackhammer. My mission for you is to somehow get your hands on a jackhammer, and then give it to me.";
+
+const chronicle15 = "";
+
+const mcCungalow15 = "<big>A message from Michael McCungalow and his sixteenth and final mission for you:</big><br><br>Well we used the jackhammer on the floor and guess what we found hiding from us under the floor boards?<br><br>The well known CyberCredits hacker, Chips McGee.<br><br>I made the arrest and brought him into the station.<br>Looks like he was just bluffing about being one step ahead of us, and really we were super close.<br>We did it assistant! We caught Chips McGee! Of course, there are still other less well known CyberCredit hackers out there, so you will still get hacked. But we caught Chips McGee! And as a reward, I will give you a special theme for helping me to catch Chips McGee. It's called Purged White. You can unlock it by paying 25000 CyberCredits.<br>My next and final mission for you is to hand in 25000 CyberCredits to unlock Purged White.<br><br>Until next time " + localStorage.name + ", farewell.";
+
+const chronicle16 = "<big>Credits</big><br><br>Developer: Asher North<br><br>Special thanks: GM Ben, GM Nat, and GM Breathtaking<br><br><br><hr>";
+
+const mcCungalow16 = "<br><big>Investigation complete!</big>";
+
+if((localStorage.purchased1 && localStorage.purchased2 && localStorage.purchased3 && localStorage.purchased4 && localStorage.purchased5 && localStorage.purchased6 && localStorage.purchased7 && localStorage.purchased8 && localStorage.purchased9 && localStorage.purchased10 && localStorage.purchased11 && localStorage.purchased12 && localStorage.purchased13 && localStorage.purchased14 && localStorage.purchased15 && localStorage.purchased16 && localStorage.purchased17 && localStorage.purchased18 && localStorage.purchased19 && localStorage.purchased20 && localStorage.purchased21 && localStorage.purchased22 && localStorage.purchased23 && localStorage.purchased24 && localStorage.purchased25 && localStorage.chroniclePage >= 17) == false) { localStorage.removeItem('completeAlreadyDone'); }
+
+let hundredComplete = "";
+function hundredCheck() {
+  if (!localStorage.completeAlreadyDone && localStorage.purchased1 && localStorage.purchased2 && localStorage.purchased3 && localStorage.purchased4 && localStorage.purchased5 && localStorage.purchased6 && localStorage.purchased7 && localStorage.purchased8 && localStorage.purchased9 && localStorage.purchased10 && localStorage.purchased11 && localStorage.purchased12 && localStorage.purchased13 && localStorage.purchased14 && localStorage.purchased15 && localStorage.purchased16 && localStorage.purchased17 && localStorage.purchased18 && localStorage.purchased19 && localStorage.purchased20 && localStorage.purchased21 && localStorage.purchased22 && localStorage.purchased23 && localStorage.purchased24 && localStorage.purchased25 && localStorage.chroniclePage >= 17) {
+    alert('Game 100% complete!\n\nFor doing this, you have unlocked a new theme. Completionist Gold.\n\nAlso, getting all the secrets is not included in what you need to do to 100% the game.');
+    r.style.setProperty('--cyan', '#d4af37');
+    r.style.setProperty('--grey', '#420000');
+    document.getElementById('cyberCreditsImg').innerHTML = royalCyberCreditsImg;
+    (localStorage.theme) = 5;
+    document.getElementById('completionistThemeBtnPlc').innerHTML = '<button style="border-color:#d4af37; color:#d4af37; background-color:#420000;" onclick="r.style.setProperty(\'--cyan\', \'#d4af37\'); r.style.setProperty(\'--grey\', \'#420000\'); document.getElementById(\'cyberCreditsImg\').innerHTML = royalCyberCreditsImg; (localStorage.theme) = 5;">Completionist Gold</button>';
+    (localStorage.completeAlreadyDone) = true;
+  }
+}
+//hundredCheck();
+
 if (!localStorage.name) {
   let selectName = prompt("Hey you! What's your name?", "Mr Insert Name Here");
-  name = selectName;
-  if (selectName == null || name == '') name = 'Mystery Dude';
-    (localStorage.name) = name;
-    if (name != 'Chips McGee') {
-    alert('Well ' + name + ', beware of Chips McGee, the well known CyberCredits hacker. Don\'t take too many CyberCredits, or Chips McGee may take them all! Unless you are insured.');
+  localStorage.name = selectName;
+  if (selectName == null || localStorage.name == '') localStorage.name = 'Mystery Dude';
+    if (localStorage.name != 'Chips McGee') {
+    alert('Well ' + localStorage.name + ', beware of Chips McGee, the well known CyberCredits hacker. Don\'t take too many CyberCredits, or Chips McGee may take them all! Unless you are insured.');
     } else {
-      alert('Well ' + name + ', beware of Chips McGee, the well known CyberCredits hacker. Wait a minute, you\'re Chips McGee! I\'d better get out of here before you take my CyberCredits!');
+      alert('Well ' + localStorage.name + ', beware of Chips McGee, the well known CyberCredits hacker. Wait a minute, you\'re Chips McGee! I\'d better get out of here before you take my CyberCredits!');
     }
-  var name = (localStorage.name);
 }
-document.getElementById('namePlc').innerHTML = (localStorage.name);
-if (name == 'FULLRESET') {localStorage.removeItem('previousChipsMcGeeLogin'); revert();}
+document.getElementById('namePlc').innerHTML = (localStorage.name) + "'s";
 
-function nameChange() {
-  let selectName = prompt("What would you like to change your name to?", "Mr Insert Name Here");
-  name = selectName;
-  if (selectName == null || name == '') name = 'Mystery Dude';
-  if (selectName == 'Chips McGee') location.reload();
-  (localStorage.name) = name;
-  alert('From this moment on, I shall call you ' + name + '.\nOkay Jeff?\n\nWhoops! I meant to say ' + name + '.');
-  document.getElementById('namePlc').innerHTML = name;
-  name = (localStorage.name);
-  if (selectName == 'FULLRESET') {localStorage.removeItem('previousChipsMcGeeLogin'); revert();}
+async function moneyManCall() {
+  while (localStorage.name == "Money Man") {
+    stealChance = 1000 * chanceOfHack * infiniteOnes;
+    cyberCreditDeal();
+    if(stealRandomiser >= 1) cyberCredits += plus1Plus1;
+    document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
+    cyberCreditDeal();
+    saveCyberCredits();
+    await sleep(1000);
+  }
 }
-name = (localStorage.name);
+moneyManCall();
+
+function codeCheck() {
+  let code = prompt("Insert code.", "");
+  if (code == 'xnylporkchap' && ((localStorage.name) == "Winner" || (localStorage.name) == "Developer")) {
+    (localStorage.fiftyThousand) = 0;
+    alert('You have unlocked the theme, Astral Yellow.');
+    document.getElementById('astralThemeBtnPlc').innerHTML = '<p><button style="border-color:yellow; color:yellow; background-color:#171929;" onclick="r.style.setProperty(\'--cyan\', \'yellow\'); r.style.setProperty(\'--grey\', \'#171929\'); document.getElementById(\'cyberCreditsImg\').innerHTML = galacticCyberCreditsImg; (localStorage.theme) = 7;">Astral Yellow</button></p><hr>';
+    (localStorage.theme) = 7;
+    r.style.setProperty('--cyan', 'yellow');
+    r.style.setProperty('--grey', '#171929');
+    document.getElementById('cyberCreditsImg').innerHTML = galacticCyberCreditsImg;
+  }
+  if (code == 'GIMMETHEMONEY' && localStorage.name == "Developer")  {
+    alert('Okay, fine! You don\'t have to be so rude about it though. Here. Take a million CyberCredits.')
+    cyberCredits += 1000000;
+    saveCyberCredits();
+    document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
+  }
+  if (code == 'FULLRESET')  {
+    localStorage.removeItem('previousChipsMcGeeLogin');
+    revert();
+  }
+  if (code == 'DISABLE/ENABLEPLUSBUTTONS') {
+    if(!localStorage.plusBtnsDisabled) {
+      alert('document.getElementById("allPlusBtns").innerHTML = null;')
+      document.getElementById("allPlusBtns").classList.toggle("rid");
+      localStorage.plusBtnsDisabled = 0;
+    } else {
+      alert('document.getElementById("allPlusBtns").innerHTML = plusBtns;')
+      document.getElementById("allPlusBtns").classList.toggle("rid");
+      localStorage.removeItem('plusBtnsDisabled');
+      localStorage.plusBtnsToggled = 0;
+    }
+    dropOptions();
+  }
+  if (code == 'xyz18437056' && localStorage.xyzUsed >= 100) {
+    alert('You have chosen the theme, XYZ Worder Red.')
+    localStorage.theme = 8;
+    r.style.setProperty('--cyan', 'crimson');
+    r.style.setProperty('--grey', 'white');
+    document.getElementById('cyberCreditsImg').innerHTML = xyzWorderImg;
+  }
+  if (code == 'passcode21908837' && localStorage.tcbComplete) {
+    alert('You have chosen the theme, The CodeBlock Blue.')
+    localStorage.theme = 9;
+    r.style.setProperty('--cyan', '#00ffff');
+    r.style.setProperty('--grey', 'black');
+    document.getElementById('cyberCreditsImg').innerHTML = theCodeBlockImg;
+  }
+  if (code == 'blaster44932582' && localStorage.tbgComplete) {
+    alert('You have chosen the theme, The Blasting Grounds Brown.')
+    localStorage.theme = 10;
+    r.style.setProperty('--cyan', 'white');
+    r.style.setProperty('--grey', '#61340B');
+    document.getElementById('cyberCreditsImg').innerHTML = theBlastingGroundsImg;
+  }
+  if (code == 'toad09547283' && localStorage.ctkComplete) {
+    alert('You have chosen the theme, Cane Toad Kerfuffle Blue.')
+    localStorage.theme = 11;
+    r.style.setProperty('--cyan', '#b8b8b8');
+    r.style.setProperty('--grey', '#00022E');
+    document.getElementById('cyberCreditsImg').innerHTML = caneToadKerfuffleImg;
+  }
+  if (code == 'cornerStoresAreRad' && !localStorage.cornerStoreUnlocked) {
+    alert('They are, aren\'t they? Here. You can have one.')
+    alert("Secret unlocked!\n\nYou have unlocked the CyberCredit Corner store! It's a CyberCredit shop, much like the shop or the forge, but it's really small. You can find it in the 'Options' area.\n\nEnjoy!")
+    document.getElementById('cornerStorePlc').innerHTML = "<p><button onclick='dropOptions(); dropCornerStore();'>CyberCredit Corner Store</button></p><hr>"
+    secretsFound += 1;
+    localStorage.cornerStoreUnlocked = 0;
+  }
+}
+if(localStorage.plusBtnsDisabled) {
+    document.getElementById("allPlusBtns").classList.toggle("rid");
+  }
 
 function add0Btn() {  document.getElementById('addThePlus0').innerHTML = plus0Btn;
   (localStorage.purchased3) = 1;
@@ -269,7 +501,6 @@ function add0Btn() {  document.getElementById('addThePlus0').innerHTML = plus0Bt
   document.getElementById('secretBtn1').innerHTML = 'Purchased';
   secretsFound += 1;
 }
-
 function purchaseFunc1() {
   insureInsurance += 1;
 	insurancePurchaseDeterminer += 1;
@@ -279,7 +510,6 @@ function purchaseFunc1() {
   document.getElementById('purchaseBtn1').style.borderStyle = "solid";
 	document.getElementById('purchaseBtn1').innerHTML = 'Purchased';
 }
-
 function purchaseFunc2() {
   document.getElementById('title').innerHTML = "The One And Only Internet Bank Of CyberCredits";
 	document.getElementById('tabTitle').innerHTML = "The One And Only Internet Bank Of CyberCredits";
@@ -289,12 +519,10 @@ function purchaseFunc2() {
   document.getElementById('purchaseBtn2').style.borderStyle = "solid";
 	document.getElementById('purchaseBtn2').innerHTML = 'Purchased';
 }
-
 function purchaseFunc3() {
   document.getElementById('cyberCreditCount').style.fontFamily = "Times New Roman";
 	document.getElementById('secretArea1').innerHTML = '<button style="border-color:grey; color:grey;" id="secretBtn1" onclick="add0Btn()">Purchase</button>';
 }
-
 function purchaseFunc4() {
   document.getElementById('purchaseBtn4').disabled = true;
   document.getElementById('purchaseBtn4').style.borderColor = "grey";
@@ -304,7 +532,6 @@ function purchaseFunc4() {
   document.getElementById('plus1').innerHTML = "+2";
 	plus1Plus1 += 1;
 }
-
 function purchaseFunc5() {
   document.getElementById('plus100').innerHTML = "+150";
   plus100Plus50 += 50;
@@ -314,7 +541,6 @@ function purchaseFunc5() {
   document.getElementById('purchaseBtn5').style.borderStyle = "solid";
   document.getElementById('purchaseBtn5').innerHTML = 'Purchased';
 }
-
 function purchaseFunc6() {
   insurancePercentage += 20;
   document.getElementById('purchaseBtn6').disabled = true;
@@ -323,7 +549,6 @@ function purchaseFunc6() {
   document.getElementById('purchaseBtn6').style.borderStyle = "solid";
   document.getElementById('purchaseBtn6').innerHTML = 'Purchased';
 }
-
 function purchaseFunc7() {
   document.getElementById('addThePlus250').innerHTML = plus250Btn;
   plus250PurchaseDeterminer += 1;
@@ -333,7 +558,6 @@ function purchaseFunc7() {
   document.getElementById('purchaseBtn7').style.borderStyle = "solid";
   document.getElementById('purchaseBtn7').innerHTML = 'Purchased';
 }
-
 function purchaseFunc8() {
   document.getElementById('purchaseBtn8').disabled = true;
   document.getElementById('purchaseBtn8').style.borderColor = "grey";
@@ -342,16 +566,14 @@ function purchaseFunc8() {
   document.getElementById('purchaseBtn8').innerHTML = 'Purchased';
   document.getElementById('cryptoThemeBtnPlc').innerHTML = '<button style="border-color:lime; color:lime; background-color:#1c1c1c;" onclick="r.style.setProperty(\'--cyan\', \'lime\'); r.style.setProperty(\'--grey\', \'#1c1c1c\'); document.getElementById(\'cyberCreditsImg\').innerHTML = proCyberCreditsImg; (localStorage.theme) = 2;">Crypto Green</button>';
 }
-
 function purchaseFunc9() {
-  chanceOfHack += 1;
+  chanceOfHack *= 2;
   document.getElementById('purchaseBtn9').disabled = true;
   document.getElementById('purchaseBtn9').style.borderColor = "grey";
   document.getElementById('purchaseBtn9').style.color = "grey";
   document.getElementById('purchaseBtn9').style.borderStyle = "solid";
 	document.getElementById('purchaseBtn9').innerHTML = 'Purchased';
 }
-
 function purchaseFunc10() {
   infiniteOnes = 10;
   document.getElementById('purchaseBtn10').disabled = true;
@@ -360,7 +582,6 @@ function purchaseFunc10() {
   document.getElementById('purchaseBtn10').style.borderStyle = "solid";
 	document.getElementById('purchaseBtn10').innerHTML = 'Purchased';
 }
-
 function purchaseFunc11() {
   document.getElementById('plus250').innerHTML = "+300";
 	plus250Plus50 += 50;
@@ -370,7 +591,6 @@ function purchaseFunc11() {
   document.getElementById('purchaseBtn11').style.borderStyle = "solid";
   document.getElementById('purchaseBtn11').innerHTML = 'Purchased';
 }
-
 function purchaseFunc12() {
   document.getElementById('investBtn').style.borderColor = "var(--cyan)";
   document.getElementById('investBtn').style.color = "var(--cyan)";
@@ -383,7 +603,6 @@ function purchaseFunc12() {
   document.getElementById('purchaseBtn12').style.borderStyle = "solid";
   document.getElementById('purchaseBtn12').innerHTML = 'Purchased';
 }
-
 function purchaseFunc13() {
   document.getElementById('addThePlus500').innerHTML = plus500Btn;
   document.getElementById('purchaseBtn13').disabled = true;
@@ -392,7 +611,6 @@ function purchaseFunc13() {
   document.getElementById('purchaseBtn13').style.borderStyle = "solid";
   document.getElementById('purchaseBtn13').innerHTML = 'Purchased';
 }
-
 function purchaseFunc14() {
   document.getElementById('shopArea').innerHTML = forgeUpgrades;
   document.getElementById('shopTitle').innerHTML = "The CyberCredit Forge";
@@ -401,7 +619,6 @@ function purchaseFunc14() {
   document.getElementById('shopTitle').style.fontFamily = "Times New Roman";
   document.getElementById('shopBtn').style.fontFamily = "Times New Roman";
 }
-
 function purchaseFunc15() {
   document.getElementById('purchaseBtn15').disabled = true;
   document.getElementById('purchaseBtn15').style.borderColor = "grey";
@@ -411,7 +628,6 @@ function purchaseFunc15() {
   document.getElementById('quantumThemeBtnPlc').innerHTML = '<button style="border-color:magenta; color:magenta; background-color:black;" onclick="r.style.setProperty(\'--cyan\', \'magenta\'); r.style.setProperty(\'--grey\', \'black\'); document.getElementById(\'cyberCreditsImg\').innerHTML = magnoCyberCreditsImg; (localStorage.theme) = 4;">Quantum Purple</button>';
 
 }
-
 function purchaseFunc16() {
   cutTimeInvest = 2;
   document.getElementById('purchaseBtn16').disabled = true;
@@ -421,7 +637,6 @@ function purchaseFunc16() {
   document.getElementById('purchaseBtn16').innerHTML = 'Purchased';
 
 }
-
 function purchaseFunc17() {
   document.getElementById('purchaseBtn17').disabled = true;
   document.getElementById('purchaseBtn17').style.borderColor = "grey";
@@ -430,9 +645,7 @@ function purchaseFunc17() {
   document.getElementById('purchaseBtn17').innerHTML = 'Purchased';
   document.getElementById('plus25').innerHTML = "+50";
 	plus25Plus25 += 25;
-
 }
-
 function purchaseFunc18() {
   insurancePercentage += 10;
   document.getElementById('purchaseBtn18').disabled = true;
@@ -440,18 +653,15 @@ function purchaseFunc18() {
   document.getElementById('purchaseBtn18').style.color = "grey";
   document.getElementById('purchaseBtn18').style.borderStyle = "solid";
   document.getElementById('purchaseBtn18').innerHTML = 'Purchased';
-
 }
-
 function purchaseFunc19() {
-  investmentSuccessAmount += 1000;
+  investmentSuccessAmount += 250;
   document.getElementById('purchaseBtn19').disabled = true;
   document.getElementById('purchaseBtn19').style.borderColor = "grey";
   document.getElementById('purchaseBtn19').style.color = "grey";
   document.getElementById('purchaseBtn19').style.borderStyle = "solid";
   document.getElementById('purchaseBtn19').innerHTML = 'Purchased';
 }
-
 function purchaseFunc20() {
   document.getElementById('title').innerHTML = "The Grand Internet Bank Of CyberCredits";
 	document.getElementById('tabTitle').innerHTML = "The Grand Internet Bank Of CyberCredits";
@@ -461,7 +671,51 @@ function purchaseFunc20() {
   document.getElementById('purchaseBtn20').style.borderStyle = "solid";
   document.getElementById('purchaseBtn20').innerHTML = 'Purchased';
 }
-
+function purchaseFunc21() {
+  document.getElementById('chronicleDropBtn').style.borderColor = "var(--cyan)";
+  document.getElementById('chronicleDropBtn').style.color = "var(--cyan)";
+  document.getElementById('chronicleDropBtn').style.borderStyle = "";
+  document.getElementById('chronicleDropBtn').disabled = false;
+	document.getElementById('chronicleDropBtn').innerHTML = 'Investigation';
+  document.getElementById('purchaseBtn21').disabled = true;
+  document.getElementById('purchaseBtn21').style.borderColor = "grey";
+  document.getElementById('purchaseBtn21').style.color = "grey";
+  document.getElementById('purchaseBtn21').style.borderStyle = "solid";
+  document.getElementById('purchaseBtn21').innerHTML = 'Purchased';
+}
+function purchaseFunc22() {
+  document.getElementById('purchaseBtn22').disabled = true;
+  document.getElementById('purchaseBtn22').style.borderColor = "grey";
+  document.getElementById('purchaseBtn22').style.color = "grey";
+  document.getElementById('purchaseBtn22').style.borderStyle = "solid";
+  document.getElementById('purchaseBtn22').innerHTML = 'Purchased';
+  document.getElementById('plus500').innerHTML = "+625";
+  plus500Plus125 = 625;
+}
+function purchaseFunc23() {
+  document.getElementById('purchaseBtn23').disabled = true;
+  document.getElementById('purchaseBtn23').style.borderColor = "grey";
+  document.getElementById('purchaseBtn23').style.color = "grey";
+  document.getElementById('purchaseBtn23').style.borderStyle = "solid";
+  document.getElementById('purchaseBtn23').innerHTML = 'Purchased';
+  document.getElementById('addThePlus1000').innerHTML = plus1000Btn;
+}
+function purchaseFunc24() {
+  document.getElementById('purchaseBtn24').disabled = true;
+  document.getElementById('purchaseBtn24').style.borderColor = "grey";
+  document.getElementById('purchaseBtn24').style.color = "grey";
+  document.getElementById('purchaseBtn24').style.borderStyle = "solid";
+  document.getElementById('purchaseBtn24').innerHTML = 'Purchased';
+  chanceOfHack *= 2;
+}
+function purchaseFunc25() {
+  document.getElementById('purchaseBtn25').disabled = true;
+  document.getElementById('purchaseBtn25').style.borderColor = "grey";
+  document.getElementById('purchaseBtn25').style.color = "grey";
+  document.getElementById('purchaseBtn25').style.borderStyle = "solid";
+  document.getElementById('purchaseBtn25').innerHTML = 'Purchased';
+  if(localStorage.chroniclePage <= 15) document.getElementById('jackhammerPlc').innerHTML = "You have one jackhammer";
+}
 if (localStorage.purchased1) purchaseFunc1();
 if (localStorage.purchased2) purchaseFunc2();
 if (localStorage.purchased3) {
@@ -504,18 +758,423 @@ if (localStorage.purchased17) purchaseFunc17();
 if (localStorage.purchased18) purchaseFunc18();
 if (localStorage.purchased19) purchaseFunc19();
 if (localStorage.purchased20) purchaseFunc20();
+if (localStorage.purchased21) purchaseFunc21();
+if (localStorage.purchased22) purchaseFunc22();
+if (localStorage.purchased23) purchaseFunc23();
+if (localStorage.purchased24) purchaseFunc24();
+if (localStorage.purchased25) purchaseFunc25();
 function saveCyberCredits() {
   (localStorage.cyberCredits) = cyberCredits;
 }
 
 document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
-
 function chronicleCheck() {
-  if (cyberCredits >= 10000) {
-    alert('Purchased!');
-    alert('The first page says:\n\nChips McGee\'s Notebook\n\nToday I logged into the Internet Bank Of CyberCredits for the first time, but for some reason, I have no buttons that add CyberCredits! The only way I can get CyberCredits is to...\n\nThat\'s all the page says.\n\n');
-  } else {
-    alert('You need 10000 CyberCredits for this notebook page.')
+  if (!localStorage.chroniclePage) localStorage.chroniclePage = 1;
+  switch (localStorage.chroniclePage) {
+    case "1":
+      if (cyberCredits >= 15000) {
+      cyberCredits -= 15000;
+      alert('You handed in your mission.');
+      (localStorage.chroniclePage) = 2;
+      (localStorage.cyberTestCount) = 0;
+      saveCyberCredits();
+      document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
+      document.getElementById('chroniclePlc').innerHTML = chronicle1;
+      document.getElementById('notes').innerHTML = mcCungalow1;
+    } else {
+      alert('You need 15000 CyberCredits.');
+    }
+    break;
+
+    case "2":
+      if(cyberTestCount >= 100) {
+        alert('You handed in your mission.');
+        (localStorage.chroniclePage) = 3;
+        document.getElementById('chroniclePlc').innerHTML = chronicle2;
+        document.getElementById('notes').innerHTML = mcCungalow2;
+      } else {
+        alert('You need to press a plus button ' + (100 - cyberTestCount) + ' more times.');
+      }
+      break;
+    case "3":
+      if (cyberCredits >= 20000) {
+        cyberCredits -= 20000;
+        alert('You handed in your mission.');
+        (localStorage.chroniclePage) = 4;
+        disableCode = "Toggle plus buttons code: DISABLE/ENABLEPLUSBUTTONS\n"
+        saveCyberCredits();
+        document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
+        document.getElementById('chroniclePlc').innerHTML = chronicle3;
+        document.getElementById('notes').innerHTML = mcCungalow3;
+      } else {
+        alert('You need 20000 CyberCredits.');
+      }
+      break;
+    case "4":
+      if (localStorage.plusBtnsToggled) {
+        alert('You handed in your mission.');
+        (localStorage.chroniclePage) = 5;
+        document.getElementById('chroniclePlc').innerHTML = chronicle4;
+        document.getElementById('notes').innerHTML = mcCungalow4;
+      } else {
+        alert('You need to use the code once to delete all plus buttons, then again to bring them back.');
+      }
+      break;
+  case "5":
+    if (cyberCredits >= 5000) {
+      cyberCredits -= 5000;
+      alert('You handed in your mission.');
+      (localStorage.chroniclePage) = 6;
+      saveCyberCredits();
+      document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
+      document.getElementById('chroniclePlc').innerHTML = chronicle5;
+      document.getElementById('notes').innerHTML = mcCungalow5;
+      document.getElementById('hiddenPagePlc').innerHTML = "<hr><p><button onclick='pageThreeFunc();'>Page Three</button></p>"
+    } else {
+      alert('You need 5000 CyberCredits.');
+    }
+    break;
+  case "6":
+    if (localStorage.page3Found) {
+      alert('You handed in your mission.');
+      (localStorage.chroniclePage) = 7;
+      document.getElementById('chroniclePlc').innerHTML = chronicle6;
+      document.getElementById('notes').innerHTML = mcCungalow6;
+    } else {
+      alert('You need to find the missing page.');
+    }
+    break;
+  case "7":
+    if (cyberCredits >= 25000) {
+      cyberCredits -= 25000;
+      alert('You handed in your mission.');
+      (localStorage.chroniclePage) = 8;
+      saveCyberCredits();
+      document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
+      document.getElementById('chroniclePlc').innerHTML = chronicle7;
+      document.getElementById('notes').innerHTML = mcCungalow7;
+      document.getElementById('topSecretPlc').innerHTML = topSecretBtn;
+    } else {
+      alert('You need 25000 CyberCredits.');
+    }
+    break;
+  case "8":
+    if (localStorage.chipsInvestigationStuff) {
+      alert('You handed in your mission.');
+      (localStorage.chroniclePage) = 9;
+      document.getElementById('topSecretPlc').innerHTML = null;
+      document.getElementById('chroniclePlc').innerHTML = chronicle8;
+      document.getElementById('notes').innerHTML = mcCungalow8;
+    } else {
+      alert('You need to find the top secret file on Chips McGee.');
+    }
+    break;
+  case "9":
+    if (hackCount >= 25) {
+      alert('You handed in your mission.');
+      (localStorage.chroniclePage) = 10;
+      localStorage.hackcount = 0;
+      document.getElementById('donatePlc').innerHTML = "<button onclick='donate();'>Donate</button>";
+      document.getElementById('chroniclePlc').innerHTML = chronicle9;
+      document.getElementById('notes').innerHTML = mcCungalow9;
+      localStorage.donateTimes = 0;
+    } else {
+      alert('You need to get hacked ' + (25 - localStorage.hackCount) + ' more times.');
+    }
+    break;
+  case "10":
+    if (donateTimes >= 5) {
+      alert('You handed in your mission.');
+      (localStorage.chroniclePage) = 11;
+      document.getElementById('donatePlc').innerHTML = null;
+      document.getElementById('chroniclePlc').innerHTML = chronicle10;
+      document.getElementById('notes').innerHTML = mcCungalow10;
+    } else {
+      alert('You need donate 20000 CyberCredits ' + (5 - localStorage.donateTimes) + ' more times.');
+    }
+    break;
+  case "11":
+    if (cyberCredits >= 27500) {
+      cyberCredits -= 27500;
+      alert('You handed in your mission.');
+      (localStorage.chroniclePage) = 12;
+      saveCyberCredits();
+      document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
+      document.getElementById('chroniclePlc').innerHTML = chronicle11;
+      document.getElementById('notes').innerHTML = mcCungalow11;
+      document.getElementById('chipsMsgPlc').innerHTML = "<button onclick='chipsMsg()'>Chips McGee Messages</button>";
+    } else {
+      alert('You need 27500 CyberCredits.');
+    }
+    break;
+  case "12":
+    if (localStorage.currentMsg >= 3) {
+      alert('You handed in your mission.');
+      (localStorage.chroniclePage) = 13;
+      document.getElementById('chipsMsgPlc').innerHTML = null;
+      document.getElementById('chroniclePlc').innerHTML = chronicle12;
+      document.getElementById('notes').innerHTML = mcCungalow12;
+      document.getElementById('behemothBucksBtn').innerHTML = "<hr><p><button onclick='exchange();'>Currency Exchange</button></p>";
+      document.getElementById('behemothBuckCount').innerHTML = behemothBucks + " Behemoth Bucks";
+    } else {
+      alert('You need to fend off Chips McGee.');
+    }
+    break;
+  case "13":
+    if (behemothBucks >= 10000) {
+      alert('You handed in your mission.');
+      (localStorage.chroniclePage) = 14;
+      document.getElementById('chroniclePlc').innerHTML = chronicle13;
+      document.getElementById('notes').innerHTML = mcCungalow13;
+      document.getElementById('behemothBucksBtn').innerHTML = null;
+      document.getElementById('behemothBuckCount').innerHTML = null;
+    } else {
+      alert('You need 10000 Behemoth Bucks.');
+    }
+    break;
+  case "14":
+    if (cyberCredits >= 30000) {
+      cyberCredits -= 30000;
+      alert('You handed in your mission.');
+      (localStorage.chroniclePage) = 15;
+      saveCyberCredits();
+      document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
+      document.getElementById('chroniclePlc').innerHTML = chronicle14;
+      document.getElementById('notes').innerHTML = mcCungalow14;
+      document.getElementById('purchaseBtn25').disabled = false;
+      document.getElementById('purchaseBtn25').style.borderColor = "var(--cyan)";
+      document.getElementById('purchaseBtn25').style.color = "var(--cyan)";
+      document.getElementById('purchaseBtn25').style.borderStyle = "outset";
+      document.getElementById('purchaseBtn25').innerHTML = 'Purchase';
+    } else {
+      alert('You need 30000 CyberCredits.');
+    }
+    break;
+  case "15":
+    if (localStorage.purchased25) {
+      alert('You handed in your mission.');
+      (localStorage.chroniclePage) = 16;
+      document.getElementById('chroniclePlc').innerHTML = chronicle15;
+      document.getElementById('notes').innerHTML = mcCungalow15;
+      document.getElementById('jackhammerPlc').innerHTML = null;
+    } else {
+      alert('You need to buy a jackhammer.');
+    }
+    break;
+  case "16":
+    if (cyberCredits >= 25000) {
+      cyberCredits -= 25000;
+      alert('You handed in your mission.');
+      (localStorage.chroniclePage) = 17;
+      hundredCheck();
+      saveCyberCredits();
+      localStorage.theme = 6;
+      hackerMan = "some random hacker"
+      r.style.setProperty('--cyan', 'white');
+      r.style.setProperty('--grey', 'black');
+      document.getElementById('cyberCreditsImg').innerHTML = pristineCyberCreditsImg;
+      document.getElementById('purgedThemeBtnPlc').innerHTML = '<button style="border-color:white; color:white; background-color:black;" onclick="r.style.setProperty(\'--cyan\', \'white\'); r.style.setProperty(\'--grey\', \'black\'); document.getElementById(\'cyberCreditsImg\').innerHTML = pristineCyberCreditsImg; (localStorage.theme) = 6;">Purged White</button>';
+      document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
+      document.getElementById('chroniclePlc').innerHTML = chronicle16;
+      document.getElementById('notes').innerHTML = mcCungalow16;
+    } else {
+      alert('You need 25000 CyberCredits.');
+    }
+    break;
+  case "17":
+    alert('No more missions for you, bucko.');
+    break
+    }
+  hundredCheck();
+  }
+
+switch (localStorage.chroniclePage) {
+  case "2":
+    document.getElementById('chroniclePlc').innerHTML = chronicle1;
+    document.getElementById('notes').innerHTML = mcCungalow1;
+    break;
+  case "3":
+    document.getElementById('chroniclePlc').innerHTML = chronicle2;
+    document.getElementById('notes').innerHTML = mcCungalow2;
+    break;
+  case "4":
+    document.getElementById('chroniclePlc').innerHTML = chronicle3;
+    document.getElementById('notes').innerHTML = mcCungalow3;
+    break;
+  case "5":
+    document.getElementById('chroniclePlc').innerHTML = chronicle4;
+    document.getElementById('notes').innerHTML = mcCungalow4;
+    break;
+  case "6":
+    document.getElementById('chroniclePlc').innerHTML = chronicle5;
+    document.getElementById('notes').innerHTML = mcCungalow5;
+    if(!localStorage.page3Found) document.getElementById('hiddenPagePlc').innerHTML = "<hr><p><button onclick='pageThreeFunc();'>Page Three</button></p>";
+    break;
+  case "7":
+    document.getElementById('chroniclePlc').innerHTML = chronicle6;
+    document.getElementById('notes').innerHTML = mcCungalow6;
+    break;
+  case "8":
+    document.getElementById('chroniclePlc').innerHTML = chronicle7;
+    document.getElementById('notes').innerHTML = mcCungalow7;
+    document.getElementById('topSecretPlc').innerHTML = topSecretBtn;
+    break;
+  case "9":
+    document.getElementById('chroniclePlc').innerHTML = chronicle8;
+    document.getElementById('notes').innerHTML = mcCungalow8;
+    break;
+  case "10":
+    document.getElementById('chroniclePlc').innerHTML = chronicle9;
+    document.getElementById('notes').innerHTML = mcCungalow9;
+    document.getElementById('donatePlc').innerHTML = "<button onclick='donate();'>Donate</button>"
+    break;
+  case "11":
+    document.getElementById('chroniclePlc').innerHTML = chronicle10;
+    document.getElementById('notes').innerHTML = mcCungalow10;
+    break;
+  case "12":
+    document.getElementById('chroniclePlc').innerHTML = chronicle11;
+    document.getElementById('notes').innerHTML = mcCungalow11;
+    document.getElementById('chipsMsgPlc').innerHTML = "<button onclick='chipsMsg()'>Chips McGee Messages</button>";
+    break;
+  case "13":
+    document.getElementById('chroniclePlc').innerHTML = chronicle12;
+    document.getElementById('notes').innerHTML = mcCungalow12;
+    document.getElementById('behemothBucksBtn').innerHTML = "<hr><p><button onclick='exchange();'>Currency Exchange</button></p>";
+    document.getElementById('behemothBuckCount').innerHTML = behemothBucks + " Behemoth Bucks";
+    break;
+  case "14":
+    document.getElementById('chroniclePlc').innerHTML = chronicle13;
+    document.getElementById('notes').innerHTML = mcCungalow13;
+    break;
+  case "15":
+  document.getElementById('chroniclePlc').innerHTML = chronicle14;
+  document.getElementById('notes').innerHTML = mcCungalow14;
+  if (!localStorage.purchased25) {
+  document.getElementById('purchaseBtn25').disabled = false;
+  document.getElementById('purchaseBtn25').style.borderColor = "var(--cyan)";
+  document.getElementById('purchaseBtn25').style.color = "var(--cyan)";
+  document.getElementById('purchaseBtn25').style.borderStyle = "";
+  document.getElementById('purchaseBtn25').innerHTML = 'Purchase';
+  }
+    break;
+  case "16":
+  document.getElementById('chroniclePlc').innerHTML = chronicle15;
+  document.getElementById('notes').innerHTML = mcCungalow15;
+    break;
+  case "17":
+  document.getElementById('chroniclePlc').innerHTML = chronicle16;
+  document.getElementById('notes').innerHTML = mcCungalow16;
+  document.getElementById('purgedThemeBtnPlc').innerHTML = '<button style="border-color:white; color:white; background-color:black;" onclick="r.style.setProperty(\'--cyan\', \'white\'); r.style.setProperty(\'--grey\', \'black\'); document.getElementById(\'cyberCreditsImg\').innerHTML = pristineCyberCreditsImg; (localStorage.theme) = 6;">Purged White</button>';
+  hackerMan = "some random hacker"
+}
+
+function chipsMsg() {
+  switch (localStorage.currentMsg) {
+    default:
+      alert("Chips McGee:\n\nListen pal, I'm sick of you and Michael McCungalow snooping around and getting too close to finding me out. So I'm gonna go ahead and get rid of your plus buttons. Heheheheh.");
+      alert('document.getElementById("allPlusBtns").innerHTML = null;')
+      localStorage.currentMsg = 0;
+      if(!localStorage.plusBtnsDisabled) {
+        document.getElementById("allPlusBtns").classList.toggle("rid");
+        localStorage.plusBtnsDisabled = 0;
+      }
+      break;
+    case "0":
+      if(!localStorage.plusBtnsDisabled) {
+        alert("What? I didn't know you could do that! Grrrrr. Well then, how about I lock the investigation?! HAHAHAHAHAHA!");
+        localStorage.currentMsg = 1;
+        localStorage.removeItem('purchased21');
+        document.getElementById('purchaseBtn21').disabled = false;
+        document.getElementById('purchaseBtn21').style.borderColor = "var(--cyan)";
+        document.getElementById('purchaseBtn21').style.color = "var(--cyan)";
+        document.getElementById('purchaseBtn21').style.borderStyle = "";
+        document.getElementById('purchaseBtn21').innerHTML = 'Purchase';
+        document.getElementById('chronicleDropBtn').style.borderColor = "grey";
+        document.getElementById('chronicleDropBtn').style.color = "grey";
+        document.getElementById('chronicleDropBtn').style.borderStyle = "solid";
+        document.getElementById('chronicleDropBtn').disabled = true;
+    	  document.getElementById('chronicleDropBtn').innerHTML = 'Locked';
+        }
+      break;
+    case "1":
+      if(localStorage.purchased21) {
+        alert("YOU REBOUGHT THE INVESTIGATION?! GAAHHHH! That's it. You have left me no choice. I'm making you use the worst theme imaginable. Blinding white.\n\nHa! What are you gonna do now, punk?");
+        localStorage.currentMsg = 2;
+        localStorage.theme = 12;
+        r.style.setProperty('--cyan', 'black');
+        r.style.setProperty('--grey', 'white');
+        document.getElementById('cyberCreditsImg').innerHTML = lightCyberCreditsImg;
+      }
+      break;
+    case "2":
+      if(localStorage.theme != 12) {
+        alert("YOU CHANGED YOUR THEME?! NOOOOOO! Fine, " + localStorage.name + ". I'll leave you be.");
+        alert("You can now hand in your mission.");
+        localStorage.currentMsg = 3;
+      }
+      break;
+    case "3":
+      alert("I'm not giving you the button for 'Blinding White'.");
+      localStorage.currentMsg = 4;
+      break;
+    case "4":
+      alert("Forget it! I'm not giving it to you!");
+      localStorage.currentMsg = 5;
+      break;
+    case "5":
+      alert("Quit begging me!");
+      localStorage.currentMsg = 6;
+      break;
+    case "6":
+      alert("Why do you even want the theme?! It's terrible! That's why I made you use it before.");
+      localStorage.currentMsg = 7;
+      break;
+    case "7":
+      alert("STOP HASSLING ME!");
+      localStorage.currentMsg = 8;
+      break;
+    case "8":
+      alert("STOP IT!");
+      localStorage.currentMsg = 9;
+      break;
+    case "9":
+      alert("STOP IT RIGHT THIS INSTANT! YOU'RE MAKING ME SO MAD!");
+      localStorage.currentMsg = 10;
+      break;
+    case "10":
+      alert("FINE! I'll give you the 'Blinding White' button. Now leave me alone!");
+      localStorage.currentMsg = 11;
+      document.getElementById('blindingThemeBtnPlc').innerHTML = '<p><button style="border-color:black; color:black; background-color:white;" onclick="r.style.setProperty(\'--cyan\', \'black\'); r.style.setProperty(\'--grey\', \'white\'); document.getElementById(\'cyberCreditsImg\').innerHTML = lightCyberCreditsImg; (localStorage.theme) = 12;">Blinding White</button></p><hr>';
+      r.style.setProperty('--cyan', 'black'); r.style.setProperty('--grey', 'white');
+      document.getElementById('cyberCreditsImg').innerHTML = lightCyberCreditsImg;
+      secretsFound += 1;
+      break;
+    case "11":
+      alert("LEAVE ME ALONE!");
+      break;
+  }
+}
+
+if(localStorage.currentMsg == 1 && !localStorage.purchased21) {
+  document.getElementById('purchaseBtn21').disabled = false;
+  document.getElementById('purchaseBtn21').style.borderColor = "var(--cyan)";
+  document.getElementById('purchaseBtn21').style.color = "var(--cyan)";
+  document.getElementById('purchaseBtn21').style.borderStyle = "";
+  document.getElementById('purchaseBtn21').innerHTML = 'Purchase';
+}
+
+function exchange() {
+  if(cyberCredits != 0) {
+    let confirmExchange = "Are you sure you want to exchange all of your CyberCredits for Behemoth Bucks?";
+    if (confirm(confirmExchange) == true) {
+    behemothBucks += Math.round(cyberCredits / 10);
+    cyberCredits = 0;
+    saveCyberCredits();
+    document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
+    localStorage.behemothBucks = behemothBucks;
+    document.getElementById('behemothBuckCount').innerHTML = behemothBucks + " Behemoth Bucks";
+    }
   }
 }
 
@@ -530,19 +1189,84 @@ async function cyberCreditDeal() {
 	  cyberCredits = 0;
 	}
   saveCyberCredits();
-  alert('On no, ' + name + '! All of your CyberCredits were stolen by the well known CyberCredits hacker Chips McGee!');
+  alert('On no, ' + localStorage.name + '! All of your CyberCredits were stolen by ' + hackerMan + '!');
+  if (localStorage.chroniclePage == 9) { hackCount += 1; localStorage.hackCount = hackCount; if(hackCount == 25) { alert("Stop searching for me. Stop the investigation before things get serious.\n\nI'm warning you now, stop searching.\n\nYours sincerely, Chips McGee."); alert("You can now hand in your mission."); }}
   }
   document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
+  if ((localStorage.chroniclePage) == 2) { cyberTestCount += 1; (localStorage.cyberTestCount) = cyberTestCount; if(cyberTestCount == 100) {alert('You can now hand in your mission.');}}
 }
 
-if (localStorage.previousChipsMcGeeLogin) { document.getElementById('hackerThemeBtnPlc').innerHTML = '<button style="border-color:red; color:red; background-color:#181818;" onclick="r.style.setProperty(\'--cyan\', \'red\'); r.style.setProperty(\'--grey\', \'#181818\'); document.getElementById(\'cyberCreditsImg\').innerHTML = darkCyberCreditsImg; (localStorage.theme) = 3;">Hacker Red</button>'; secretsFound += 1; }
-if (localStorage.completeAlreadyDone) document.getElementById('completionistThemeBtnPlc').innerHTML = '<button style="border-color:#d4af37; color:#d4af37; background-color:#420000;" onclick="r.style.setProperty(\'--cyan\', \'#d4af37\'); r.style.setProperty(\'--grey\', \'#420000\'); document.getElementById(\'cyberCreditsImg\').innerHTML = royalCyberCreditsImg; (localStorage.theme) = 5;">Completionist Gold</button>';
+if(!localStorage.hackCount) localStorage.hackCount = 0;
+let hackCount = 0;
+hackCount = Number(localStorage.hackCount);
+
+function eraseCyberCredits() {
+    let eraseDecision1 = "Are you sure you want to get rid of all of your CyberCredits?";
+  if (confirm(eraseDecision1) == true) {
+    let eraseDecision2 = "You're actually gonna do it?";
+    if (confirm(eraseDecision2) == true) {
+      cyberCredits = 0;
+      saveCyberCredits();
+      document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
+      alert('Okay. If you insist.');
+    } else {
+      alert('Make up your mind.');
+    }
+  } else {
+    alert('Make up your mind.');
+  }
+}
+
+if (localStorage.previousChipsMcGeeLogin) { document.getElementById('hackerThemeBtnPlc').innerHTML = '<p><button style="border-color:red; color:red; background-color:#181818;" onclick="r.style.setProperty(\'--cyan\', \'red\'); r.style.setProperty(\'--grey\', \'#181818\'); document.getElementById(\'cyberCreditsImg\').innerHTML = darkCyberCreditsImg; (localStorage.theme) = 3;">Hacker Red</button></p><hr>'; secretsFound += 1; }
+
+if(localStorage.completeAlreadyDone) { document.getElementById('completionistThemeBtnPlc').innerHTML = '<button style="border-color:#d4af37; color:#d4af37; background-color:#420000;" onclick="r.style.setProperty(\'--cyan\', \'#d4af37\'); r.style.setProperty(\'--grey\', \'#420000\'); document.getElementById(\'cyberCreditsImg\').innerHTML = royalCyberCreditsImg; (localStorage.theme) = 5;">Completionist Gold</button>'; hundredComplete = "\nYou have 100% completed this game. Congrats." }
+
+if (localStorage.fiftyThousand) document.getElementById('astralThemeBtnPlc').innerHTML = '<p><button style="border-color:yellow; color:yellow; background-color:#171929;" onclick="r.style.setProperty(\'--cyan\', \'yellow\'); r.style.setProperty(\'--grey\', \'#171929\'); document.getElementById(\'cyberCreditsImg\').innerHTML = galacticCyberCreditsImg; (localStorage.theme) = 7;">Astral Yellow</button></p><hr>';
+
+if (localStorage.currentMsg >= 11) { document.getElementById('blindingThemeBtnPlc').innerHTML = '<p><button style="border-color:black; color:black; background-color:white;" onclick="r.style.setProperty(\'--cyan\', \'black\'); r.style.setProperty(\'--grey\', \'white\'); document.getElementById(\'cyberCreditsImg\').innerHTML = lightCyberCreditsImg; (localStorage.theme) = 12;">Blinding White</button></p><hr>'; secretsFound += 1; }
+
+if (localStorage.cornerStoreUnlocked) {
+  document.getElementById('cornerStorePlc').innerHTML = "<p><button onclick='dropOptions(); dropCornerStore();'>CyberCredit Corner Store</button></p><hr>"
+  secretsFound += 1;
+}
+
+let donateTimes = 0;
+if(localStorage.donateTimes) donateTimes = Number(localStorage.donateTimes);
+
+function donate() {
+  if(cyberCredits >= 20000) {
+    alert('You donated 20000 CyberCredits to Michael McCungalow.');
+    cyberCredits -= 20000;
+    saveCyberCredits();
+    document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
+    donateTimes += 1;
+    localStorage.donateTimes = donateTimes;
+    if(donateTimes == 5) { alert("I'm warning you. If you keep tracing these messages, I'm gonna be so mad.\n\nYours sincerely, Chips McGee.");  alert("You can now hand in your mission."); }
+  } else { alert('You need at least 20000 CyberCredits if you want to donate.'); }
+}
+
 function dropThemeSelect() {
   document.getElementById("themeSelect").classList.toggle("show");
 }
 
+function dropChronicle() {
+  document.getElementById("chronicle").classList.toggle("show");
+}
+
 function dropShop1() {
-  document.getElementById("myDropdown").classList.toggle("show");
+  document.getElementById("shopDropPlc").classList.toggle("show");
+}
+
+function dropOptions() {
+  document.getElementById("settings").classList.toggle("show");
+}
+
+function dropSecret() {
+  document.getElementById("topSecretStuff").classList.toggle("show");
+}
+
+function dropCornerStore() {
+  document.getElementById("cornerStore").classList.toggle("show");
 }
 
 if (!localStorage.theme || localStorage.theme == 1) {
@@ -570,6 +1294,41 @@ if (localStorage.theme == 5) {
   r.style.setProperty('--grey', '#420000');
   document.getElementById('cyberCreditsImg').innerHTML = royalCyberCreditsImg;
 }
+if (localStorage.theme == 6) {
+  r.style.setProperty('--cyan', 'white');
+  r.style.setProperty('--grey', 'black');
+  document.getElementById('cyberCreditsImg').innerHTML = pristineCyberCreditsImg;
+}
+if (localStorage.theme == 7) {
+  r.style.setProperty('--cyan', 'yellow');
+  r.style.setProperty('--grey', '#171929');
+  document.getElementById('cyberCreditsImg').innerHTML = galacticCyberCreditsImg;
+}
+if (localStorage.theme == 8) {
+  r.style.setProperty('--cyan', 'crimson');
+  r.style.setProperty('--grey', 'white');
+  document.getElementById('cyberCreditsImg').innerHTML = xyzWorderImg;
+}
+if (localStorage.theme == 9) {
+  r.style.setProperty('--cyan', '#00ffff');
+  r.style.setProperty('--grey', 'black');
+  document.getElementById('cyberCreditsImg').innerHTML = theCodeBlockImg;
+}
+if (localStorage.theme == 10) {
+  r.style.setProperty('--cyan', 'white');
+  r.style.setProperty('--grey', '#61340B');
+  document.getElementById('cyberCreditsImg').innerHTML = theBlastingGroundsImg;
+}
+if (localStorage.theme == 11) {
+  r.style.setProperty('--cyan', '#b8b8b8');
+  r.style.setProperty('--grey', '#00022E');
+  document.getElementById('cyberCreditsImg').innerHTML = caneToadKerfuffleImg;
+}
+if (localStorage.theme == 12) {
+  r.style.setProperty('--cyan', 'black');
+  r.style.setProperty('--grey', 'white');
+  document.getElementById('cyberCreditsImg').innerHTML = lightCyberCreditsImg;
+}
 
 function revert() {
   localStorage.removeItem('cyberCredits');
@@ -594,6 +1353,26 @@ function revert() {
   localStorage.removeItem('purchased18');
   localStorage.removeItem('purchased19');
   localStorage.removeItem('purchased20');
+  localStorage.removeItem('purchased21');
+  localStorage.removeItem('purchased22');
+  localStorage.removeItem('purchased23');
+  localStorage.removeItem('purchased24');
+  localStorage.removeItem('purchased25');
+  localStorage.removeItem('purchasedA');
+  localStorage.removeItem('purchasedB');
+  localStorage.removeItem('purchasedC');
+  localStorage.removeItem('fiftyThousand');
+  localStorage.removeItem('cyberTestCount');
+  localStorage.removeItem('plusBtnsToggled');
+  localStorage.removeItem('donateTimes');
+  localStorage.removeItem('cornerStoreUnlocked');
+  localStorage.removeItem('plusBtnsDisabled');
+  localStorage.removeItem('currentMsg');
+  localStorage.removeItem('hackCount');
+  localStorage.removeItem('page3Found');
+  localStorage.removeItem('behemothBucks');
+  localStorage.removeItem('chipsInvestigationStuff');
+  localStorage.removeItem('chroniclePage');
   localStorage.removeItem('theme');
   localStorage.removeItem('completeAlreadyDone');
   location.reload();
@@ -615,7 +1394,7 @@ function deleteProgress() {
               alert('Fine then. Have it your way. Progress deleted.')
               revert();
             } else {
-              if (name != 'Chips McGee') {
+              if (localStorage.name != 'Chips McGee') {
                 alert('Good choice. You earned yourself a whole of 3 CyberCredits.')
                 cyberCredits += 3;
                 document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
@@ -641,13 +1420,19 @@ function deleteProgress() {
       }
 }
 
+function pageThreeFunc() {
+  document.getElementById('hiddenPagePlc').innerHTML = null;
+  localStorage.page3Found = 0;
+  alert('You can now hand in your mission.');
+}
+
 async function invest() {
-  document.getElementById("investBtn").style.borderStyle = "inset";
-  await sleep(0)
-  document.getElementById("investBtn").style.borderStyle = "outset";
-  if (cyberCredits >= 500) {
-    alert('You have invested 500 CyberCredits. Wait ' + (15 / cutTimeInvest) + ' seconds to see the results of your investment.');
-    cyberCredits -= 500;
+  document.getElementById("investBtn").style.borderStyle = "";
+  await sleep(0);
+  document.getElementById("investBtn").style.borderStyle = "";
+  if (cyberCredits >= 750) {
+    alert('You have invested 750 CyberCredits. Wait ' + (15 / cutTimeInvest) + ' seconds to see the results of your investment.');
+    cyberCredits -= 750;
     saveCyberCredits();
     document.getElementById('investBtn').style.borderColor = "grey";
     document.getElementById('investBtn').style.color = "grey";
@@ -658,7 +1443,7 @@ async function invest() {
     await sleep(15000 / cutTimeInvest);
     document.getElementById('investBtn').style.borderColor = "var(--cyan)";
     document.getElementById('investBtn').style.color = "var(--cyan)";
-    document.getElementById('investBtn').style.borderStyle = "outset";
+    document.getElementById('investBtn').style.borderStyle = "";
     document.getElementById('investBtn').disabled = false;
     let successChance = Math.random() * investmentSuccessChanceIncrease;
     if (successChance > 1) {
@@ -671,7 +1456,7 @@ async function invest() {
       document.getElementById('investBtn').innerHTML = 'Invest';
 	  document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
   } else {
-      alert('You need 500 CyberCredits for that!');
+      alert('You need 750 CyberCredits for that!');
 	}
 }
 
@@ -689,7 +1474,6 @@ function purchase1() {
   }
   hundredCheck();
 }  
-
 function purchase2() {
   if (cyberCredits >= 750) {
     purchaseFunc2();
@@ -704,7 +1488,6 @@ function purchase2() {
   }
   hundredCheck();
 }
-
 function purchase3() {
   if (cyberCredits >= 1000) {
   	purchaseFunc3();
@@ -719,7 +1502,6 @@ function purchase3() {
   }
   hundredCheck();
 }
-
 function purchase4() {
   if (cyberCredits >= 1650) {
   	purchaseFunc4();
@@ -734,7 +1516,6 @@ function purchase4() {
   }
   hundredCheck();
 }
-
 function purchase5() {
   if (cyberCredits >= 2250) {
   	purchaseFunc5();
@@ -749,7 +1530,6 @@ function purchase5() {
   }
   hundredCheck();
 }
-
 function purchase6() {
   if (cyberCredits >= 3000) {
     if (insurancePurchaseDeterminer > 0) {
@@ -769,7 +1549,6 @@ function purchase6() {
     }
   hundredCheck();
 }
-
 function purchase7() {
   if (cyberCredits >= 5000) {
   	purchaseFunc7();
@@ -784,7 +1563,6 @@ function purchase7() {
   }
   hundredCheck();
 }
-
 function purchase8() {
   if (cyberCredits >= 7000) {
     r.style.setProperty('--cyan', 'lime');
@@ -803,7 +1581,6 @@ function purchase8() {
   }
   hundredCheck();
 }
-
 function purchase9() {
   if (cyberCredits >= 8000) {
     purchaseFunc9();
@@ -818,7 +1595,6 @@ function purchase9() {
   }
   hundredCheck();
 }
-
 function purchase10() {
   if (cyberCredits >= 10000) {
     purchaseFunc10();
@@ -833,7 +1609,6 @@ function purchase10() {
   }
   hundredCheck();
 }
-
 function purchase11() {
   if (cyberCredits >= 10500) {
     if (plus250PurchaseDeterminer > 0) {
@@ -852,7 +1627,6 @@ function purchase11() {
   }
   hundredCheck();
 }
-
 function purchase12() {
   if (cyberCredits >= 11000) {
     purchaseFunc12();
@@ -896,7 +1670,6 @@ function purchase14() {
   } 
   hundredCheck();
 }
-
 function purchase15() {
   if (cyberCredits >= 17000) {
     r.style.setProperty('--cyan', 'magenta');
@@ -914,7 +1687,6 @@ function purchase15() {
   }
   hundredCheck();
 }
-
 function purchase16() {
   if (cyberCredits >= 18000) {
     purchaseFunc16();
@@ -928,7 +1700,6 @@ function purchase16() {
   } 
   hundredCheck();
 }
-
 function purchase17() {
   if (cyberCredits >= 19000) {
     purchaseFunc17();
@@ -942,7 +1713,6 @@ function purchase17() {
       }
   hundredCheck();
 }
-
 function purchase18() {
   if (cyberCredits >= 20000) {
     purchaseFunc18();
@@ -956,7 +1726,6 @@ function purchase18() {
       }
   hundredCheck();
 }
-
 function purchase19() {
   if (cyberCredits >= 21000) {
     purchaseFunc19();
@@ -970,7 +1739,6 @@ function purchase19() {
   }  
   hundredCheck();
 }
-
 function purchase20() {
   if (cyberCredits >= 22000) {
     purchaseFunc20();
@@ -984,17 +1752,152 @@ function purchase20() {
       }
   hundredCheck();
 }
+function purchase21() {
+  if (cyberCredits >= 23000) {
+    purchaseFunc21();
+    if(!localStorage.chroniclePage) localStorage.chroniclePage = 1;
+    cyberCredits -= 23000;
+    saveCyberCredits();
+    document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
+    (localStorage.purchased21) = 0;
+	  alert('Purchased!');
+    if(localStorage.chroniclePage < 12) alert('The investigation has begun.');
+  } else {
+        alert('You need more CyberCredits for that!');
+  }
+  hundredCheck();
+}
+function purchase22() {
+  if (cyberCredits >= 24000) {
+    purchaseFunc22();
+    cyberCredits -= 24000;
+    saveCyberCredits();
+    document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
+    alert('Purchased!');
+    (localStorage.purchased22) = 0;
+    } else {
+        alert('You need more CyberCredits for that!');
+      }
+  hundredCheck();
+}
+function purchase23() {
+  if (cyberCredits >= 25000) {
+    purchaseFunc23();
+    cyberCredits -= 25000;
+    saveCyberCredits();
+    document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
+    (localStorage.purchased23) = 0;
+	  alert('Purchased!');
+  } else {
+        alert('You need more CyberCredits for that!');
+  }
+  hundredCheck();
+}
+function purchase24() {
+  if (cyberCredits >= 30000) {
+    purchaseFunc24();
+    cyberCredits -= 30000;
+    saveCyberCredits();
+    document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
+    (localStorage.purchased24) = 0;
+	  alert('Purchased!');
+  } else {
+        alert('You need more CyberCredits for that!');
+  }
+  hundredCheck();
+}
+function purchase25() {
+  if (cyberCredits >= 31250) {
+    purchaseFunc25();
+    cyberCredits -= 31250;
+    saveCyberCredits();
+    document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
+    (localStorage.purchased25) = 0;
+	  alert('Purchased!');
+  } else {
+        alert('You need more CyberCredits for that!');
+  }
+  hundredCheck();
+}
+
+// Corner Store code is past here
+
+function purchaseFuncA() {
+  document.getElementById('purchaseBtnA').disabled = true;
+  document.getElementById('purchaseBtnA').style.borderColor = "grey";
+  document.getElementById('purchaseBtnA').style.color = "grey";
+  document.getElementById('purchaseBtnA').style.borderStyle = "solid";
+  document.getElementById('purchaseBtnA').innerHTML = 'Purchased';
+  document.getElementById('plus10').innerHTML = "+13";
+	plus10Plus3 += 3;
+}
+function purchaseFuncB() {
+  document.getElementById('purchaseBtnB').disabled = true;
+  document.getElementById('purchaseBtnB').style.borderColor = "grey";
+  document.getElementById('purchaseBtnB').style.color = "grey";
+  document.getElementById('purchaseBtnB').style.borderStyle = "solid";
+  document.getElementById('purchaseBtnB').innerHTML = 'Purchased';
+  document.getElementById('namePlc').style.fontFamily = "Yu Mincho";
+}
+function purchaseFuncC() {
+  document.getElementById('purchaseBtnC').disabled = true;
+  document.getElementById('purchaseBtnC').style.borderColor = "grey";
+  document.getElementById('purchaseBtnC').style.color = "grey";
+  document.getElementById('purchaseBtnC').style.borderStyle = "solid";
+  document.getElementById('purchaseBtnC').innerHTML = 'Purchased';
+  document.getElementById('zero').innerHTML = "<p><button onclick='eraseCyberCredits();'>Clear CyberCredits</button></p><hr>"
+}
+
+if (localStorage.purchasedA) purchaseFuncA();
+if (localStorage.purchasedB) purchaseFuncB();
+if (localStorage.purchasedC) purchaseFuncC();
+
+function purchaseA() {
+  if (cyberCredits >= 10000) {
+    purchaseFuncA();
+    cyberCredits -= 10000;
+    saveCyberCredits();
+    document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
+    (localStorage.purchasedA) = 0;
+  	alert('Purchased!');
+  } else {
+      alert('You need more CyberCredits for that!');
+  }  
+}
+function purchaseB() {
+  if (cyberCredits >= 20000) {
+    purchaseFuncB();
+    cyberCredits -= 20000;
+    saveCyberCredits();
+    document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
+    alert('Purchased!');
+    (localStorage.purchasedB) = 0;
+    } else {
+        alert('You need more CyberCredits for that!');
+      }
+}
+function purchaseC() {
+  if (cyberCredits >= 30000) {
+    purchaseFuncC();
+    cyberCredits -= 30000;
+    saveCyberCredits();
+    document.getElementById('cyberCreditCount').innerHTML = cyberCredits;
+    (localStorage.purchasedC) = 0;
+	  alert('Purchased!');
+  } else {
+        alert('You need more CyberCredits for that!');
+  }
+}
 
 // McGee code is past here
 
 function chipsUser() {
-  if (name == 'Chips McGee') {
+  if (localStorage.name == 'Chips McGee') {
     if (!localStorage.previousChipsMcGeeLogin) { (localStorage.previousChipsMcGeeLogin) = 1; secretsFound += 1; }
     r.style.setProperty('--cyan', 'red');
     document.getElementById('body').style.backgroundColor = "#181818";
     document.getElementById('allPlusBtns').innerHTML = "<button onclick='hack();'>Hack</button>";
-    document.getElementById('shopAndInvestBtns').innerHTML = "";
-    document.getElementById('nameChangeBtn').innerHTML = "";
+    document.getElementById('topBtns').innerHTML = "<button onclick='deleteProgress();'>Delete Progress</button>";
     document.getElementById('cyberCreditsImg').innerHTML = darkCyberCreditsImg;
     if (localStorage.previousChipsMcGeeLogin == 1) alert('You found a secret! You have unlocked the theme, Hacker Red! Delete your progress to see it on a non-hacker account. Also, no matter how many times you delete progress, you will forever have Hacker Red unlocked (on non-hacker accounts).'); 
     (localStorage.previousChipsMcGeeLogin) = 2;
@@ -1019,7 +1922,5 @@ function hack() {
 }
 
 chipsUser();
-//ye
-//testText
 </script>
 </html>
